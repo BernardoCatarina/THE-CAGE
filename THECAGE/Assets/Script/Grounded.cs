@@ -3,7 +3,13 @@ using UnityEngine.TextCore.Text;
 
 public class Grounded : MonoBehaviour
 {
+    public class Character : MonoBehaviour
+    {
+        public bool isJumping;
+    }
     
+    
+
     Character Player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,7 +22,7 @@ public class Grounded : MonoBehaviour
     {
         if(collisor.gameObject.layer == 8)
         {
-            
+            Player.isJumping = false;
         }
     }
 
@@ -24,7 +30,7 @@ public class Grounded : MonoBehaviour
     {
         if (collisor.gameObject.layer == 8)
         {
-           
+            Player.isJumping = true;
         }
     }
 
