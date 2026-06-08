@@ -5,7 +5,7 @@ public class mov : MonoBehaviour
 
     public float Speed;
     public float Jumpforce;
-
+    public GameObject bullet;
     private Rigidbody2D rig;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +19,18 @@ public class mov : MonoBehaviour
     {
         Move();
         Jump();
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(bullet, transform.position, transform.rotation);
+
+
+        }
+
+
+
+
+
     }
 
     void Move()

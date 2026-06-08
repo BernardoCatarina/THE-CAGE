@@ -291,7 +291,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 13
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -431,10 +431,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 225430190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71d00d5b99e946246810d3e3c2b1e0ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b15b8db14ac5a74798c2b48f4033cef, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: "Assembly-CSharp::movimenta\xE7ao2"
-  _speed: 5
+  m_EditorClassIdentifier: Assembly-CSharp::mov
+  Speed: 8
+  Jumpforce: 5
   bullet: {fileID: 7047654109656751738, guid: e94488203669d444bb2c034148ea60aa, type: 3}
 --- !u!1 &261443670
 GameObject:
