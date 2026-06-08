@@ -7,6 +7,7 @@ public class mov : MonoBehaviour
     public float Jumpforce;
     public GameObject bullet;
     private Rigidbody2D rig;
+    public bool isJumping;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,10 +27,6 @@ public class mov : MonoBehaviour
 
 
         }
-
-
-
-
 
     }
 
