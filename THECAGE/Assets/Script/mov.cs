@@ -24,8 +24,6 @@ public class mov : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(bullet, transform.position, transform.rotation);
-
-
         }
 
     }
@@ -38,7 +36,7 @@ public class mov : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !isJumping)
         {
             rig.AddForce(new Vector2(0f, Jumpforce), ForceMode2D.Impulse);
         }
