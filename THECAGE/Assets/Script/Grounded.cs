@@ -3,19 +3,17 @@ using UnityEngine.TextCore.Text;
 
 public class Grounded : MonoBehaviour
 {
-    public class Character : MonoBehaviour
-    {
-        public bool isJumping;
-    }
-    
-    
 
-    Character Player;
+
+
+    mov Player;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Player = gameObject.transform.parent.gameObject.GetComponent<Character>();
+        Player = gameObject.transform.parent.gameObject.GetComponent<mov>();
     }
 
     void OnCollisionEnter2D(Collision2D collisor)
@@ -34,4 +32,4 @@ public class Grounded : MonoBehaviour
         }
     }
 
-}
+ }
