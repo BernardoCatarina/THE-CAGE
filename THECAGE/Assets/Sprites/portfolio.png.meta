@@ -1,0 +1,620 @@
+fileFormatVersion: 2
+guid: 3b5970f93077c9641976126a25a9b340
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 89158951106237087
+    second: portfolio_0
+  - first:
+      213: 8259614783500477359
+    second: portfolio_1
+  - first:
+      213: 4072203496214178754
+    second: portfolio_2
+  - first:
+      213: -5613965625665872761
+    second: portfolio_3
+  - first:
+      213: -3691435278913582947
+    second: portfolio_4
+  - first:
+      213: 5230291884396922502
+    second: portfolio_5
+  - first:
+      213: -9148176478098681671
+    second: portfolio_6
+  - first:
+      213: -5738333577950191248
+    second: portfolio_7
+  - first:
+      213: 2806214315251916092
+    second: portfolio_8
+  - first:
+      213: 347609479589326353
+    second: portfolio_9
+  - first:
+      213: -1138526629239649749
+    second: portfolio_10
+  - first:
+      213: -5246626346233833137
+    second: portfolio_11
+  - first:
+      213: -278411263607165036
+    second: portfolio_12
+  - first:
+      213: -6880874852591885610
+    second: portfolio_13
+  - first:
+      213: 2908969618798970958
+    second: portfolio_14
+  - first:
+      213: 7866358687778840031
+    second: portfolio_15
+  - first:
+      213: -2111987114125342802
+    second: portfolio_16
+  - first:
+      213: -7067895266193738374
+    second: portfolio_17
+  - first:
+      213: -1355113817108270779
+    second: portfolio_18
+  - first:
+      213: -2655229490793627745
+    second: portfolio_19
+  - first:
+      213: -3818011669373032377
+    second: portfolio_20
+  - first:
+      213: 136387729065388555
+    second: portfolio_21
+  - first:
+      213: 4333116142893079908
+    second: portfolio_22
+  - first:
+      213: -494366759867956943
+    second: portfolio_23
+  - first:
+      213: -9164831841360135042
+    second: portfolio_24
+  - first:
+      213: 6275672923216283513
+    second: portfolio_25
+  - first:
+      213: 7069772806570321778
+    second: portfolio_26
+  - first:
+      213: -8469678137466087537
+    second: portfolio_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: portfolio_2
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 744
+        width: 86
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cb23fc118f538830800000000000000
+      internalID: 4072203496214178754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_3
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 744
+        width: 76
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c9eece1003712b0800000000000000
+      internalID: -5613965625665872761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_4
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 744
+        width: 88
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d98c2010c2365ccc0800000000000000
+      internalID: -3691435278913582947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_5
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 744
+        width: 78
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6864611f1cab59840800000000000000
+      internalID: 5230291884396922502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_7
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 744
+        width: 77
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 071259b83085d50b0800000000000000
+      internalID: -5738333577950191248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_11
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 744
+        width: 86
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f49d68bc22d3037b0800000000000000
+      internalID: -5246626346233833137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_13
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 744
+        width: 84
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d2a75b27c83280a0800000000000000
+      internalID: -6880874852591885610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_14
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 744
+        width: 87
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e488ae6b47cbe5820800000000000000
+      internalID: 2908969618798970958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_17
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 430
+        width: 87
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a757bd4e3bac9ed90800000000000000
+      internalID: -7067895266193738374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_18
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 430
+        width: 78
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 541b90db92ba13de0800000000000000
+      internalID: -1355113817108270779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_19
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 431
+        width: 87
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9fba1c98dab62bd0800000000000000
+      internalID: -2655229490793627745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_20
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 430
+        width: 78
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74869ba8d92b30bc0800000000000000
+      internalID: -3818011669373032377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_22
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 430
+        width: 78
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46d17a39c22522c30800000000000000
+      internalID: 4333116142893079908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_25
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 430
+        width: 86
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97708d2164ba71750800000000000000
+      internalID: 6275672923216283513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_26
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 430
+        width: 85
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 277275a09e0ec1260800000000000000
+      internalID: 7069772806570321778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portfolio_27
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 430
+        width: 87
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f871176bb98a57a80800000000000000
+      internalID: -8469678137466087537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f3d6ccf79b1fb5b49a927b7c411e2672
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      portfolio_0: 89158951106237087
+      portfolio_1: 8259614783500477359
+      portfolio_10: -1138526629239649749
+      portfolio_11: -5246626346233833137
+      portfolio_12: -278411263607165036
+      portfolio_13: -6880874852591885610
+      portfolio_14: 2908969618798970958
+      portfolio_15: 7866358687778840031
+      portfolio_16: -2111987114125342802
+      portfolio_17: -7067895266193738374
+      portfolio_18: -1355113817108270779
+      portfolio_19: -2655229490793627745
+      portfolio_2: 4072203496214178754
+      portfolio_20: -3818011669373032377
+      portfolio_21: 136387729065388555
+      portfolio_22: 4333116142893079908
+      portfolio_23: -494366759867956943
+      portfolio_24: -9164831841360135042
+      portfolio_25: 6275672923216283513
+      portfolio_26: 7069772806570321778
+      portfolio_27: -8469678137466087537
+      portfolio_3: -5613965625665872761
+      portfolio_4: -3691435278913582947
+      portfolio_5: 5230291884396922502
+      portfolio_6: -9148176478098681671
+      portfolio_7: -5738333577950191248
+      portfolio_8: 2806214315251916092
+      portfolio_9: 347609479589326353
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
