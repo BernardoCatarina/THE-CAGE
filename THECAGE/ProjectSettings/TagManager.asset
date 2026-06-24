@@ -42,8 +42,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: player
+    uniqueID: 1907621479
+    locked: 0
+  - name: fogotela
+    uniqueID: 2144946201
+    locked: 0
   - name: UI
     uniqueID: 1098735
+    locked: 0
+  - name: tela
+    uniqueID: 2125465737
     locked: 0
   m_RenderingLayers:
   - Default
