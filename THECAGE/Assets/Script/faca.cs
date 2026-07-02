@@ -24,13 +24,18 @@ public class faca : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            // Tenta encontrar o script de vida no Boss que a faca encostou
+            VidaBoss scriptDoBoss = collision.GetComponent<VidaBoss>();
+
+            // Se encontrou o script, aplica 1 de dano
+            if (scriptDoBoss != null)
+            {
+                scriptDoBoss.TomarDano(1);
+            }
+
+            // A faca se destrói ao bater no inimigo, independente se ele morreu ou não
             Destroy(gameObject);
-
         }
-
     }
-
-
-
-}
+    
+    }
