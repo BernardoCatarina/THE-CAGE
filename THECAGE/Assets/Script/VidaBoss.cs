@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class VidaBoss : MonoBehaviour
 {
-    public int vidaMaxima = 5; // Quantidade de facadas que o Boss aguenta
+    public int vidaMaxima = 50; // Quantidade de facadas que o Boss aguenta
     private int vidaAtual;
 
     void Start()

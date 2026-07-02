@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class VidaPlayer : MonoBehaviour
 {
-    public int vidaMaxima = 3; // Quantidade de acertos que o player aguenta
+    public int vidaMaxima = 10; // Quantidade de acertos que o player aguenta
     private int vidaAtual;
 
     void Start()

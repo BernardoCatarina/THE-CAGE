@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: bc06e178ab81fdd44b58f7479615e870
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - socoPrefab: {fileID: 5516522649142532172, guid: 796609bfb138ec94281610f044f27d03, type: 3}
+  - pontoDeTiro: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

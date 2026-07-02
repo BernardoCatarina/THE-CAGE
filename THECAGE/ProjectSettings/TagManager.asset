@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Faca
+  - soco
   layers:
   - Default
   - TransparentFX
