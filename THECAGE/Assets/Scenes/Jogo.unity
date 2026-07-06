@@ -5963,7 +5963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc06e178ab81fdd44b58f7479615e870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossAtira
-  socoPrefab: {fileID: 5516522649142532172, guid: 796609bfb138ec94281610f044f27d03, type: 3}
+  socoPrefab: {fileID: 3965228535813096255, guid: 85b24f1f3c4b7cf478ce6d785ccc4ea7, type: 3}
   pontoDeTiro: {fileID: 1948119736}
   tempoEntreAtaques: 2
 --- !u!1 &454796097
