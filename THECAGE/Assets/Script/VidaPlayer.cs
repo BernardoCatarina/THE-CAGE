@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; // <-- LINHA OBRIGATÓRIA: Adicione isso no topo!
 
 public class VidaPlayer : MonoBehaviour
 {
-    public int vidaMaxima = 10; // Quantidade de acertos que o player aguenta
+    public int vidaMaxima = 10;
     private int vidaAtual;
 
     void Start()
@@ -24,8 +25,7 @@ public class VidaPlayer : MonoBehaviour
     void Morrer()
     {
         Debug.Log("Game Over!");
-        // Por enquanto vamos só destruir o player, mas depois podemos 
-        // fazer a tela de Game Over ou reiniciar a fase aqui!
-        Destroy(gameObject);
+        // Carrega a cena de Game Over automaticamente quando o player morre
+        SceneManager.LoadScene("GameOver");
     }
 }
