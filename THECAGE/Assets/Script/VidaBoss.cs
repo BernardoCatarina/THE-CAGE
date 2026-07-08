@@ -1,19 +1,34 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // <-- LINHA OBRIGATÓRIA: Adicione isso no topo!
+using UnityEngine.SceneManagement;
+using UnityEngine.UI; // <-- LINHA NOVA OBRIGATÓRIA
 
 public class VidaBoss : MonoBehaviour
 {
-    public int vidaMaxima = 50;
+    public int vidaMaxima = 5;
     private int vidaAtual;
+
+    public Slider barraDeVida; // <-- Cria o espaço para arrastar a barra
 
     void Start()
     {
         vidaAtual = vidaMaxima;
+
+        if (barraDeVida != null)
+        {
+            barraDeVida.maxValue = vidaMaxima;
+            barraDeVida.value = vidaAtual;
+        }
     }
 
     public void TomarDano(int quantidadeDeDano)
     {
         vidaAtual -= quantidadeDeDano;
+
+        if (barraDeVida != null)
+        {
+            barraDeVida.value = vidaAtual;
+        }
+
         Debug.Log("O Boss tomou dano! Vida restante: " + vidaAtual);
 
         if (vidaAtual <= 0)
@@ -25,7 +40,6 @@ public class VidaBoss : MonoBehaviour
     void Morrer()
     {
         Debug.Log("O Boss morreu!");
-        // Carrega a cena de Vitória automaticamente quando o boss perde toda a vida
         SceneManager.LoadScene("Vitoria");
     }
 }
