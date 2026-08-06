@@ -1,16 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro; // Importante para usar o TextMeshPro!
+using UnityEngine.UI; // <-- MUDOU AQUI: Usamos a UI normal em vez do TMPro
 
 public class TempoJogo : MonoBehaviour
 {
     [Header("Configurações do Tempo")]
-    public float tempoTotal = 60f; // Tempo em segundos (ex: 60 segundos)
+    public float tempoTotal = 30f; // Vi que colocaste 30 segundos na Unity, perfeito!
     private float tempoRestante;
     private bool tempoAcabou = false;
 
     [Header("Interface de Usuário")]
-    public TextMeshProUGUI textoTempo; // Arraste o seu TextoTempo aqui na Unity
+    public Text textoTempo; // <-- MUDOU AQUI: Agora usa o Text Legacy
 
     void Start()
     {
@@ -41,7 +41,7 @@ public class TempoJogo : MonoBehaviour
     {
         if (textoTempo != null)
         {
-            // Converte segundos em minutos e segundos (ex: 01:30)
+            // Converte segundos em minutos e segundos (ex: 00:30)
             int minutos = Mathf.FloorToInt(tempoRestante / 60);
             int segundos = Mathf.FloorToInt(tempoRestante % 60);
 
@@ -51,7 +51,7 @@ public class TempoJogo : MonoBehaviour
 
     void GameOverPorTempo()
     {
-        Debug.Log("O tempo acabou! Vota para o Game Over.");
+        Debug.Log("O tempo acabou! Volta para o Game Over.");
         SceneManager.LoadScene("GameOver");
     }
 }

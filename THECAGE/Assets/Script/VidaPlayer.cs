@@ -1,15 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using TMPro; // <-- LINHA NOVA: Necessária para usar o TextMeshPro!
+using UnityEngine.UI; // <-- Mantemos essa linha, ela cuida do Slider e do Text Legacy!
 
 public class VidaPlayer : MonoBehaviour
 {
-    public int vidaMaxima = 10;
+    public int vidaMaxima = 3;
     private int vidaAtual;
 
     public Slider barraDeVida;
-    public TextMeshProUGUI textoDeVida; // <-- LINHA NOVA: Cria o espaço para o texto
+    public Text textoDeVida; // <-- MUDOU AQUI: Agora é apenas "Text" (Legacy)
 
     void Start()
     {
@@ -22,7 +21,7 @@ public class VidaPlayer : MonoBehaviour
             barraDeVida.value = vidaAtual;
         }
 
-        AtualizarTexto(); // <-- Atualiza o número logo que o jogo começa
+        AtualizarTexto();
     }
 
     public void TomarDano(int quantidade)
@@ -35,7 +34,7 @@ public class VidaPlayer : MonoBehaviour
             barraDeVida.value = vidaAtual;
         }
 
-        AtualizarTexto(); // <-- Atualiza o número sempre que tomar dano
+        AtualizarTexto();
 
         Debug.Log("Ai! O Player tomou dano. Vida restante: " + vidaAtual);
 
@@ -45,13 +44,11 @@ public class VidaPlayer : MonoBehaviour
         }
     }
 
-    // --- FUNÇÃO NOVA ---
     // Essa função cuida só de escrever o número na tela
     void AtualizarTexto()
     {
         if (textoDeVida != null)
         {
-            // Vai mostrar no formato "3 / 3", "2 / 3", etc.
             textoDeVida.text = vidaAtual + " / " + vidaMaxima;
         }
     }
