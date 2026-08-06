@@ -5432,6 +5432,7 @@ GameObject:
   - component: {fileID: 225430198}
   - component: {fileID: 225430197}
   - component: {fileID: 225430199}
+  - component: {fileID: 225430200}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -5691,6 +5692,28 @@ PolygonCollider2D:
       - {x: 0.10635547, y: -0.059814174}
       - {x: 0.08, y: 0.13499999}
   m_UseDelaunayMesh: 0
+--- !u!95 &225430200
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225430190}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4c59cd2d39a7f32408b9daf856a8a664, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &261443670
 GameObject:
   m_ObjectHideFlags: 0
