@@ -2,40 +2,40 @@ using UnityEngine;
 
 public class faca : MonoBehaviour
 {
+    public float speed = 8f;
+    // Nova variável para controlar a velocidade do giro
+    public float velocidadeDeGiro = -720f;
 
-    public float speed = 8;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // A faca voa para a direção que estiver "olhando"
         GetComponent<Rigidbody2D>().linearVelocity = transform.right * speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-    }
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
+        // Gira a faca constantemente no eixo Z (que é o eixo de rotação 2D)
+        // Usamos Time.deltaTime para o giro ficar suave independente do FPS do jogo
+        transform.Rotate(0f, 0f, velocidadeDeGiro * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            // Tenta encontrar o script de vida no Boss que a faca encostou
             VidaBoss scriptDoBoss = collision.GetComponent<VidaBoss>();
 
-            // Se encontrou o script, aplica 1 de dano
             if (scriptDoBoss != null)
             {
                 scriptDoBoss.TomarDano(1);
             }
 
-            // A faca se destrói ao bater no inimigo, independente se ele morreu ou não
             Destroy(gameObject);
         }
     }
-    
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
+}
