@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: e37f6079b9a97fa44831e58fc294d3ec
+guid: 2f8a23cd3567ee746b3736ad3c55fab8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1296546089959985256
-    second: tirar o fundo (8)_0
-  - first:
-      213: -1495846054870567766
-    second: tirar o fundo (8)_1
+      213: -6684810188547723466
+    second: ChatGPT Image 12 de ago. de 2026, 20_28_18_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tirar o fundo (8)_0
+      name: ChatGPT Image 12 de ago. de 2026, 20_28_18_0
       rect:
         serializedVersion: 2
-        x: 469
-        y: 557
-        width: 932
-        height: 228
+        x: 0
+        y: 69
+        width: 1511
+        height: 775
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89f6309533eb10ee0800000000000000
-      internalID: -1296546089959985256
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tirar o fundo (8)_1
-      rect:
-        serializedVersion: 2
-        x: 471
-        y: 235
-        width: 930
-        height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aa435cc30ffad3be0800000000000000
-      internalID: -1495846054870567766
+      spriteID: 63f63b81d88ca33a0800000000000000
+      internalID: -6684810188547723466
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tirar o fundo (8)_0: -1296546089959985256
-      tirar o fundo (8)_1: -1495846054870567766
+      ChatGPT Image 12 de ago. de 2026, 20_28_18_0: -6684810188547723466
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
