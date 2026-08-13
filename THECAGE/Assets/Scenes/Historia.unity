@@ -487,8 +487,8 @@ MonoBehaviour:
   componenteTexto: {fileID: 1960117234}
   textoDoBotao: {fileID: 161908306}
   imagensHistoria:
-  - {fileID: 4826986423036820526, guid: 4d5de4d269d00764099f41f4e43eb84e, type: 3}
-  - {fileID: -2074540666, guid: 4d5de4d269d00764099f41f4e43eb84e, type: 3}
+  - {fileID: -7802429627055272893, guid: e4fe574ff63159e4caf108233f0d2ccf, type: 3}
+  - {fileID: -16723806, guid: e4fe574ff63159e4caf108233f0d2ccf, type: 3}
   - {fileID: -1347444635, guid: 4d5de4d269d00764099f41f4e43eb84e, type: 3}
   - {fileID: 1322662271, guid: 4d5de4d269d00764099f41f4e43eb84e, type: 3}
   textosHistoria:
