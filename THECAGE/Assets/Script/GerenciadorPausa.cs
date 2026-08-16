@@ -1,28 +1,43 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI; // <-- LINHA OBRIGATÓRIA PARA USAR O SLIDER
 
 public class GerenciadorPausa : MonoBehaviour
 {
-    public GameObject painelOpcoes; // Arraste o seu PainelOpcoes para cá depois
+    public GameObject painelOpcoes;
+    public Slider sliderVolume; // <-- NOVA VARIÁVEL PARA O SLIDER
 
-    // Função para abrir o painel e pausar o jogo
+    void Start()
+    {
+        // Se o slider existir, ele vai começar na mesma posição do volume atual do jogo
+        if (sliderVolume != null)
+        {
+            sliderVolume.value = AudioListener.volume;
+        }
+    }
+
     public void AbrirOpcoes()
     {
         painelOpcoes.SetActive(true);
-        Time.timeScale = 0f; // O tempo em 0 congela o jogo (pausa)
+        Time.timeScale = 0f; // Pausa
     }
 
-    // Função para fechar o painel e despausar o jogo (Botão de Continuar, se você tiver)
     public void FecharOpcoes()
     {
         painelOpcoes.SetActive(false);
-        Time.timeScale = 1f; // O tempo em 1 faz o jogo voltar ao normal
+        Time.timeScale = 1f; // Despausa
     }
 
-    // Função para o botão "Voltar ao Menu"
     public void VoltarParaMenu()
     {
-        Time.timeScale = 1f; // É MUITO importante voltar o tempo ao normal antes de mudar de cena!
-        SceneManager.LoadScene("menu"); // O nome exato da sua cena de menu
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("menu");
+    }
+
+    // --- NOVA FUNÇÃO PARA O VOLUME ---
+    // Repare que essa função pede um "(float valor)". O Slider vai enviar esse valor automaticamente!
+    public void AlterarVolume(float valor)
+    {
+        AudioListener.volume = valor;
     }
 }

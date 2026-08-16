@@ -1,28 +1,34 @@
 fileFormatVersion: 2
-guid: c7c93fe87e1dc6842b1fce9d86f4b19c
+guid: 83e9b56f1a072924482a4dbe41b33679
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4146301613903542165
-    second: personagem-sla-pixilart (2)_0
+      213: -5025347226900694123
+    second: tirar o fundo (11)_0
   - first:
-      213: -8894903482937095698
-    second: personagem-sla-pixilart (2)_1
+      213: 6952863205107502699
+    second: tirar o fundo (11)_1
   - first:
-      213: 8487410280367943322
-    second: personagem-sla-pixilart (2)_2
+      213: -6608786101042359370
+    second: tirar o fundo (11)_2
   - first:
-      213: -3565093384329031576
-    second: personagem-sla-pixilart (2)_3
+      213: 8552180627776823739
+    second: tirar o fundo (11)_3
   - first:
-      213: -6602799213239682085
-    second: personagem-sla-pixilart (2)_4
+      213: -2647375520863126599
+    second: tirar o fundo (11)_4
   - first:
-      213: -1392763862608159980
-    second: personagem-sla-pixilart (2)_5
+      213: 1237986583060771585
+    second: tirar o fundo (11)_5
   - first:
-      213: -6843093649032428612
-    second: personagem-sla-pixilart (2)_6
+      213: -2071057472082628154
+    second: tirar o fundo (11)_6
+  - first:
+      213: -4843784535098074639
+    second: tirar o fundo (11)_7
+  - first:
+      213: -7651030127597907889
+    second: tirar o fundo (11)_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -69,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 199
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -114,56 +120,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: personagem-sla-pixilart (2)_0
+      name: tirar o fundo (11)_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 215
-        width: 28
-        height: 70
+        x: 676
+        y: 652
+        width: 58
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 597795c895f9a8930800000000000000
-      internalID: 4146301613903542165
+      spriteID: 59bf6939251624ab0800000000000000
+      internalID: -5025347226900694123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem-sla-pixilart (2)_1
+      name: tirar o fundo (11)_1
       rect:
         serializedVersion: 2
-        x: 135
-        y: 216
-        width: 30
-        height: 69
+        x: 870
+        y: 652
+        width: 61
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ee94624d864fe8480800000000000000
-      internalID: -8894903482937095698
+      spriteID: b6e01584f388d7060800000000000000
+      internalID: 6952863205107502699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem-sla-pixilart (2)_2
+      name: tirar o fundo (11)_2
       rect:
         serializedVersion: 2
-        x: 234
-        y: 214
-        width: 31
-        height: 73
+        x: 1068
+        y: 652
+        width: 60
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a9e64588ea659c570800000000000000
-      internalID: 8487410280367943322
+      spriteID: 6b3d4d25e00e844a0800000000000000
+      internalID: -6608786101042359370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem-sla-pixilart (2)_3
+      name: tirar o fundo (11)_3
       rect:
         serializedVersion: 2
-        x: 31
-        y: 114
-        width: 38
-        height: 72
+        x: 674
+        y: 455
+        width: 59
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86019f3a47e368ec0800000000000000
-      internalID: -3565093384329031576
+      spriteID: bb16d9538f27fa670800000000000000
+      internalID: 8552180627776823739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem-sla-pixilart (2)_4
+      name: tirar o fundo (11)_4
       rect:
         serializedVersion: 2
-        x: 134
-        y: 114
-        width: 31
-        height: 73
+        x: 867
+        y: 455
+        width: 65
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bdbbe9349152e54a0800000000000000
-      internalID: -6602799213239682085
+      spriteID: 9bb73eb7df1a24bd0800000000000000
+      internalID: -2647375520863126599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem-sla-pixilart (2)_5
+      name: tirar o fundo (11)_5
       rect:
         serializedVersion: 2
-        x: 235
-        y: 116
-        width: 30
-        height: 69
+        x: 1068
+        y: 455
+        width: 60
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,20 +249,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41b5d3965a8ebace0800000000000000
-      internalID: -1392763862608159980
+      spriteID: 1037908fc363e2110800000000000000
+      internalID: 1237986583060771585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem-sla-pixilart (2)_6
+      name: tirar o fundo (11)_6
       rect:
         serializedVersion: 2
-        x: 36
-        y: 13
-        width: 29
-        height: 72
+        x: 674
+        y: 258
+        width: 60
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,8 +271,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb3c0bc15927801a0800000000000000
-      internalID: -6843093649032428612
+      spriteID: 6c1b81bb3302243e0800000000000000
+      internalID: -2071057472082628154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (11)_7
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 258
+        width: 61
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f9d2f8f0ab67ccb0800000000000000
+      internalID: -4843784535098074639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (11)_8
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 258
+        width: 59
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4017b6c2a412d590800000000000000
+      internalID: -7651030127597907889
       vertices: []
       indices: 
       edges: []
@@ -324,13 +335,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      personagem-sla-pixilart (2)_0: 4146301613903542165
-      personagem-sla-pixilart (2)_1: -8894903482937095698
-      personagem-sla-pixilart (2)_2: 8487410280367943322
-      personagem-sla-pixilart (2)_3: -3565093384329031576
-      personagem-sla-pixilart (2)_4: -6602799213239682085
-      personagem-sla-pixilart (2)_5: -1392763862608159980
-      personagem-sla-pixilart (2)_6: -6843093649032428612
+      tirar o fundo (11)_0: -5025347226900694123
+      tirar o fundo (11)_1: 6952863205107502699
+      tirar o fundo (11)_2: -6608786101042359370
+      tirar o fundo (11)_3: 8552180627776823739
+      tirar o fundo (11)_4: -2647375520863126599
+      tirar o fundo (11)_5: 1237986583060771585
+      tirar o fundo (11)_6: -2071057472082628154
+      tirar o fundo (11)_7: -4843784535098074639
+      tirar o fundo (11)_8: -7651030127597907889
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
