@@ -1,15 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // <-- LINHA OBRIGATÓRIA PARA USAR O SLIDER
+using UnityEngine.UI; 
 
 public class GerenciadorPausa : MonoBehaviour
 {
     public GameObject painelOpcoes;
-    public Slider sliderVolume; // <-- NOVA VARIÁVEL PARA O SLIDER
+    public Slider sliderVolume; 
 
     void Start()
     {
-        // Se o slider existir, ele vai começar na mesma posição do volume atual do jogo
+        
         if (sliderVolume != null)
         {
             sliderVolume.value = AudioListener.volume;
@@ -19,13 +19,13 @@ public class GerenciadorPausa : MonoBehaviour
     public void AbrirOpcoes()
     {
         painelOpcoes.SetActive(true);
-        Time.timeScale = 0f; // Pausa
+        Time.timeScale = 0f; 
     }
 
     public void FecharOpcoes()
     {
         painelOpcoes.SetActive(false);
-        Time.timeScale = 1f; // Despausa
+        Time.timeScale = 1f; 
     }
 
     public void VoltarParaMenu()
@@ -34,8 +34,7 @@ public class GerenciadorPausa : MonoBehaviour
         SceneManager.LoadScene("menu");
     }
 
-    // --- NOVA FUNÇÃO PARA O VOLUME ---
-    // Repare que essa função pede um "(float valor)". O Slider vai enviar esse valor automaticamente!
+    
     public void AlterarVolume(float valor)
     {
         AudioListener.volume = valor;

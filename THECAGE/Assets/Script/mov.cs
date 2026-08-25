@@ -9,13 +9,13 @@ public class mov : MonoBehaviour
     private Rigidbody2D rig;
     public bool isJumping;
     [SerializeField] private Animator animator;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         Move();
@@ -56,25 +56,24 @@ public class mov : MonoBehaviour
 
     void Jump()
     {
-        // Se apertar o botão de pulo E não estiver pulando...
+       
         if (Input.GetButtonDown("Jump") && !isJumping)
         {
             rig.AddForce(new Vector2(0f, Jumpforce), ForceMode2D.Impulse);
 
-            isJumping = true; // Trava o pulo duplo
-            animator.SetBool("isJumping", true); // Liga a animação de pulo!
+            isJumping = true; 
+            animator.SetBool("isJumping", true);
         }
     }
 
-    // --- NOVA FUNÇÃO: ADICIONE ISSO ANTES DA ÚLTIMA CHAVE "}" DO SCRIPT ---
-    // Essa função verifica se o player encostou em alguma coisa (como o chão)
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Se o objeto que encostamos tiver a Tag "Ground" (Chão)...
+        
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isJumping = false; // Libera o pulo novamente
-            animator.SetBool("isJumping", false); // Desliga a animação de pulo!
+            isJumping = false; 
+            animator.SetBool("isJumping", false); 
         }
     }
 }

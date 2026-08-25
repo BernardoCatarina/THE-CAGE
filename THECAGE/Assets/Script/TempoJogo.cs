@@ -1,16 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // <-- MUDOU AQUI: Usamos a UI normal em vez do TMPro
+using UnityEngine.UI; 
 
 public class TempoJogo : MonoBehaviour
 {
     [Header("Configurações do Tempo")]
-    public float tempoTotal = 30f; // Vi que colocaste 30 segundos na Unity, perfeito!
+    public float tempoTotal = 30f; 
     private float tempoRestante;
     private bool tempoAcabou = false;
 
     [Header("Interface de Usuário")]
-    public Text textoTempo; // <-- MUDOU AQUI: Agora usa o Text Legacy
+    public Text textoTempo; 
 
     void Start()
     {
@@ -23,13 +23,13 @@ public class TempoJogo : MonoBehaviour
 
         if (tempoRestante > 0)
         {
-            // Subtrai o tempo passado a cada frame
+            
             tempoRestante -= Time.deltaTime;
             AtualizarInterface();
         }
         else
         {
-            // Tempo zerou!
+            
             tempoRestante = 0;
             tempoAcabou = true;
             AtualizarInterface();
@@ -41,7 +41,7 @@ public class TempoJogo : MonoBehaviour
     {
         if (textoTempo != null)
         {
-            // Converte segundos em minutos e segundos (ex: 00:30)
+            
             int minutos = Mathf.FloorToInt(tempoRestante / 60);
             int segundos = Mathf.FloorToInt(tempoRestante % 60);
 
