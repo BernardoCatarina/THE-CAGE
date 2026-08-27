@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // <-- LINHA NOVA OBRIGATÓRIA
+using UnityEngine.UI; 
 
 public class VidaBoss : MonoBehaviour
 {
     public int vidaMaxima = 5;
     private int vidaAtual;
 
-    public Slider barraDeVida; // <-- Cria o espaço para arrastar a barra
+    public Slider barraDeVida; 
 
     void Start()
     {
