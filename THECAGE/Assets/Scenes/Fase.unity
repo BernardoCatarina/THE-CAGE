@@ -38804,7 +38804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::mov
   Speed: 8
-  Jumpforce: 10
+  Jumpforce: 8
   bullet: {fileID: 7047654109656751738, guid: e94488203669d444bb2c034148ea60aa, type: 3}
   isJumping: 0
   animator: {fileID: 5569400228311890207}
