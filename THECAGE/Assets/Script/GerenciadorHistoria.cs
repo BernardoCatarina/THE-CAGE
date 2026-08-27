@@ -35,7 +35,7 @@ public class GerenciadorHistoria : MonoBehaviour
         else
         {
             
-            SceneManager.LoadScene("Jogo");
+            SceneManager.LoadScene("Fase");
         }
     }
 

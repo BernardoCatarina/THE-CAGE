@@ -203,8 +203,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 199766544}
-        m_TargetAssemblyTypeName: cenaparaojogo, Assembly-CSharp
-        m_MethodName: VoltarParaoJogo
+        m_TargetAssemblyTypeName: cenaparaoFase, Assembly-CSharp
+        m_MethodName: VoltarParaoFase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
