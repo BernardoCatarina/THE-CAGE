@@ -187,7 +187,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -211,9 +211,9 @@ PolygonCollider2D:
       - {x: -0.1, y: 0.225}
       - {x: -0.1, y: 0.105}
       - {x: -0.16074297, y: 0.015260493}
-      - {x: -0.117826276, y: -0.34375995}
-      - {x: 0.007881585, y: -0.34472573}
-      - {x: 0.13790712, y: -0.32802433}
+      - {x: -0.11695396, y: -0.31454933}
+      - {x: 0.004980107, y: -0.3109809}
+      - {x: 0.13304761, y: -0.2992693}
       - {x: 0.12, y: -0.16499999}
       - {x: 0.08617806, y: -0.09208486}
       - {x: 0.10635547, y: -0.059814174}
@@ -271,11 +271,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.3784898}
+  m_Offset: {x: 0, y: -0.40335774}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -285,5 +285,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.28712872, y: 0.2}
+  m_Size: {x: 0.28712872, y: 0.03421381}
   m_EdgeRadius: 0

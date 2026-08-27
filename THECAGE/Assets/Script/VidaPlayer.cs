@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class VidaPlayer : MonoBehaviour 
 {
+
+    [Header("Sons")]
+    public AudioClip somDeDano; 
+    private AudioSource audioSource; 
+
     public int vidaMaxima = 3;
     private int vidaAtual;
 
@@ -18,8 +23,9 @@ public class VidaPlayer : MonoBehaviour
 
     void Start()
     {
-        vidaAtual = vidaMaxima;
+        audioSource = GetComponent<AudioSource>();
 
+        vidaAtual = vidaMaxima;
         
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -34,6 +40,12 @@ public class VidaPlayer : MonoBehaviour
 
     public void TomarDano(int quantidade)
     {
+
+        if (somDeDano != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(somDeDano);
+        }
+
         vidaAtual -= quantidade;
 
         if (barraDeVida != null)
