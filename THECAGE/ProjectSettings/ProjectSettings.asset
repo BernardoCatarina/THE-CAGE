@@ -16,7 +16,7 @@ PlayerSettings:
   productName: THECAGE
   defaultCursor: {fileID: 2800000, guid: eb325c543e1354b45b1e12a3fd166899, type: 3}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: 2555367647144294544, guid: fd6f069c533e1e94fae45284bf519b54, type: 3}
+  - logo: {fileID: -123421229267266366, guid: b9ecf19a193b8c14d837255ce8bcd832, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
@@ -297,7 +297,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: fd6f069c533e1e94fae45284bf519b54, type: 3}
+      m_Icon: {fileID: 2800000, guid: b9ecf19a193b8c14d837255ce8bcd832, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
