@@ -584,7 +584,7 @@ SpriteRenderer:
   m_SortingLayerID: 1907621479
   m_SortingLayer: 1
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1701836704950865119, guid: 4c687430113dceb45b823f04c0ec4a6e, type: 3}
+  m_Sprite: {fileID: -1917478503316558064, guid: 373633fdcc4bd2e42afff34599a47d7a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -718,7 +718,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.46, y: 2.92}
+    oldSize: {x: 2.5066311, y: 2.9476128}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3744,7 +3744,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6684810188547723466, guid: 2f8a23cd3567ee746b3736ad3c55fab8, type: 3}
+  m_Sprite: {fileID: 2349812980178630421, guid: 80452ff94b2391f458f33a0965cb43aa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3879,8 +3879,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 812, y: 447}
-  m_SizeDelta: {x: 206.862, y: 98.049}
+  m_AnchoredPosition: {x: 811.2, y: 446.2}
+  m_SizeDelta: {x: 244.23, y: 98.049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8089604500233237247
 GameObject:
