@@ -22,13 +22,21 @@ public class faca : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            
             VidaBoss scriptDoBoss = collision.GetComponent<VidaBoss>();
-
             if (scriptDoBoss != null)
             {
                 scriptDoBoss.TomarDano(1);
             }
 
+            
+            VidaInimigo scriptDoInimigo = collision.GetComponent<VidaInimigo>();
+            if (scriptDoInimigo != null)
+            {
+                scriptDoInimigo.TomarDano(1);
+            }
+
+            
             Destroy(gameObject);
         }
     }
