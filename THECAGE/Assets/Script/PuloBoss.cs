@@ -29,7 +29,8 @@ public class PuloBoss : MonoBehaviour
     {
         if (animator != null)
         {
-            animator.SetTrigger("Pular"); 
+            animator.SetTrigger("Pular");
+            animator.SetBool("NoChao", false);
         }
 
 
@@ -37,5 +38,16 @@ public class PuloBoss : MonoBehaviour
 
         
         rig.AddForce(new Vector2(0f, forcaDoPulo), ForceMode2D.Impulse);
+    }
+    private void OnCollisionEnter2D(Collision2D colisao)
+    {
+            
+        if (colisao.gameObject.CompareTag("Ground"))
+        {
+            if (animator != null)
+            {
+                animator.SetBool("NoChao", true); 
+            }
+        }
     }
 }

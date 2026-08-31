@@ -8,6 +8,7 @@ TagManager:
   - Faca
   - soco
   - Ground
+  - Tiro
   layers:
   - Default
   - TransparentFX
