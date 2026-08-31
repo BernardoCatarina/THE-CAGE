@@ -7,10 +7,11 @@ public class PuloBoss : MonoBehaviour
 
     private float proximoPulo;
     private Rigidbody2D rig;
-
+    private Animator animator;
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
+
         rig = GetComponent<Rigidbody2D>();
     }
 
@@ -26,7 +27,12 @@ public class PuloBoss : MonoBehaviour
 
     void Pular()
     {
-        
+        if (animator != null)
+        {
+            animator.SetTrigger("Pular"); 
+        }
+
+
         rig.linearVelocity = new Vector2(rig.linearVelocity.x, 0);
 
         

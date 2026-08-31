@@ -3478,7 +3478,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 34
+  m_SortingOrder: 8
   m_Sprite: {fileID: 4665196458494106947, guid: 5c4f51dfc3abc8648a4057693cf4011e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -47615,7 +47615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2349812980178630421, guid: 80452ff94b2391f458f33a0965cb43aa, type: 3}
+  m_Sprite: {fileID: -8751005865912212341, guid: 8a6def835d0aba343b0cefddd18bd365, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
