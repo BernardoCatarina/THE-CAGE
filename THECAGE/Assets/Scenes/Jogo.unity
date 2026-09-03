@@ -1197,7 +1197,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 011646ddf859a5745af8158159736729, type: 3}
+  m_Resource: {fileID: 8300000, guid: 193186f2e9d4234479684c1f6be0cc40, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3721,7 +3721,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.38039216, g: 0.38039216, b: 0.38039216, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -3785,7 +3785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b15b8db14ac5a74798c2b48f4033cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::mov
-  tempoDeRecarga: 0.1
+  tempoDeRecarga: 0.2
   Speed: 8
   Jumpforce: 10
   bullet: {fileID: 7047654109656751738, guid: e94488203669d444bb2c034148ea60aa, type: 3}
@@ -3794,6 +3794,8 @@ MonoBehaviour:
   possuiFaca: 0
   municao: 0
   textoMunicao: {fileID: 2063976124}
+  somPulo: {fileID: 8300000, guid: 4d30413df20afaf41acda2ce77112510, type: 3}
+  somAtaque: {fileID: 8300000, guid: b7562250fda881541936a4878a7a0f95, type: 3}
 --- !u!224 &6802955915483810633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3996,7 +3998,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.38039216, g: 0.38039216, b: 0.38039216, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -4089,7 +4091,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+    m_HighlightedColor: {r: 0.38039216, g: 0.38039216, b: 0.38039216, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}

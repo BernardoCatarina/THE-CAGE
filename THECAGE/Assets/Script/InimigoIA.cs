@@ -18,7 +18,7 @@ public class InimigoIA : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        
+       
         Vector3 escala = transform.localScale;
         escala.x = indoParaDireita ? -1 : 1;
         transform.localScale = escala;

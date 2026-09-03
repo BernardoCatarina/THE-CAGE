@@ -7,8 +7,12 @@ public class VidaInimigo : MonoBehaviour
     private int vidaAtual;
     public Slider barraDeVida;
 
+    
+
     void Start()
     {
+        
+
         vidaAtual = vidaMaxima;
         if (barraDeVida != null)
         {
@@ -28,7 +32,8 @@ public class VidaInimigo : MonoBehaviour
 
         if (vidaAtual <= 0)
         {
-            Destroy(gameObject); // Destrói o inimigo quando a vida zera!
+            Destroy(gameObject);
         }
+
     }
 }

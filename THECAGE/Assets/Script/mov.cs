@@ -17,11 +17,16 @@ public class mov : MonoBehaviour
     public int municao = 0;
     public TextMeshProUGUI textoMunicao;
 
+    [Header("Sons")]
+    public AudioClip somPulo;
+    public AudioClip somAtaque;
+    private AudioSource audioSource;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>(); 
 
-        
         municao = PlayerPrefs.GetInt("MunicaoSalva", 0);
         possuiFaca = PlayerPrefs.GetInt("TemFacaSalva", 0) == 1;
 
@@ -33,12 +38,18 @@ public class mov : MonoBehaviour
         Move();
         Jump();
 
-        
+
         if (possuiFaca && municao > 0 && Input.GetButtonDown("Fire1") && Time.time >= proximoTiro)
         {
             municao--;
             PlayerPrefs.SetInt("MunicaoSalva", municao);
             AtualizarTextoMunicao();
+
+            
+            if (somAtaque != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(somAtaque);
+            }
 
             proximoTiro = Time.time + tempoDeRecarga;
             Instantiate(bullet, transform.position, transform.rotation);
@@ -92,17 +103,22 @@ public class mov : MonoBehaviour
 
     void Jump()
     {
-       
         if (Input.GetButtonDown("Jump") && !isJumping)
         {
             rig.AddForce(new Vector2(0f, Jumpforce), ForceMode2D.Impulse);
 
-            isJumping = true; 
+            
+            if (somPulo != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(somPulo);
+            }
+
+            isJumping = true;
             animator.SetBool("isJumping", true);
         }
     }
 
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         
