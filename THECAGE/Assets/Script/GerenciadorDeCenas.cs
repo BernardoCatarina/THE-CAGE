@@ -6,7 +6,10 @@ public class GerenciadorDeCenas : MonoBehaviour
     
     public void VoltarParaMenu()
     {
-        
+        PlayerPrefs.DeleteKey("VidaSalva");
+        PlayerPrefs.DeleteKey("MunicaoSalva");
+        PlayerPrefs.DeleteKey("TemFacaSalva");
+
         SceneManager.LoadScene("menu");
     }
 }

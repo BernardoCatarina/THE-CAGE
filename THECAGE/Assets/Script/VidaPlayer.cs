@@ -25,8 +25,8 @@ public class VidaPlayer : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        vidaAtual = vidaMaxima;
-        
+        vidaAtual = PlayerPrefs.GetInt("VidaSalva", vidaMaxima);
+
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         if (barraDeVida != null)
@@ -40,6 +40,7 @@ public class VidaPlayer : MonoBehaviour
 
     public void TomarDano(int quantidade)
     {
+        PlayerPrefs.SetInt("VidaSalva", vidaAtual);
 
         if (somDeDano != null && audioSource != null)
         {
