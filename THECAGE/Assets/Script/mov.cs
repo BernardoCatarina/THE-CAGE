@@ -9,23 +9,30 @@ public class mov : MonoBehaviour
     private Rigidbody2D rig;
     public bool isJumping;
     [SerializeField] private Animator animator;
-    
+
+    [Header("Recarga da Faca")]
+    public float tempoDeRecarga = 0.5f; 
+    private float proximoTiro = 0f;    
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
     }
 
-    
+
     void Update()
     {
         Move();
         Jump();
 
-        if (Input.GetButtonDown("Fire1"))
+        
+        if (Input.GetButtonDown("Fire1") && Time.time >= proximoTiro)
         {
+            
+            proximoTiro = Time.time + tempoDeRecarga;
+
+           
             Instantiate(bullet, transform.position, transform.rotation);
         }
-
     }
 
     void Move()
