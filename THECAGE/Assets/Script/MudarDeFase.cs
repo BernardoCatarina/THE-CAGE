@@ -1,18 +1,42 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class MudarDeFase : MonoBehaviour
 {
-    [Header("Nome da cena que vai carregar")]
     public string nomeDaProximaCena = "Jogo";
+    public GameObject textoAviso;
+    private bool playerPerto = false;
+
+    void Start()
+    {
+        
+        if (textoAviso != null) textoAviso.SetActive(false);
+    }
+
+    void Update()
+    {
+        
+        if (playerPerto && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1)))
+        {
+            SceneManager.LoadScene(nomeDaProximaCena);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         if (collision.CompareTag("Player"))
         {
-            
-            SceneManager.LoadScene(nomeDaProximaCena);
+            playerPerto = true;
+            if (textoAviso != null) textoAviso.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerPerto = false;
+            if (textoAviso != null) textoAviso.SetActive(false);
         }
     }
 }
