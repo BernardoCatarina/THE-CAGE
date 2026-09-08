@@ -128,8 +128,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 21774536}
-  - component: {fileID: 21774535}
   - component: {fileID: 21774534}
+  - component: {fileID: 21774537}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (1)
   m_TagString: Untagged
@@ -150,8 +150,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &21774535
-BoxCollider2D:
+--- !u!4 &21774536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21774533}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -43.819996, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597197715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &21774537
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -184,7 +199,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.2422533, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -194,23 +209,22 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.028162, y: 0.7456341}
-  m_EdgeRadius: 0
---- !u!4 &21774536
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 21774533}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -43.819996, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1597197715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.601738, y: 0.08448601}
+      - {x: 0.08728027, y: -0.17932653}
+      - {x: -0.41178513, y: 0.07172632}
+      - {x: -0.834568, y: -0.1796732}
+      - {x: -0.9646254, y: -0.16466686}
+      - {x: -1.4174805, y: 0.08526564}
+      - {x: -1.6005058, y: -0.08171034}
+      - {x: -1.7722945, y: -0.47735393}
+      - {x: 2.1809554, y: -0.4714315}
+      - {x: 2.1032677, y: -0.15619993}
+      - {x: 2.0832596, y: -0.14619589}
+      - {x: 1.6174812, y: 0.08678007}
+      - {x: 1.0877981, y: -0.15822369}
+  m_UseDelaunayMesh: 0
 --- !u!1 &32738189
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,8 +656,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 138926677}
-  - component: {fileID: 138926679}
   - component: {fileID: 138926678}
+  - component: {fileID: 138926679}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (19)
   m_TagString: Untagged
@@ -679,8 +693,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &138926679
-BoxCollider2D:
+--- !u!60 &138926679
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -713,7 +727,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.24750519, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -723,8 +737,26 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.8283844, y: 0.7456341}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.9596405, y: 0.12860131}
+      - {x: 0.7108307, y: 0.027440071}
+      - {x: 0.49342346, y: 0.14924788}
+      - {x: 0.25953674, y: 0.072232485}
+      - {x: 0.07925415, y: 0.1300807}
+      - {x: -0.26583862, y: -0.010284662}
+      - {x: -0.4988861, y: 0.1137557}
+      - {x: -0.98339844, y: 0.11593509}
+      - {x: -1.147315, y: 0.022447854}
+      - {x: -1.3485718, y: 0.019402266}
+      - {x: -1.4688568, y: 0.17865634}
+      - {x: -1.5232086, y: 0.09756112}
+      - {x: -1.609407, y: -0.44467485}
+      - {x: 1.1708695, y: -0.45816875}
+      - {x: 1.1312714, y: -0.05480647}
+      - {x: 1.0423431, y: 0.11861491}
+      - {x: 1.0116796, y: 0.1303224}
+  m_UseDelaunayMesh: 0
 --- !u!1 &143809428
 GameObject:
   m_ObjectHideFlags: 0
@@ -6146,8 +6178,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 264321695}
-  - component: {fileID: 264321697}
   - component: {fileID: 264321696}
+  - component: {fileID: 264321697}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (14)
   m_TagString: Untagged
@@ -6183,8 +6215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &264321697
-BoxCollider2D:
+--- !u!60 &264321697
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6217,7 +6249,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.7709694, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6227,8 +6259,19 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.0017166, y: 0.7456341}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.0042877197, y: 0.14643002}
+      - {x: -0.29753113, y: 0.023276806}
+      - {x: -0.5610504, y: 0.16200113}
+      - {x: -0.7745819, y: 0.04363203}
+      - {x: -0.9970856, y: 0.1724577}
+      - {x: -1.3002625, y: 0.06260538}
+      - {x: -1.5324774, y: 0.14915112}
+      - {x: -1.7413497, y: -0.48709095}
+      - {x: 0.21867526, y: -0.48021293}
+      - {x: 0.07491207, y: 0.10265726}
+  m_UseDelaunayMesh: 0
 --- !u!1 &286999738
 GameObject:
   m_ObjectHideFlags: 0
@@ -6305,8 +6348,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 322419824}
-  - component: {fileID: 322419826}
   - component: {fileID: 322419825}
+  - component: {fileID: 322419826}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (12)
   m_TagString: Untagged
@@ -6342,8 +6385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &322419826
-BoxCollider2D:
+--- !u!60 &322419826
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6376,7 +6419,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.74196243, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6386,8 +6429,27 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.0275803, y: 0.7456341}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.75505066, y: 0.0307374}
+      - {x: 0.5343628, y: 0.13908291}
+      - {x: 0.0236969, y: 0.17518568}
+      - {x: -0.21983337, y: 0.044081688}
+      - {x: -0.50701904, y: 0.1639905}
+      - {x: -0.9672461, y: 0.16327885}
+      - {x: -1.2200623, y: 0.03912115}
+      - {x: -1.5101318, y: 0.106492996}
+      - {x: -1.6562362, y: -0.50945127}
+      - {x: 3.2039962, y: -0.45952392}
+      - {x: 3.159195, y: -0.06964302}
+      - {x: 3.0169525, y: 0.14022017}
+      - {x: 2.7495728, y: -0.0020103455}
+      - {x: 2.512848, y: 0.12032509}
+      - {x: 2.0315552, y: 0.15472698}
+      - {x: 1.7234955, y: 0.04342985}
+      - {x: 1.4964294, y: 0.15790796}
+      - {x: 1.0333776, y: 0.18837589}
+  m_UseDelaunayMesh: 0
 --- !u!1 &337106776
 GameObject:
   m_ObjectHideFlags: 0
@@ -6698,8 +6760,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 368324098}
-  - component: {fileID: 368324097}
   - component: {fileID: 368324096}
+  - component: {fileID: 368324099}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (11)
   m_TagString: Untagged
@@ -6720,8 +6782,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &368324097
-BoxCollider2D:
+--- !u!4 &368324098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368324095}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18.150002, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597197715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &368324099
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6754,7 +6831,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.790884, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6764,23 +6841,20 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.9618874, y: 0.7456341}
-  m_EdgeRadius: 0
---- !u!4 &368324098
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 368324095}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.150002, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1597197715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.032569885, y: 0.015913963}
+      - {x: -0.2425232, y: 0.0731132}
+      - {x: -0.41018677, y: 0.08730793}
+      - {x: -0.6625519, y: -0.10193443}
+      - {x: -0.9849014, y: -0.10121727}
+      - {x: -1.0812912, y: 0.039633274}
+      - {x: -1.3879309, y: 0.08934286}
+      - {x: -1.5970383, y: -0.027504444}
+      - {x: -1.7659163, y: -0.44864738}
+      - {x: 0.19969332, y: -0.43016696}
+      - {x: 0.1497488, y: -0.14580017}
+  m_UseDelaunayMesh: 0
 --- !u!1 &370215562
 GameObject:
   m_ObjectHideFlags: 0
@@ -7280,8 +7354,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 489956929}
-  - component: {fileID: 489956928}
   - component: {fileID: 489956927}
+  - component: {fileID: 489956930}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (6)
   m_TagString: Untagged
@@ -7302,8 +7376,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &489956928
-BoxCollider2D:
+--- !u!4 &489956929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489956926}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 41.060005, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597197715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &489956930
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7336,7 +7425,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.21463394, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7346,23 +7435,23 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.1143875, y: 0.7456341}
-  m_EdgeRadius: 0
---- !u!4 &489956929
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489956926}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 41.060005, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1597197715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.9930496, y: 0.0207057}
+      - {x: 0.7054672, y: 0.09340191}
+      - {x: 0.4974823, y: -0.07637596}
+      - {x: 0.2553177, y: -0.1365819}
+      - {x: -0.0053710938, y: 0.023237228}
+      - {x: -0.28147888, y: 0.091421604}
+      - {x: -0.52453613, y: -0.089395046}
+      - {x: -0.7022086, y: -0.16229221}
+      - {x: -1.0053787, y: 0.035591125}
+      - {x: -1.3017197, y: 0.07438946}
+      - {x: -1.5372772, y: -0.12295246}
+      - {x: -1.6994948, y: -0.4746002}
+      - {x: 1.3108536, y: -0.47460008}
+      - {x: 1.2234564, y: -0.15906006}
+  m_UseDelaunayMesh: 0
 --- !u!1 &491625357
 GameObject:
   m_ObjectHideFlags: 0
@@ -7673,8 +7762,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 548196084}
-  - component: {fileID: 548196083}
   - component: {fileID: 548196082}
+  - component: {fileID: 548196085}
   m_Layer: 0
   m_Name: ZonaDeEspinhos
   m_TagString: Untagged
@@ -7695,8 +7784,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &548196083
-BoxCollider2D:
+--- !u!4 &548196084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548196081}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -55.879997, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597197715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &548196085
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7729,7 +7833,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.2422533, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7739,23 +7843,21 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.028162, y: 0.7456341}
-  m_EdgeRadius: 0
---- !u!4 &548196084
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548196081}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -55.879997, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1597197715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.63087654, y: 0.09282684}
+      - {x: 0.28953934, y: -0.1666565}
+      - {x: 0.20218468, y: -0.18184876}
+      - {x: -0.33747482, y: 0.10472584}
+      - {x: -0.787366, y: -0.1975219}
+      - {x: -1.3375301, y: 0.085008144}
+      - {x: -1.5768166, y: -0.098742485}
+      - {x: -1.6812301, y: -0.46199548}
+      - {x: 2.2508712, y: -0.4816382}
+      - {x: 2.2114544, y: -0.114691734}
+      - {x: 1.6499481, y: 0.117949486}
+      - {x: 1.3488989, y: -0.14055115}
+  m_UseDelaunayMesh: 0
 --- !u!1 &566506210
 GameObject:
   m_ObjectHideFlags: 0
@@ -8210,8 +8312,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 627694944}
-  - component: {fileID: 627694943}
   - component: {fileID: 627694942}
+  - component: {fileID: 627694945}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (9)
   m_TagString: Untagged
@@ -8232,8 +8334,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &627694943
-BoxCollider2D:
+--- !u!4 &627694944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627694941}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.120003, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597197715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &627694945
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8266,7 +8383,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.790884, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8276,23 +8393,23 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.9618874, y: 0.7456341}
-  m_EdgeRadius: 0
---- !u!4 &627694944
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627694941}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.120003, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1597197715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.060287476, y: 0.06675911}
+      - {x: -0.37446594, y: 0.10775566}
+      - {x: -0.48602295, y: -0.0068097115}
+      - {x: -0.7141876, y: -0.14121246}
+      - {x: -0.9700928, y: -0.08502865}
+      - {x: -1.1884155, y: 0.0659647}
+      - {x: -1.3693237, y: 0.0983119}
+      - {x: -1.4118118, y: 0.1050024}
+      - {x: -1.4837723, y: -0.024254322}
+      - {x: -1.6480703, y: -0.078302115}
+      - {x: -1.7070007, y: -0.4523778}
+      - {x: -0.6926436, y: -0.45411193}
+      - {x: 0.24094546, y: -0.4541118}
+      - {x: 0.19224453, y: -0.11858183}
+  m_UseDelaunayMesh: 0
 --- !u!1 &644781723
 GameObject:
   m_ObjectHideFlags: 0
@@ -8773,8 +8890,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 692976449}
-  - component: {fileID: 692976448}
   - component: {fileID: 692976447}
+  - component: {fileID: 692976450}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (2)
   m_TagString: Untagged
@@ -8795,8 +8912,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &692976448
-BoxCollider2D:
+--- !u!4 &692976449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692976446}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.909996, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597197715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &692976450
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8829,7 +8961,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.76592255, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8839,23 +8971,30 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.0755005, y: 0.7456341}
-  m_EdgeRadius: 0
---- !u!4 &692976449
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692976446}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.909996, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1597197715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.6600075, y: 0.082551956}
+      - {x: 0.25218964, y: -0.13485456}
+      - {x: -0.024864197, y: 0.045624733}
+      - {x: -0.3663826, y: 0.10241556}
+      - {x: -0.7373848, y: -0.15215683}
+      - {x: -1.0509148, y: -0.01956749}
+      - {x: -1.1849775, y: 0.031763345}
+      - {x: -1.3534851, y: 0.059261322}
+      - {x: -1.5549622, y: -0.104180336}
+      - {x: -1.6806045, y: -0.45174778}
+      - {x: 3.2778106, y: -0.44474244}
+      - {x: 3.2901535, y: -0.138237}
+      - {x: 3.0424194, y: 0.0004143715}
+      - {x: 2.6726303, y: 0.073607445}
+      - {x: 2.415062, y: -0.010389328}
+      - {x: 2.26326, y: -0.14743853}
+      - {x: 1.9774399, y: 0.009839535}
+      - {x: 1.681839, y: 0.07399416}
+      - {x: 1.4794464, y: -0.05430031}
+      - {x: 1.2768822, y: -0.16396666}
+      - {x: 0.966239, y: 0.022973955}
+  m_UseDelaunayMesh: 0
 --- !u!1 &719442212
 GameObject:
   m_ObjectHideFlags: 0
@@ -12060,8 +12199,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 965931185}
-  - component: {fileID: 965931184}
   - component: {fileID: 965931183}
+  - component: {fileID: 965931186}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (3)
   m_TagString: Untagged
@@ -12082,8 +12221,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &965931184
-BoxCollider2D:
+--- !u!4 &965931185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965931182}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.949997, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597197715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &965931186
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -12116,7 +12270,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.21463394, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12126,23 +12280,23 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.1143875, y: 0.7456341}
-  m_EdgeRadius: 0
---- !u!4 &965931185
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965931182}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.949997, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1597197715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.7278366, y: 0.05824566}
+      - {x: 0.44107056, y: -0.0047163963}
+      - {x: 0.298851, y: -0.1295352}
+      - {x: -0.012168884, y: 0.022159576}
+      - {x: -0.28627014, y: 0.06766796}
+      - {x: -0.69880676, y: -0.15116024}
+      - {x: -1.2830954, y: 0.06306055}
+      - {x: -1.5721741, y: -0.13082027}
+      - {x: -1.5986938, y: -0.46196795}
+      - {x: -1.4872375, y: -0.47683132}
+      - {x: 1.3441483, y: -0.45127845}
+      - {x: 1.2755432, y: -0.17701578}
+      - {x: 1.126564, y: -0.068570614}
+      - {x: 1.0024481, y: 0.03633827}
+  m_UseDelaunayMesh: 0
 --- !u!1 &972014057
 GameObject:
   m_ObjectHideFlags: 0
@@ -12650,8 +12804,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1003333746}
-  - component: {fileID: 1003333745}
   - component: {fileID: 1003333744}
+  - component: {fileID: 1003333747}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (10)
   m_TagString: Untagged
@@ -12672,8 +12826,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &1003333745
-BoxCollider2D:
+--- !u!4 &1003333746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003333743}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.18, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597197715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1003333747
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -12706,7 +12875,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.790884, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12716,23 +12885,20 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.9618874, y: 0.7456341}
-  m_EdgeRadius: 0
---- !u!4 &1003333746
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003333743}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.18, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1597197715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.41896057, y: 0.107759476}
+      - {x: -0.56152344, y: -0.026774883}
+      - {x: -0.84873873, y: -0.12594149}
+      - {x: -1.0976486, y: 0.052480698}
+      - {x: -1.4544144, y: 0.10147095}
+      - {x: -1.6498108, y: -0.07780647}
+      - {x: -1.7709823, y: -0.4518236}
+      - {x: 0.20082247, y: -0.43693995}
+      - {x: 0.12562561, y: -0.15942621}
+      - {x: 0.006072998, y: -0.10166836}
+      - {x: -0.13726902, y: 0.029586732}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1009109921
 GameObject:
   m_ObjectHideFlags: 0
@@ -13593,7 +13759,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -13889,8 +14055,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1193691813}
-  - component: {fileID: 1193691815}
   - component: {fileID: 1193691814}
+  - component: {fileID: 1193691815}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (16)
   m_TagString: Untagged
@@ -13926,8 +14092,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &1193691815
-BoxCollider2D:
+--- !u!60 &1193691815
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -13960,7 +14126,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.20675278, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -13970,8 +14136,23 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.957161, y: 0.7456341}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.69291687, y: 0.020256042}
+      - {x: 0.4252777, y: 0.09280014}
+      - {x: -0.011749268, y: 0.1120038}
+      - {x: -0.3386078, y: 0.024166107}
+      - {x: -0.5661316, y: 0.14190054}
+      - {x: -1.0474243, y: 0.13676405}
+      - {x: -1.3259192, y: 0.036850244}
+      - {x: -1.5572357, y: 0.124964714}
+      - {x: -1.7609878, y: -0.4179448}
+      - {x: 2.1180282, y: -0.45734572}
+      - {x: 2.002411, y: 0.13193512}
+      - {x: 1.6583557, y: 0.020966053}
+      - {x: 1.4351196, y: 0.12272787}
+      - {x: 0.99680233, y: 0.12833637}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1196622377
 GameObject:
   m_ObjectHideFlags: 0
@@ -15260,8 +15441,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1460929691}
-  - component: {fileID: 1460929690}
   - component: {fileID: 1460929689}
+  - component: {fileID: 1460929692}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (7)
   m_TagString: Untagged
@@ -15282,8 +15463,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &1460929690
-BoxCollider2D:
+--- !u!4 &1460929691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460929688}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -27.789997, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597197715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1460929692
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15316,7 +15512,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.790884, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -15326,23 +15522,57 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.9618874, y: 0.7456341}
-  m_EdgeRadius: 0
---- !u!4 &1460929691
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460929688}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.789997, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1597197715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.10563278, y: -0.14000845}
+      - {x: 0.10504913, y: -0.07405853}
+      - {x: -0.02433014, y: -0.06251025}
+      - {x: -0.02645874, y: -0.44233656}
+      - {x: -0.076911926, y: -0.43603754}
+      - {x: -0.08786011, y: 0.111012936}
+      - {x: -0.23009872, y: 0.104622364}
+      - {x: -0.22218704, y: 0.061552048}
+      - {x: -0.27346802, y: 0.05689335}
+      - {x: -0.2725029, y: -0.4416194}
+      - {x: -0.33478546, y: -0.43325138}
+      - {x: -0.34199142, y: 0.11455679}
+      - {x: -0.39888763, y: 0.110856056}
+      - {x: -0.39235306, y: 0.18048048}
+      - {x: -0.52259827, y: 0.17751026}
+      - {x: -0.5208969, y: -0.42908192}
+      - {x: -0.58610153, y: -0.42253256}
+      - {x: -0.5881195, y: -0.016578197}
+      - {x: -0.71037674, y: -0.012690544}
+      - {x: -0.7189636, y: -0.07819557}
+      - {x: -0.7834778, y: -0.07251263}
+      - {x: -0.7791481, y: -0.4146304}
+      - {x: -0.8493042, y: -0.4260025}
+      - {x: -0.8457756, y: -0.13891268}
+      - {x: -0.90190506, y: -0.14163494}
+      - {x: -0.8976326, y: -0.08170128}
+      - {x: -1.0227242, y: -0.07799482}
+      - {x: -1.0269852, y: -0.41753006}
+      - {x: -1.0993919, y: -0.40644693}
+      - {x: -1.1013641, y: 0.1167407}
+      - {x: -1.2128677, y: 0.11152983}
+      - {x: -1.209549, y: 0.052711487}
+      - {x: -1.2790642, y: 0.060400963}
+      - {x: -1.2879181, y: -0.42403316}
+      - {x: -1.3409119, y: -0.41453505}
+      - {x: -1.3273773, y: 0.120324135}
+      - {x: -1.4007645, y: 0.1221714}
+      - {x: -1.3957977, y: 0.18487835}
+      - {x: -1.533989, y: 0.17301416}
+      - {x: -1.5387993, y: -0.4282732}
+      - {x: -1.579567, y: -0.42546368}
+      - {x: -1.5983582, y: -0.004058838}
+      - {x: -1.7056274, y: -0.003639698}
+      - {x: -1.7238111, y: -0.06444332}
+      - {x: -1.7805557, y: -0.06628466}
+      - {x: -1.7767425, y: -0.4443978}
+      - {x: 0.15791476, y: -0.44808793}
+      - {x: 0.15619946, y: -0.137075}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1464423367
 GameObject:
   m_ObjectHideFlags: 0
@@ -15632,8 +15862,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1530118317}
-  - component: {fileID: 1530118316}
   - component: {fileID: 1530118315}
+  - component: {fileID: 1530118318}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (4)
   m_TagString: Untagged
@@ -15654,8 +15884,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &1530118316
-BoxCollider2D:
+--- !u!4 &1530118317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530118314}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597197715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1530118318
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15688,7 +15933,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.21463394, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -15698,23 +15943,22 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.1143875, y: 0.7456341}
-  m_EdgeRadius: 0
---- !u!4 &1530118317
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530118314}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1597197715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.75803375, y: 0.1092}
+      - {x: 0.60046387, y: -0.01774931}
+      - {x: 0.31723785, y: -0.13683772}
+      - {x: 0.04572296, y: 0.050478935}
+      - {x: -0.32354736, y: 0.044391155}
+      - {x: -0.6906433, y: -0.15268421}
+      - {x: -0.98671633, y: 0.026192933}
+      - {x: -1.2606201, y: 0.07357597}
+      - {x: -1.47966, y: -0.12551737}
+      - {x: -1.5774778, y: -0.45374238}
+      - {x: 1.3998352, y: -0.47911954}
+      - {x: 1.2897034, y: -0.17245388}
+      - {x: 1.0670538, y: 0.06549734}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1533501328
 GameObject:
   m_ObjectHideFlags: 0
@@ -16015,15 +16259,16 @@ Transform:
   m_Children:
   - {fileID: 548196084}
   - {fileID: 21774536}
+  - {fileID: 692976449}
+  - {fileID: 965931185}
+  - {fileID: 1530118317}
+  - {fileID: 1824407702}
   - {fileID: 1460929691}
+  - {fileID: 489956929}
   - {fileID: 1673221832}
   - {fileID: 627694944}
   - {fileID: 1003333746}
   - {fileID: 368324098}
-  - {fileID: 692976449}
-  - {fileID: 1824407702}
-  - {fileID: 965931185}
-  - {fileID: 489956929}
   - {fileID: 322419824}
   - {fileID: 1714530664}
   - {fileID: 264321695}
@@ -16032,7 +16277,6 @@ Transform:
   - {fileID: 1665227531}
   - {fileID: 1944173412}
   - {fileID: 138926677}
-  - {fileID: 1530118317}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1621491736
@@ -16134,8 +16378,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1665227531}
-  - component: {fileID: 1665227533}
   - component: {fileID: 1665227532}
+  - component: {fileID: 1665227533}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (17)
   m_TagString: Untagged
@@ -16171,8 +16415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &1665227533
-BoxCollider2D:
+--- !u!60 &1665227533
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16205,7 +16449,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.25301743, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -16215,8 +16459,21 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.0376205, y: 0.7456341}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.4726715, y: 0.13681173}
+      - {x: 0.027130127, y: 0.13315964}
+      - {x: -0.27926636, y: -0.003215313}
+      - {x: -0.51727295, y: 0.0981164}
+      - {x: -0.9764557, y: 0.14083672}
+      - {x: -1.2579651, y: -0.012514591}
+      - {x: -1.5099249, y: 0.1374934}
+      - {x: -1.6827865, y: -0.46139753}
+      - {x: 0.42434692, y: -0.49250984}
+      - {x: 1.1715714, y: -0.46404386}
+      - {x: 1.0258942, y: 0.1821456}
+      - {x: 0.7417364, y: -0.007597506}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1668054784
 GameObject:
   m_ObjectHideFlags: 0
@@ -16413,8 +16670,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1673221832}
-  - component: {fileID: 1673221831}
   - component: {fileID: 1673221830}
+  - component: {fileID: 1673221833}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (8)
   m_TagString: Untagged
@@ -16435,8 +16692,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &1673221831
-BoxCollider2D:
+--- !u!4 &1673221832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673221829}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -23.819996, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597197715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1673221833
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16469,7 +16741,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.790884, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -16479,23 +16751,31 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.9618874, y: 0.7456341}
-  m_EdgeRadius: 0
---- !u!4 &1673221832
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673221829}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.819996, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1597197715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.19547272, y: -0.45593214}
+      - {x: 0.1972847, y: -0.44630384}
+      - {x: 0.2061348, y: -0.41532564}
+      - {x: 0.2503891, y: -0.44630384}
+      - {x: 0.2035675, y: -0.38516355}
+      - {x: 0.19294739, y: -0.4145589}
+      - {x: 0.15363693, y: -0.15471888}
+      - {x: -0.112018585, y: 0.039476395}
+      - {x: -0.3358612, y: 0.106987}
+      - {x: -0.46992493, y: 0.074165344}
+      - {x: -0.55353165, y: -0.027561188}
+      - {x: -0.6587486, y: -0.062101364}
+      - {x: -0.8101692, y: -0.14191866}
+      - {x: -0.9749031, y: -0.08088875}
+      - {x: -1.1074638, y: 0.02891779}
+      - {x: -1.4324265, y: 0.08681488}
+      - {x: -1.5601883, y: -0.03421259}
+      - {x: -1.7297392, y: -0.12694761}
+      - {x: -1.8075294, y: -0.44397306}
+      - {x: -0.81348175, y: -0.46383274}
+      - {x: 0.19392169, y: -0.45498157}
+      - {x: 0.18988323, y: -0.4565845}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1681759141
 GameObject:
   m_ObjectHideFlags: 0
@@ -16647,8 +16927,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1714530664}
-  - component: {fileID: 1714530666}
   - component: {fileID: 1714530665}
+  - component: {fileID: 1714530666}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (13)
   m_TagString: Untagged
@@ -16684,8 +16964,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &1714530666
-BoxCollider2D:
+--- !u!60 &1714530666
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16718,7 +16998,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.229847, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -16728,8 +17008,35 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 6.0033493, y: 0.7456341}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.47322083, y: 0.1480236}
+      - {x: 0.03250122, y: 0.12896681}
+      - {x: -0.27072144, y: 0.009725094}
+      - {x: -0.5061798, y: 0.16046381}
+      - {x: -0.8559265, y: 0.079648495}
+      - {x: -0.9813843, y: 0.14817238}
+      - {x: -1.1786413, y: 0.0036619008}
+      - {x: -1.4150848, y: 0.06678581}
+      - {x: -1.5349426, y: 0.16158867}
+      - {x: -1.6931014, y: -0.5359386}
+      - {x: 4.215837, y: -0.5099313}
+      - {x: 4.144577, y: -0.09852314}
+      - {x: 4.131607, y: -0.027173042}
+      - {x: 4.0092163, y: 0.15327644}
+      - {x: 3.724701, y: 0.021064281}
+      - {x: 3.4728851, y: 0.16116571}
+      - {x: 3.2006683, y: -0.16455746}
+      - {x: 3.02536, y: 0.14325619}
+      - {x: 2.7180786, y: 0.009049416}
+      - {x: 2.4603882, y: 0.21260452}
+      - {x: 2.254959, y: 0.06261492}
+      - {x: 2.0121918, y: 0.17166376}
+      - {x: 1.7510223, y: 0.00915575}
+      - {x: 1.4799042, y: 0.15323067}
+      - {x: 1.1254425, y: 0.18646193}
+      - {x: 0.8210058, y: 0.048942506}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1733832920
 GameObject:
   m_ObjectHideFlags: 0
@@ -16970,8 +17277,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1824407702}
-  - component: {fileID: 1824407701}
   - component: {fileID: 1824407700}
+  - component: {fileID: 1824407703}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (5)
   m_TagString: Untagged
@@ -16992,8 +17299,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &1824407701
-BoxCollider2D:
+--- !u!4 &1824407702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824407699}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 28.100006, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597197715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1824407703
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -17026,7 +17348,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.76592255, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -17036,23 +17358,32 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.0755005, y: 0.7456341}
-  m_EdgeRadius: 0
---- !u!4 &1824407702
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824407699}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.100006, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1597197715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.48744965, y: -0.072868824}
+      - {x: 0.08358002, y: -0.09999895}
+      - {x: -0.047195435, y: 0.06729841}
+      - {x: -0.3387375, y: 0.111094475}
+      - {x: -0.6417618, y: -0.11847854}
+      - {x: -0.90436554, y: -0.13051462}
+      - {x: -1.0441885, y: 0.07660034}
+      - {x: -1.3680038, y: 0.065294266}
+      - {x: -1.5901337, y: -0.074590206}
+      - {x: -1.7019744, y: -0.4692272}
+      - {x: 3.2744994, y: -0.4613254}
+      - {x: 3.169632, y: -0.1450944}
+      - {x: 2.947258, y: 0.034198284}
+      - {x: 2.666603, y: 0.1111784}
+      - {x: 2.5278473, y: -0.07229948}
+      - {x: 2.3731918, y: -0.0666213}
+      - {x: 2.0974884, y: -0.13313246}
+      - {x: 1.9589386, y: 0.06596851}
+      - {x: 1.624054, y: 0.12665176}
+      - {x: 1.5289459, y: -0.051362038}
+      - {x: 1.1933441, y: -0.13731861}
+      - {x: 0.9674835, y: 0.07033253}
+      - {x: 0.6888113, y: 0.08901018}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1833620608
 GameObject:
   m_ObjectHideFlags: 0
@@ -17592,8 +17923,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1904586095}
-  - component: {fileID: 1904586097}
   - component: {fileID: 1904586096}
+  - component: {fileID: 1904586097}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (15)
   m_TagString: Untagged
@@ -17629,8 +17960,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &1904586097
-BoxCollider2D:
+--- !u!60 &1904586097
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -17663,7 +17994,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.7709694, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -17673,8 +18004,19 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.0017166, y: 0.7456341}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.33200073, y: 0.0767684}
+      - {x: -0.5203705, y: 0.13711262}
+      - {x: -1.0097876, y: 0.11253098}
+      - {x: -1.3566895, y: 0.05576563}
+      - {x: -1.5353241, y: 0.14999485}
+      - {x: -1.6165009, y: 0.038062096}
+      - {x: -1.754991, y: -0.4790219}
+      - {x: 0.17965698, y: -0.43380165}
+      - {x: 0.04698336, y: 0.06849837}
+      - {x: -0.086174965, y: 0.1329636}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1907450841
 GameObject:
   m_ObjectHideFlags: 0
@@ -17774,8 +18116,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1944173412}
-  - component: {fileID: 1944173414}
   - component: {fileID: 1944173413}
+  - component: {fileID: 1944173414}
   m_Layer: 0
   m_Name: ZonaDeEspinhos (18)
   m_TagString: Untagged
@@ -17811,8 +18153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
   quantidadeDeDano: 1
---- !u!61 &1944173414
-BoxCollider2D:
+--- !u!60 &1944173414
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -17845,7 +18187,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.24750519, y: -0.12718296}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -17855,8 +18197,28 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.8283844, y: 0.7456341}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.0126953, y: 0.09434223}
+      - {x: 0.96455383, y: 0.106701136}
+      - {x: 0.8546295, y: 0.062348127}
+      - {x: 0.67271423, y: 0.058595657}
+      - {x: 0.5016327, y: 0.15339613}
+      - {x: 0.0032348633, y: 0.19383597}
+      - {x: -0.22244263, y: 0.053827763}
+      - {x: -0.305542, y: 0.084852934}
+      - {x: -0.5160217, y: 0.19892836}
+      - {x: -0.8426886, y: 0.11509612}
+      - {x: -0.9913788, y: 0.156281}
+      - {x: -1.2348022, y: 0.064717054}
+      - {x: -1.3496399, y: 0.081809044}
+      - {x: -1.4449921, y: 0.12526011}
+      - {x: -1.5298462, y: 0.12997031}
+      - {x: -1.6065826, y: -0.2044332}
+      - {x: -1.628099, y: -0.46802557}
+      - {x: 1.1458298, y: -0.48919892}
+      - {x: 1.0912237, y: 0.0015310645}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1956378892
 GameObject:
   m_ObjectHideFlags: 0
@@ -71743,7 +72105,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.40335774}
+  m_Offset: {x: 0, y: -0.33634663}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -71753,7 +72115,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.28712872, y: 0.03421381}
+  m_Size: {x: 0.28712872, y: 0.014018565}
   m_EdgeRadius: 0
 --- !u!114 &3197348174437507438
 MonoBehaviour:
