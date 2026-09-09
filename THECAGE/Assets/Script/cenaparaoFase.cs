@@ -9,8 +9,9 @@ public class cenaparaoFase : MonoBehaviour
         PlayerPrefs.DeleteKey("VidaSalva");
         PlayerPrefs.DeleteKey("MunicaoSalva");
         PlayerPrefs.DeleteKey("TemFacaSalva");
+        PlayerPrefs.DeleteKey("TemEspadaSalva");
 
-        
+
         SceneManager.LoadScene("Fase");
     }
 }

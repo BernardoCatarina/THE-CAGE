@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using TMPro;
 public class mov : MonoBehaviour
 {
@@ -22,14 +23,30 @@ public class mov : MonoBehaviour
     public AudioClip somAtaque;
     private AudioSource audioSource;
 
+    [Header("Espada Pet")]
+    public bool possuiEspada = false;
+    public GameObject espadaPet;
+    public Transform pontaDaEspada;
+    private bool espadaAtacando = false;
+
+    public GameObject projetilEspada;
+
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>(); 
+        audioSource = GetComponent<AudioSource>();
 
         municao = PlayerPrefs.GetInt("MunicaoSalva", 0);
         possuiFaca = PlayerPrefs.GetInt("TemFacaSalva", 0) == 1;
 
+        
+        possuiEspada = PlayerPrefs.GetInt("TemEspadaSalva", 0) == 1;
+        if (possuiEspada && espadaPet != null)
+        {
+            espadaPet.SetActive(true);
+        }
+        
         AtualizarTextoMunicao();
     }
 
@@ -38,28 +55,48 @@ public class mov : MonoBehaviour
         Move();
         Jump();
 
-
         if (possuiFaca && municao > 0 && Input.GetButtonDown("Fire1") && Time.time >= proximoTiro)
         {
             municao--;
             PlayerPrefs.SetInt("MunicaoSalva", municao);
             AtualizarTextoMunicao();
 
-            
             if (somAtaque != null && audioSource != null)
             {
                 audioSource.PlayOneShot(somAtaque);
             }
 
             proximoTiro = Time.time + tempoDeRecarga;
+
+
+            
             Instantiate(bullet, transform.position, transform.rotation);
+
+            
+            if (possuiEspada && projetilEspada != null)
+            {
+                StartCoroutine(AtaqueEspadaPet()); 
+            }
+
+            if (possuiEspada && projetilEspada != null && !espadaAtacando)
+            {
+                StartCoroutine(AtaqueEspadaPet());
+            }
         }
     }
     public void AtualizarTextoMunicao()
     {
         if (textoMunicao != null)
         {
-            textoMunicao.text = "Facas: " + municao;
+            
+            if (possuiEspada)
+            {
+                textoMunicao.text = "Facas & Laser: " + municao;
+            }
+            else 
+            {
+                textoMunicao.text = "Facas: " + municao;
+            }
         }
     }
 
@@ -69,8 +106,8 @@ public class mov : MonoBehaviour
         possuiFaca = true;
         municao += quantidade;
 
-        PlayerPrefs.SetInt("MunicaoSalva", municao); // Salva a nova quantidade
-        PlayerPrefs.SetInt("TemFacaSalva", 1);       // Grava que o jogador destravou a arma
+        PlayerPrefs.SetInt("MunicaoSalva", municao); 
+        PlayerPrefs.SetInt("TemFacaSalva", 1);       
 
         AtualizarTextoMunicao();
     }
@@ -127,5 +164,42 @@ public class mov : MonoBehaviour
             isJumping = false; 
             animator.SetBool("isJumping", false); 
         }
+    }
+    public void ColetarEspada()
+    {
+        possuiEspada = true;
+        PlayerPrefs.SetInt("TemEspadaSalva", 1);
+
+        if (espadaPet != null)
+        {
+            espadaPet.SetActive(true);
+        }
+  
+        AtualizarTextoMunicao();
+
+        Debug.Log("Espada Pet ativada!");
+    }
+    IEnumerator AtaqueEspadaPet()
+    {
+        espadaAtacando = true;
+
+        
+        Vector3 posicaoDescanso = new Vector3(-0.193f, 0.3511f, 0f);
+        Vector3 posicaoAtaque = new Vector3(0.289f, 0.131f, 0f);
+
+        
+        espadaPet.transform.localPosition = posicaoAtaque;
+
+        yield return new WaitForSeconds(0.05f);
+
+        Vector3 localDoLaser = pontaDaEspada != null ? pontaDaEspada.position : espadaPet.transform.position;
+        Instantiate(projetilEspada, localDoLaser, transform.rotation);
+
+        yield return new WaitForSeconds(0.2f);
+
+       
+        espadaPet.transform.localPosition = posicaoDescanso;
+
+        espadaAtacando = false;
     }
 }

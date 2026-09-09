@@ -9,6 +9,7 @@ public class GerenciadorDeCenas : MonoBehaviour
         PlayerPrefs.DeleteKey("VidaSalva");
         PlayerPrefs.DeleteKey("MunicaoSalva");
         PlayerPrefs.DeleteKey("TemFacaSalva");
+        PlayerPrefs.DeleteKey("TemEspadaSalva");
 
         SceneManager.LoadScene("menu");
     }
