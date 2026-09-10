@@ -23,20 +23,20 @@ public class faca : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             
+            int dano = mov.instaKill ? 9999 : 1;
+
             VidaBoss scriptDoBoss = collision.GetComponent<VidaBoss>();
             if (scriptDoBoss != null)
             {
-                scriptDoBoss.TomarDano(1);
+                scriptDoBoss.TomarDano(dano);
             }
 
-            
             VidaInimigo scriptDoInimigo = collision.GetComponent<VidaInimigo>();
             if (scriptDoInimigo != null)
             {
-                scriptDoInimigo.TomarDano(1);
+                scriptDoInimigo.TomarDano(dano);
             }
 
-            
             Destroy(gameObject);
         }
     }

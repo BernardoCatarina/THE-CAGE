@@ -40,22 +40,26 @@ public class VidaPlayer : MonoBehaviour
 
     public void TomarDano(int quantidade)
     {
-        PlayerPrefs.SetInt("VidaSalva", vidaAtual);
-
-        if (somDeDano != null && audioSource != null)
+        
+        if (mov.modoImortal)
         {
-            audioSource.PlayOneShot(somDeDano);
+            return; 
         }
-
+       
         vidaAtual -= quantidade;
 
+        PlayerPrefs.SetInt("VidaSalva", vidaAtual);
+        
         if (barraDeVida != null)
         {
             barraDeVida.value = vidaAtual;
         }
-
         AtualizarTexto();
-
+       
+        if (somDeDano != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(somDeDano);
+        }
        
         if (spriteRenderer != null)
         {
@@ -63,14 +67,13 @@ public class VidaPlayer : MonoBehaviour
         }
 
         Debug.Log("Ai! O Player tomou dano. Vida restante: " + vidaAtual);
-
+      
         if (vidaAtual <= 0)
         {
             Morrer();
         }
     }
 
-    
     IEnumerator EfeitoPiscar()
     {
         

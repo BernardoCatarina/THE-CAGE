@@ -21,6 +21,7 @@ public class mov : MonoBehaviour
     [Header("Sons")]
     public AudioClip somPulo;
     public AudioClip somAtaque;
+    public AudioClip somLaser;
     private AudioSource audioSource;
 
     [Header("Espada Pet")]
@@ -31,56 +32,147 @@ public class mov : MonoBehaviour
 
     public GameObject projetilEspada;
 
+    [Header("Cheats")]
+    public static bool instaKill = false;
+    public static bool modoVoo = false;
+    private float gravidadeOriginal;
+    public static bool modoImortal = false;
+    public static bool modoMetralhadora = false;
+    private float tempoDeRecargaOriginal;
+
 
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
 
+        gravidadeOriginal = rig.gravityScale;
+        tempoDeRecargaOriginal = tempoDeRecarga;
+       
         municao = PlayerPrefs.GetInt("MunicaoSalva", 0);
         possuiFaca = PlayerPrefs.GetInt("TemFacaSalva", 0) == 1;
 
-        
         possuiEspada = PlayerPrefs.GetInt("TemEspadaSalva", 0) == 1;
         if (possuiEspada && espadaPet != null)
         {
             espadaPet.SetActive(true);
         }
-        
+
         AtualizarTextoMunicao();
+
+        if (modoVoo)
+        {
+            rig.gravityScale = 0f; 
+            rig.linearVelocity = Vector2.zero; 
+        }
+
+        if (modoMetralhadora)
+        {
+            tempoDeRecarga = 0.01f; 
+        }
     }
 
     void Update()
     {
+        // ---------------- COMANDO DO ADMIN -----------------
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift))
+        {
+            // +500 Facas 
+            // Ctrl + Shift + F
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                ColetarFacas(500);
+                Debug.Log("Cheat: +500 Facas!");
+            }
+
+            // Ligar/Desligar Dano Infinito 
+            // Ctrl + Shift + K
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                instaKill = !instaKill;
+                Debug.Log("Cheat: Dano Infinito = " + instaKill);
+            }
+
+            // Ganhar Espada Pet
+            // Ctrl + Shift + E
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                ColetarEspada();
+                Debug.Log("Cheat: Espada Pet adquirida!");
+            }
+
+            // Ligar/Desligar Modo Imortal (God Mode)
+            // Ctrl + Shift + I
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                modoImortal = !modoImortal; 
+                Debug.Log("Cheat: Modo Imortal = " + modoImortal);
+            }
+        }
+
+        // Ligar/Desligar Modo Voo
+        // Ctrl + Shift + V
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            modoVoo = !modoVoo;
+
+            if (modoVoo)
+            {
+                rig.gravityScale = 0f; 
+                rig.linearVelocity = Vector2.zero; 
+            }
+            else
+            {
+                rig.gravityScale = gravidadeOriginal; 
+            }
+
+            Debug.Log("Cheat: Modo Voo = " + modoVoo);
+        }
+
+        // Ligar/Desligar Modo Metralhadora 
+        // Ctrl + Shift + M
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            modoMetralhadora = !modoMetralhadora;
+
+            if (modoMetralhadora)
+            {
+                tempoDeRecarga = 0.01f; 
+            }
+            else
+            {
+                tempoDeRecarga = tempoDeRecargaOriginal; 
+            }
+            Debug.Log("Cheat: Modo Metralhadora = " + modoMetralhadora);
+        }
+        // --------------------------------------------------------
         Move();
         Jump();
 
         if (possuiFaca && municao > 0 && Input.GetButtonDown("Fire1") && Time.time >= proximoTiro)
         {
-            municao--;
-            PlayerPrefs.SetInt("MunicaoSalva", municao);
-            AtualizarTextoMunicao();
 
-            if (somAtaque != null && audioSource != null)
+            bool querAtirar = modoMetralhadora ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1");
+
+            if (possuiFaca && municao > 0 && querAtirar && Time.time >= proximoTiro)
             {
-                audioSource.PlayOneShot(somAtaque);
-            }
+                municao--;
+                PlayerPrefs.SetInt("MunicaoSalva", municao);
+                AtualizarTextoMunicao();
 
-            proximoTiro = Time.time + tempoDeRecarga;
+                if (somAtaque != null && audioSource != null)
+                {
+                    audioSource.PlayOneShot(somAtaque);
+                }
 
+                proximoTiro = Time.time + tempoDeRecarga;
 
-            
-            Instantiate(bullet, transform.position, transform.rotation);
+                Instantiate(bullet, transform.position, transform.rotation);
 
-            
-            if (possuiEspada && projetilEspada != null)
-            {
-                StartCoroutine(AtaqueEspadaPet()); 
-            }
-
-            if (possuiEspada && projetilEspada != null && !espadaAtacando)
-            {
-                StartCoroutine(AtaqueEspadaPet());
+                if (possuiEspada && projetilEspada != null && !espadaAtacando)
+                {
+                    StartCoroutine(AtaqueEspadaPet());
+                }
             }
         }
     }
@@ -114,8 +206,17 @@ public class mov : MonoBehaviour
 
     void Move()
     {
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-        transform.position += movement * Time.deltaTime * Speed;
+        if (modoVoo)
+        {
+            Vector3 movimentoVoo = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
+            transform.position += movimentoVoo * Time.deltaTime * (Speed * 1.5f); 
+        }
+        // Se estiver desligado, move normal (só pros lados)
+        else
+        {
+            Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+            transform.position += movement * Time.deltaTime * Speed;
+        }
 
         float InputAxis = Input.GetAxis("Horizontal");
 
@@ -194,6 +295,11 @@ public class mov : MonoBehaviour
 
         Vector3 localDoLaser = pontaDaEspada != null ? pontaDaEspada.position : espadaPet.transform.position;
         Instantiate(projetilEspada, localDoLaser, transform.rotation);
+
+        if (somLaser != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(somLaser);
+        }
 
         yield return new WaitForSeconds(0.2f);
 

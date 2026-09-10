@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!4 &21774536
 Transform:
   m_ObjectHideFlags: 0
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!60 &138926679
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6245,7 +6245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!60 &264321697
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6415,7 +6415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!60 &322419826
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6812,7 +6812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!4 &368324098
 Transform:
   m_ObjectHideFlags: 0
@@ -7406,7 +7406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!4 &489956929
 Transform:
   m_ObjectHideFlags: 0
@@ -7814,7 +7814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!4 &548196084
 Transform:
   m_ObjectHideFlags: 0
@@ -8364,7 +8364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!4 &627694944
 Transform:
   m_ObjectHideFlags: 0
@@ -8942,7 +8942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!4 &692976449
 Transform:
   m_ObjectHideFlags: 0
@@ -12251,7 +12251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!4 &965931185
 Transform:
   m_ObjectHideFlags: 0
@@ -12856,7 +12856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!4 &1003333746
 Transform:
   m_ObjectHideFlags: 0
@@ -14122,7 +14122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!60 &1193691815
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -15493,7 +15493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!4 &1460929691
 Transform:
   m_ObjectHideFlags: 0
@@ -15914,7 +15914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!4 &1530118317
 Transform:
   m_ObjectHideFlags: 0
@@ -16445,7 +16445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!60 &1665227533
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -16722,7 +16722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!4 &1673221832
 Transform:
   m_ObjectHideFlags: 0
@@ -16988,7 +16988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!60 &1714530666
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -17493,7 +17493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!4 &1824407702
 Transform:
   m_ObjectHideFlags: 0
@@ -18154,7 +18154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!60 &1904586097
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -18347,7 +18347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd274e3f0fc9c34399661ce251ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoEspinhos
-  quantidadeDeDano: 1
+  quantidadeDeDano: 2
 --- !u!60 &1944173414
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -73588,6 +73588,7 @@ MonoBehaviour:
   textoMunicao: {fileID: 566506212}
   somPulo: {fileID: 8300000, guid: 4d30413df20afaf41acda2ce77112510, type: 3}
   somAtaque: {fileID: 8300000, guid: b7562250fda881541936a4878a7a0f95, type: 3}
+  somLaser: {fileID: 8300000, guid: 07c6456794126244cb9f2d6abaa48126, type: 3}
   possuiEspada: 0
   espadaPet: {fileID: 4457625691066773576}
   pontaDaEspada: {fileID: 97413846}
