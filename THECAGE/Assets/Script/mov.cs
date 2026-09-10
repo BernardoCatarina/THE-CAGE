@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+
 public class mov : MonoBehaviour
 {
     public float tempoDeRecarga = 0.5f;
@@ -29,7 +30,6 @@ public class mov : MonoBehaviour
     public GameObject espadaPet;
     public Transform pontaDaEspada;
     private bool espadaAtacando = false;
-
     public GameObject projetilEspada;
 
     [Header("Cheats")]
@@ -39,7 +39,7 @@ public class mov : MonoBehaviour
     public static bool modoImortal = false;
     public static bool modoMetralhadora = false;
     private float tempoDeRecargaOriginal;
-
+    public TMPro.TextMeshProUGUI textoAvisoCheat;
 
     void Start()
     {
@@ -48,7 +48,7 @@ public class mov : MonoBehaviour
 
         gravidadeOriginal = rig.gravityScale;
         tempoDeRecargaOriginal = tempoDeRecarga;
-       
+
         municao = PlayerPrefs.GetInt("MunicaoSalva", 0);
         possuiFaca = PlayerPrefs.GetInt("TemFacaSalva", 0) == 1;
 
@@ -62,144 +62,137 @@ public class mov : MonoBehaviour
 
         if (modoVoo)
         {
-            rig.gravityScale = 0f; 
-            rig.linearVelocity = Vector2.zero; 
+            rig.gravityScale = 0f;
+            rig.linearVelocity = Vector2.zero;
         }
 
         if (modoMetralhadora)
         {
-            tempoDeRecarga = 0.01f; 
+            tempoDeRecarga = 0.01f;
         }
     }
 
     void Update()
     {
-        // ---------------- COMANDO DO ADMIN -----------------
+        // ---------------- COMANDO DO ADMIN ----------------
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift))
         {
-            // +500 Facas 
-            // Ctrl + Shift + F
+            // +500 Facas (Ctrl + Shift + F)
             if (Input.GetKeyDown(KeyCode.F))
             {
                 ColetarFacas(500);
-                Debug.Log("Cheat: +500 Facas!");
+                StartCoroutine(MostrarAvisoCheat("+500 Facas!"));
             }
 
-            // Ligar/Desligar Dano Infinito 
-            // Ctrl + Shift + K
+            // Ligar/Desligar Dano Infinito (Ctrl + Shift + K)
             if (Input.GetKeyDown(KeyCode.K))
             {
                 instaKill = !instaKill;
-                Debug.Log("Cheat: Dano Infinito = " + instaKill);
+                string status = instaKill ? "LIGADO" : "DESLIGADO";
+                StartCoroutine(MostrarAvisoCheat("Dano Infinito: " + status));
             }
 
-            // Ganhar Espada Pet
-            // Ctrl + Shift + E
+            // Ganhar Espada Pet (Ctrl + Shift + E)
             if (Input.GetKeyDown(KeyCode.E))
             {
                 ColetarEspada();
-                Debug.Log("Cheat: Espada Pet adquirida!");
+                StartCoroutine(MostrarAvisoCheat("Espada Pet Adquirida!"));
             }
 
-            // Ligar/Desligar Modo Imortal (God Mode)
-            // Ctrl + Shift + I
+            // Ligar/Desligar Modo Imortal (Ctrl + Shift + I)
             if (Input.GetKeyDown(KeyCode.I))
             {
-                modoImortal = !modoImortal; 
-                Debug.Log("Cheat: Modo Imortal = " + modoImortal);
+                modoImortal = !modoImortal;
+                string status = modoImortal ? "LIGADO" : "DESLIGADO";
+                StartCoroutine(MostrarAvisoCheat("Deus: " + status));
+            }
+
+            // Ligar/Desligar Modo Voo (Ctrl + Shift + V)
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                modoVoo = !modoVoo;
+                string status = modoVoo ? "LIGADO" : "DESLIGADO";
+
+                if (modoVoo)
+                {
+                    rig.gravityScale = 0f;
+                    rig.linearVelocity = Vector2.zero;
+                }
+                else
+                {
+                    rig.gravityScale = gravidadeOriginal;
+                }
+                StartCoroutine(MostrarAvisoCheat("Voo: " + status));
+            }
+
+            // Ligar/Desligar Modo Metralhadora (Ctrl + Shift + M)
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                modoMetralhadora = !modoMetralhadora;
+                string status = modoMetralhadora ? "LIGADO" : "DESLIGADO";
+
+                if (modoMetralhadora)
+                {
+                    tempoDeRecarga = 0.01f;
+                }
+                else
+                {
+                    tempoDeRecarga = tempoDeRecargaOriginal;
+                }
+                StartCoroutine(MostrarAvisoCheat("Metralhadora: " + status));
             }
         }
+        // --------------------------------------------------
 
-        // Ligar/Desligar Modo Voo
-        // Ctrl + Shift + V
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            modoVoo = !modoVoo;
-
-            if (modoVoo)
-            {
-                rig.gravityScale = 0f; 
-                rig.linearVelocity = Vector2.zero; 
-            }
-            else
-            {
-                rig.gravityScale = gravidadeOriginal; 
-            }
-
-            Debug.Log("Cheat: Modo Voo = " + modoVoo);
-        }
-
-        // Ligar/Desligar Modo Metralhadora 
-        // Ctrl + Shift + M
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            modoMetralhadora = !modoMetralhadora;
-
-            if (modoMetralhadora)
-            {
-                tempoDeRecarga = 0.01f; 
-            }
-            else
-            {
-                tempoDeRecarga = tempoDeRecargaOriginal; 
-            }
-            Debug.Log("Cheat: Modo Metralhadora = " + modoMetralhadora);
-        }
-        // --------------------------------------------------------
         Move();
         Jump();
 
-        if (possuiFaca && municao > 0 && Input.GetButtonDown("Fire1") && Time.time >= proximoTiro)
+        bool querAtirar = modoMetralhadora ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1");
+
+        if (possuiFaca && municao > 0 && querAtirar && Time.time >= proximoTiro)
         {
+            municao--;
+            PlayerPrefs.SetInt("MunicaoSalva", municao);
+            AtualizarTextoMunicao();
 
-            bool querAtirar = modoMetralhadora ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1");
-
-            if (possuiFaca && municao > 0 && querAtirar && Time.time >= proximoTiro)
+            if (somAtaque != null && audioSource != null)
             {
-                municao--;
-                PlayerPrefs.SetInt("MunicaoSalva", municao);
-                AtualizarTextoMunicao();
+                audioSource.PlayOneShot(somAtaque);
+            }
 
-                if (somAtaque != null && audioSource != null)
-                {
-                    audioSource.PlayOneShot(somAtaque);
-                }
+            proximoTiro = Time.time + tempoDeRecarga;
 
-                proximoTiro = Time.time + tempoDeRecarga;
+            Instantiate(bullet, transform.position, transform.rotation);
 
-                Instantiate(bullet, transform.position, transform.rotation);
-
-                if (possuiEspada && projetilEspada != null && !espadaAtacando)
-                {
-                    StartCoroutine(AtaqueEspadaPet());
-                }
+            if (possuiEspada && projetilEspada != null && !espadaAtacando)
+            {
+                StartCoroutine(AtaqueEspadaPet());
             }
         }
     }
+
     public void AtualizarTextoMunicao()
     {
         if (textoMunicao != null)
         {
-            
             if (possuiEspada)
             {
                 textoMunicao.text = "Facas & Laser: " + municao;
             }
-            else 
+            else
             {
                 textoMunicao.text = "Facas: " + municao;
             }
         }
     }
 
-
     public void ColetarFacas(int quantidade)
     {
         possuiFaca = true;
         municao += quantidade;
 
-        PlayerPrefs.SetInt("MunicaoSalva", municao); 
-        PlayerPrefs.SetInt("TemFacaSalva", 1);       
+        PlayerPrefs.SetInt("MunicaoSalva", municao);
+        PlayerPrefs.SetInt("TemFacaSalva", 1);
 
         AtualizarTextoMunicao();
     }
@@ -209,9 +202,8 @@ public class mov : MonoBehaviour
         if (modoVoo)
         {
             Vector3 movimentoVoo = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
-            transform.position += movimentoVoo * Time.deltaTime * (Speed * 1.5f); 
+            transform.position += movimentoVoo * Time.deltaTime * (Speed * 1.5f);
         }
-        // Se estiver desligado, move normal (só pros lados)
         else
         {
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
@@ -224,11 +216,11 @@ public class mov : MonoBehaviour
         {
             transform.eulerAngles = new Vector2(0f, 0f);
         }
-
         else if (InputAxis < 0)
         {
             transform.eulerAngles = new Vector2(0f, 180f);
         }
+
         if (InputAxis != 0)
         {
             animator.SetBool("isRunning", true);
@@ -245,7 +237,6 @@ public class mov : MonoBehaviour
         {
             rig.AddForce(new Vector2(0f, Jumpforce), ForceMode2D.Impulse);
 
-            
             if (somPulo != null && audioSource != null)
             {
                 audioSource.PlayOneShot(somPulo);
@@ -256,16 +247,15 @@ public class mov : MonoBehaviour
         }
     }
 
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isJumping = false; 
-            animator.SetBool("isJumping", false); 
+            isJumping = false;
+            animator.SetBool("isJumping", false);
         }
     }
+
     public void ColetarEspada()
     {
         possuiEspada = true;
@@ -275,20 +265,17 @@ public class mov : MonoBehaviour
         {
             espadaPet.SetActive(true);
         }
-  
-        AtualizarTextoMunicao();
 
-        Debug.Log("Espada Pet ativada!");
+        AtualizarTextoMunicao();
     }
+
     IEnumerator AtaqueEspadaPet()
     {
         espadaAtacando = true;
 
-        
         Vector3 posicaoDescanso = new Vector3(-0.193f, 0.3511f, 0f);
         Vector3 posicaoAtaque = new Vector3(0.289f, 0.131f, 0f);
 
-        
         espadaPet.transform.localPosition = posicaoAtaque;
 
         yield return new WaitForSeconds(0.05f);
@@ -303,9 +290,21 @@ public class mov : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
 
-       
         espadaPet.transform.localPosition = posicaoDescanso;
 
         espadaAtacando = false;
+    }
+
+    IEnumerator MostrarAvisoCheat(string mensagem)
+    {
+        if (textoAvisoCheat != null)
+        {
+            textoAvisoCheat.text = mensagem;
+            textoAvisoCheat.gameObject.SetActive(true);
+
+            yield return new WaitForSeconds(2f);
+
+            textoAvisoCheat.gameObject.SetActive(false);
+        }
     }
 }
