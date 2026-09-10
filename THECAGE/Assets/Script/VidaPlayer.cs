@@ -23,6 +23,8 @@ public class VidaPlayer : MonoBehaviour
 
     void Start()
     {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Inimigo"), false);
+
         audioSource = GetComponent<AudioSource>();
 
         vidaAtual = PlayerPrefs.GetInt("VidaSalva", vidaMaxima);
@@ -76,15 +78,21 @@ public class VidaPlayer : MonoBehaviour
 
     IEnumerator EfeitoPiscar()
     {
-        
-        for (int i = 0; i < quantidadeDePiscadas; i++)
-        {
-            spriteRenderer.enabled = false; 
-            yield return new WaitForSeconds(tempoPiscada); 
+        int layerPlayer = LayerMask.NameToLayer("Player");
+        int layerInimigo = LayerMask.NameToLayer("Inimigo");
 
-            spriteRenderer.enabled = true; 
-            yield return new WaitForSeconds(tempoPiscada); 
+        Physics2D.IgnoreLayerCollision(layerPlayer, layerInimigo, true);
+
+        for (int i = 0; i < 5; i++)
+        {
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.3f); 
+            yield return new WaitForSeconds(0.15f);
+
+            spriteRenderer.color = Color.white;
+            yield return new WaitForSeconds(0.15f);
         }
+
+        Physics2D.IgnoreLayerCollision(layerPlayer, layerInimigo, false);
     }
 
     void AtualizarTexto()
