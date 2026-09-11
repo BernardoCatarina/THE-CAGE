@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 496848685079665616}
   - component: {fileID: 5414193289465785755}
   - component: {fileID: 6659168019291446222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: soco boss 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,3 +180,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SocoBoss
   velocidade: 4
   danoDoSoco: 1
+  tempoDeEspera: 1.5

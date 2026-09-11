@@ -108,4 +108,13 @@ public class VidaPlayer : MonoBehaviour
         Debug.Log("Game Over!");
         SceneManager.LoadScene("GameOver");
     }
+    public void Curar(int quantidade)
+    {
+        vidaAtual += quantidade;
+        if (vidaAtual > vidaMaxima) vidaAtual = vidaMaxima; 
+
+        PlayerPrefs.SetInt("VidaSalva", vidaAtual);
+        if (barraDeVida != null) barraDeVida.value = vidaAtual;
+        AtualizarTexto();
+    }
 }

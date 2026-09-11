@@ -1,13 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; 
+using UnityEngine.UI;
+using TMPro; 
 
 public class VidaBoss : MonoBehaviour
 {
     public int vidaMaxima = 5;
     private int vidaAtual;
 
-    public Slider barraDeVida; 
+    public Slider barraDeVida;
+
+   
+    public GameObject prefabTextoFlutuante;
 
     void Start()
     {
@@ -30,6 +34,15 @@ public class VidaBoss : MonoBehaviour
         }
 
         Debug.Log("O Boss tomou dano! Vida restante: " + vidaAtual);
+
+       
+        if (prefabTextoFlutuante != null)
+        {
+            GameObject texto = Instantiate(prefabTextoFlutuante, transform.position, Quaternion.identity);
+            texto.GetComponent<TextMeshPro>().text = "-" + quantidadeDeDano;
+            texto.GetComponent<TextMeshPro>().color = Color.red;
+        }
+        
 
         if (vidaAtual <= 0)
         {
