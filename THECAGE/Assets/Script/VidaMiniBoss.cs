@@ -1,35 +1,24 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
-public class VidaInimigo : MonoBehaviour
+public class VidaMiniBoss : MonoBehaviour
 {
-    public int vidaMaxima = 3;
+    public int vidaMaxima = 25;
     private int vidaAtual;
-    public Slider barraDeVida;
     public GameObject prefabTextoFlutuante;
 
-    [Header("Configurações de Boss (Drops)")]
-    public bool ehUmBoss = false; 
+    [Header("Drops")]
     public GameObject prefabCoracao;
     public GameObject prefabMunicao;
-    public int quantidadeDeDrops = 4;
-
+    public int quantidadeDeDrops = 4; 
     void Start()
     {
         vidaAtual = vidaMaxima;
-        if (barraDeVida != null)
-        {
-            barraDeVida.maxValue = vidaMaxima;
-            barraDeVida.value = vidaAtual;
-        }
     }
 
     public void TomarDano(int quantidade)
     {
         vidaAtual -= quantidade;
-
-        if (barraDeVida != null) barraDeVida.value = vidaAtual;
 
         if (prefabTextoFlutuante != null)
         {
@@ -40,7 +29,7 @@ public class VidaInimigo : MonoBehaviour
 
         if (vidaAtual <= 0)
         {
-            if (ehUmBoss) SoltarRecompensas();
+            SoltarRecompensas();
             Destroy(gameObject);
         }
     }
@@ -49,9 +38,12 @@ public class VidaInimigo : MonoBehaviour
     {
         for (int i = 0; i < quantidadeDeDrops; i++)
         {
+            
             GameObject itemSorteado = Random.value > 0.5f ? prefabCoracao : prefabMunicao;
+
             if (itemSorteado != null)
             {
+                
                 Vector3 posicaoAleatoria = transform.position + new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(0f, 1f), 0);
                 Instantiate(itemSorteado, posicaoAleatoria, Quaternion.identity);
             }

@@ -23,7 +23,7 @@ public class faca : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             
-            int dano = mov.instaKill ? 9999 : 1;
+            int dano = mov.instaKill ? 999 : 1;
 
             VidaBoss scriptDoBoss = collision.GetComponent<VidaBoss>();
             if (scriptDoBoss != null)
