@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class GerenciadorDeCenas : MonoBehaviour
 {
-
     public void VoltarParaMenu()
     {
         PlayerPrefs.DeleteKey("VidaSalva");
@@ -18,6 +17,18 @@ public class GerenciadorDeCenas : MonoBehaviour
         mov.modoMetralhadora = false;
         // ------------------------------
 
-        SceneManager.LoadScene("menu");
+        
+        ControleTransicao transicao = FindObjectOfType<ControleTransicao>();
+
+        if (transicao != null)
+        {
+            
+            transicao.IrParaProximaFase("menu");
+        }
+        else
+        {
+            
+            SceneManager.LoadScene("menu");
+        }
     }
 }

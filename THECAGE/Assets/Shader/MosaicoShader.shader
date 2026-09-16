@@ -1,58 +1,61 @@
-Shader "Custom/NewUnlitUniversalRenderPipelineShader"
+Shader "Custom/MosaicoMagico"
 {
     Properties
     {
-        [MainColor] _BaseColor("Base Color", Color) = (1, 1, 1, 1)
-        [MainTexture] _BaseMap("Base Map", 2D) = "white"
+        [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
+        _Color ("Cor da Tela", Color) = (0,0,0,1)
+        _Cutoff ("Progresso", Range(-0.5, 3.5)) = -0.5
+        _Tamanho ("Quantidade de Losangos", Float) = 15
     }
 
     SubShader
     {
-        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" }
+        Tags { "Queue"="Transparent+100" "RenderType"="Transparent" }
+        Cull Off Lighting Off ZWrite Off
+        Blend SrcAlpha OneMinusSrcAlpha
 
         Pass
         {
-            HLSLPROGRAM
-
+            CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #include "UnityCG.cginc"
 
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            struct appdata_t { float4 vertex : POSITION; float4 color : COLOR; float2 texcoord : TEXCOORD0; };
+            struct v2f { float4 vertex : SV_POSITION; fixed4 color : COLOR; float2 texcoord : TEXCOORD0; };
 
-            struct Attributes
+            fixed4 _Color;
+            float _Cutoff;
+            float _Tamanho;
+
+            v2f vert(appdata_t IN)
             {
-                float4 positionOS : POSITION;
-                float2 uv : TEXCOORD0;
-            };
-
-            struct Varyings
-            {
-                float4 positionHCS : SV_POSITION;
-                float2 uv : TEXCOORD0;
-            };
-
-            TEXTURE2D(_BaseMap);
-            SAMPLER(sampler_BaseMap);
-
-            CBUFFER_START(UnityPerMaterial)
-                half4 _BaseColor;
-                float4 _BaseMap_ST;
-            CBUFFER_END
-
-            Varyings vert(Attributes IN)
-            {
-                Varyings OUT;
-                OUT.positionHCS = TransformObjectToHClip(IN.positionOS.xyz);
-                OUT.uv = TRANSFORM_TEX(IN.uv, _BaseMap);
+                v2f OUT;
+                OUT.vertex = UnityObjectToClipPos(IN.vertex);
+                OUT.texcoord = IN.texcoord;
+                OUT.color = IN.color * _Color;
                 return OUT;
             }
 
-            half4 frag(Varyings IN) : SV_Target
+            fixed4 frag(v2f IN) : SV_Target
             {
-                half4 color = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv) * _BaseColor;
-                return color;
+                float2 uv = IN.texcoord;
+
+                
+                float diagonal = uv.x + uv.y;
+
+                uv.x *= 1.77;
+
+                
+                float2 grid = frac(uv * _Tamanho);
+                float dist = abs(grid.x - 0.5) + abs(grid.y - 0.5);
+
+               
+                if (dist + diagonal > _Cutoff) return half4(0,0,0,0);
+                
+                return IN.color;
             }
-            ENDHLSL
+            ENDCG
         }
     }
 }

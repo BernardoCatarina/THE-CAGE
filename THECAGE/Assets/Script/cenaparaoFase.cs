@@ -17,6 +17,18 @@ public class cenaparaoFase : MonoBehaviour
         mov.modoMetralhadora = false;
         // ------------------------------
 
-        SceneManager.LoadScene("Fase");
+        
+        ControleTransicao transicao = FindObjectOfType<ControleTransicao>();
+
+        if (transicao != null)
+        {
+            
+            transicao.IrParaProximaFase("Fase");
+        }
+        else
+        {
+            
+            SceneManager.LoadScene("Fase");
+        }
     }
 }
