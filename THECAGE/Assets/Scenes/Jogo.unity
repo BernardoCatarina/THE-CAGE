@@ -679,9 +679,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc06e178ab81fdd44b58f7479615e870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossAtira
-  socoPrefab: {fileID: 3965228535813096255, guid: 85b24f1f3c4b7cf478ce6d785ccc4ea7, type: 3}
+  socoPrefab: {fileID: 464789490737526231, guid: e47fb9434beaf1c448a957371a87f7e3, type: 3}
   pontoDeTiro: {fileID: 1948119736}
-  tempoEntreAtaques: 1
+  tempoEntreAtaques: 1.2
 --- !u!60 &417591591
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1789,7 +1789,7 @@ Transform:
   m_GameObject: {fileID: 1948119735}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.65, y: -0.25, z: 0}
+  m_LocalPosition: {x: -1.45, y: -0.372, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3375,8 +3375,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -632, y: 400.09473}
-  m_SizeDelta: {x: 428.603, y: 83.215}
+  m_AnchoredPosition: {x: -637.6823, y: 400.09473}
+  m_SizeDelta: {x: 443.983, y: 83.215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3376519758003353840
 GameObject:
