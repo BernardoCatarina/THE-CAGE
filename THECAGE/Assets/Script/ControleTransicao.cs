@@ -14,6 +14,8 @@ public class ControleTransicao : MonoBehaviour
     void Start()
     {
         
+        Time.timeScale = 1f;
+
         Canvas canvas = telaPreta.canvas;
         if (canvas != null)
         {
@@ -26,7 +28,6 @@ public class ControleTransicao : MonoBehaviour
 
         if (iniciarComEfeito)
         {
-            
             StartCoroutine(EfeitoMosaico(3.5f, -0.5f, ""));
         }
         else
@@ -38,6 +39,7 @@ public class ControleTransicao : MonoBehaviour
     public void IrParaProximaFase(string nomeDaCena)
     {
         
+        Time.timeScale = 0f;
         StartCoroutine(EfeitoMosaico(-0.5f, 3.5f, nomeDaCena));
     }
 
@@ -48,27 +50,25 @@ public class ControleTransicao : MonoBehaviour
         float tempo = 0f;
         while (tempo < tempoDeEfeito)
         {
-         
             tempo += Time.unscaledDeltaTime;
             float progresso = tempo / tempoDeEfeito;
 
             float valorAtual = Mathf.Lerp(inicio, fim, progresso);
             materialAnimado.SetFloat("_Cutoff", valorAtual);
 
-            yield return null; 
+            yield return null;
         }
 
-       
         materialAnimado.SetFloat("_Cutoff", fim);
 
-       
         if (!string.IsNullOrEmpty(proximaCena))
         {
-            SceneManager.LoadScene(proximaCena);
+            
+            Time.timeScale = 1f;
+            SceneManager.LoadSceneAsync(proximaCena);
         }
         else
         {
-            
             telaPreta.gameObject.SetActive(false);
         }
     }

@@ -9,7 +9,6 @@ public class EfeitoFade : MonoBehaviour
 
     void Start()
     {
-        
         Canvas canvas = telaDeCor.canvas;
         if (canvas != null)
         {
@@ -17,38 +16,36 @@ public class EfeitoFade : MonoBehaviour
             canvas.sortingOrder = 105;
         }
 
-       
         telaDeCor.gameObject.SetActive(false);
     }
 
-    
     public void IniciarFade(string nomeDaProximaCena, Color corDoEfeito, float duracaoDoEfeito)
     {
+        
+        Time.timeScale = 0f;
+
         StartCoroutine(RotinaFade(nomeDaProximaCena, corDoEfeito, duracaoDoEfeito));
     }
 
     IEnumerator RotinaFade(string cena, Color cor, float tempoTotal)
     {
         telaDeCor.gameObject.SetActive(true);
-
-       
         telaDeCor.color = new Color(cor.r, cor.g, cor.b, 0f);
 
         float tempo = 0f;
         while (tempo < tempoTotal)
         {
-            tempo += Time.unscaledDeltaTime;
+            tempo += Time.unscaledDeltaTime; 
             float transparencia = tempo / tempoTotal;
 
-           
             telaDeCor.color = new Color(cor.r, cor.g, cor.b, transparencia);
             yield return null;
         }
 
-       
         telaDeCor.color = new Color(cor.r, cor.g, cor.b, 1f);
 
-       
+        
+        Time.timeScale = 1f;
         SceneManager.LoadScene(cena);
     }
 }
