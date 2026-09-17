@@ -106,15 +106,40 @@ public class VidaPlayer : MonoBehaviour
     void Morrer()
     {
         Debug.Log("Game Over!");
-        SceneManager.LoadScene("GameOver");
+
+        
+        EfeitoFade fade = FindObjectOfType<EfeitoFade>();
+
+        if (fade != null)
+        {
+            
+            Color vermelhoSangue = new Color(0.5f, 0f, 0f);
+            fade.IniciarFade("GameOver", vermelhoSangue, 2.5f);
+        }
+        else
+        {
+            
+            SceneManager.LoadScene("GameOver");
+        }
     }
     public void Curar(int quantidade)
     {
         vidaAtual += quantidade;
-        if (vidaAtual > vidaMaxima) vidaAtual = vidaMaxima; 
 
+       
+        if (vidaAtual > vidaMaxima)
+        {
+            vidaAtual = vidaMaxima;
+        }
+
+        
         PlayerPrefs.SetInt("VidaSalva", vidaAtual);
-        if (barraDeVida != null) barraDeVida.value = vidaAtual;
+
+        if (barraDeVida != null)
+        {
+            barraDeVida.value = vidaAtual;
+        }
+
         AtualizarTexto();
     }
 }

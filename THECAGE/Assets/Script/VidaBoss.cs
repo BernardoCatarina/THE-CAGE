@@ -53,6 +53,19 @@ public class VidaBoss : MonoBehaviour
     void Morrer()
     {
         Debug.Log("O Boss morreu!");
-        SceneManager.LoadScene("Vitoria");
+
+        
+        EfeitoFade fade = FindObjectOfType<EfeitoFade>();
+
+        if (fade != null)
+        {
+            
+            fade.IniciarFade("Vitoria", Color.white, 1.5f);
+        }
+        else
+        {
+            
+            SceneManager.LoadScene("Vitoria");
+        }
     }
 }
