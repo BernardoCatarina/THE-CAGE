@@ -350,18 +350,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 6599840094893313922}
-        m_TargetAssemblyTypeName: ControleTransicao, Assembly-CSharp
-        m_MethodName: IrParaProximaFase
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Historia
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &307293602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2629,7 +2617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControleTransicao
   telaPreta: {fileID: 8942625496105214821}
-  tempoDeEfeito: 1.5
+  tempoDeEfeito: 2
   iniciarComEfeito: 1
 --- !u!223 &7544632232991422098
 Canvas:

@@ -48,17 +48,17 @@ public class ControleTransicao : MonoBehaviour
         float tempo = 0f;
         while (tempo < tempoDeEfeito)
         {
-           
+         
             tempo += Time.unscaledDeltaTime;
             float progresso = tempo / tempoDeEfeito;
 
             float valorAtual = Mathf.Lerp(inicio, fim, progresso);
             materialAnimado.SetFloat("_Cutoff", valorAtual);
 
-            yield return null;
+            yield return null; 
         }
 
-        
+       
         materialAnimado.SetFloat("_Cutoff", fim);
 
        

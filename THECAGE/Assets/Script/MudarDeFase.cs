@@ -9,16 +9,27 @@ public class MudarDeFase : MonoBehaviour
 
     void Start()
     {
-        
         if (textoAviso != null) textoAviso.SetActive(false);
     }
 
     void Update()
     {
-        
+       
         if (playerPerto && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1)))
         {
-            SceneManager.LoadScene(nomeDaProximaCena);
+           
+            ControleTransicao transicao = FindObjectOfType<ControleTransicao>();
+
+            if (transicao != null)
+            {
+               
+                transicao.IrParaProximaFase(nomeDaProximaCena);
+            }
+            else
+            {
+                
+                SceneManager.LoadScene(nomeDaProximaCena);
+            }
         }
     }
 

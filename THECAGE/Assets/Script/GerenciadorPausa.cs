@@ -1,15 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
 public class GerenciadorPausa : MonoBehaviour
 {
     public GameObject painelOpcoes;
-    public Slider sliderVolume; 
+    public Slider sliderVolume;
 
     void Start()
     {
-        
         if (sliderVolume != null)
         {
             sliderVolume.value = AudioListener.volume;
@@ -19,22 +18,35 @@ public class GerenciadorPausa : MonoBehaviour
     public void AbrirOpcoes()
     {
         painelOpcoes.SetActive(true);
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
     }
 
     public void FecharOpcoes()
     {
         painelOpcoes.SetActive(false);
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
     }
 
     public void VoltarParaMenu()
     {
+       
         Time.timeScale = 1f;
-        SceneManager.LoadScene("menu");
+
+       
+        ControleTransicao transicao = FindObjectOfType<ControleTransicao>();
+
+        if (transicao != null)
+        {
+            
+            transicao.IrParaProximaFase("menu");
+        }
+        else
+        {
+            
+            SceneManager.LoadScene("menu");
+        }
     }
 
-    
     public void AlterarVolume(float valor)
     {
         AudioListener.volume = valor;

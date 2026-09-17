@@ -1,13 +1,27 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class NewMonoBehaviourScript : MonoBehaviour
 {
     [SerializeField] private string nomeDoLevelDeJogo;
     [SerializeField] private GameObject painelMenuInicial;
     [SerializeField] private GameObject painelOpcoes;
+
     public void Jogar()
     {
-        SceneManager.LoadScene(nomeDoLevelDeJogo);
+        
+        ControleTransicao transicao = FindObjectOfType<ControleTransicao>();
+
+        if (transicao != null)
+        {
+            
+            transicao.IrParaProximaFase(nomeDoLevelDeJogo);
+        }
+        else
+        {
+            
+            SceneManager.LoadScene(nomeDoLevelDeJogo);
+        }
     }
 
     public void AbrirOpcoes()
