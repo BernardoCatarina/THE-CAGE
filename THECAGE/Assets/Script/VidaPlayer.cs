@@ -19,7 +19,9 @@ public class VidaPlayer : MonoBehaviour
    
     private SpriteRenderer spriteRenderer;
     public int quantidadeDePiscadas = 3; 
-    public float tempoPiscada = 0.1f;    
+    public float tempoPiscada = 0.1f;
+
+    public Animator animator;
 
     void Start()
     {
@@ -108,17 +110,27 @@ public class VidaPlayer : MonoBehaviour
         Debug.Log("Game Over!");
 
         
+        if (animator != null)
+        {
+            animator.SetTrigger("AnimacaoMorte");
+        }
+
+        
+        if (GetComponent<mov>() != null)
+        {
+            GetComponent<mov>().enabled = false;
+        }
+
+        
         EfeitoFade fade = FindObjectOfType<EfeitoFade>();
 
         if (fade != null)
         {
-            
             Color vermelhoSangue = new Color(0.5f, 0f, 0f);
             fade.IniciarFade("GameOver", vermelhoSangue, 2.5f);
         }
         else
         {
-            
             SceneManager.LoadScene("GameOver");
         }
     }

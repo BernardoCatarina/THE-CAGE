@@ -162,7 +162,16 @@ public class mov : MonoBehaviour
 
             proximoTiro = Time.time + tempoDeRecarga;
 
-            Instantiate(bullet, transform.position, transform.rotation);
+            
+            Vector3 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            posicaoMouse.z = 0f;
+
+            
+            Vector2 direcaoTiro = (posicaoMouse - transform.position).normalized;
+            float anguloTiro = Mathf.Atan2(direcaoTiro.y, direcaoTiro.x) * Mathf.Rad2Deg;
+
+            
+            Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, anguloTiro));
 
             if (possuiEspada && projetilEspada != null && !espadaAtacando)
             {
@@ -281,7 +290,14 @@ public class mov : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
 
         Vector3 localDoLaser = pontaDaEspada != null ? pontaDaEspada.position : espadaPet.transform.position;
-        Instantiate(projetilEspada, localDoLaser, transform.rotation);
+
+        Vector3 posicaoMouseLaser = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        posicaoMouseLaser.z = 0f;
+
+        Vector2 direcaoLaser = (posicaoMouseLaser - localDoLaser).normalized;
+        float anguloLaser = Mathf.Atan2(direcaoLaser.y, direcaoLaser.x) * Mathf.Rad2Deg;
+
+        Instantiate(projetilEspada, localDoLaser, Quaternion.Euler(0f, 0f, anguloLaser));
 
         if (somLaser != null && audioSource != null)
         {
