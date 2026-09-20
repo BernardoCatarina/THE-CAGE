@@ -23,6 +23,8 @@ public class VidaPlayer : MonoBehaviour
 
     public Animator animator;
 
+    private bool estaMorto = false;
+
     void Start()
     {
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Inimigo"), false);
@@ -44,34 +46,38 @@ public class VidaPlayer : MonoBehaviour
 
     public void TomarDano(int quantidade)
     {
-        
-        if (mov.modoImortal)
+        if (estaMorto || mov.modoImortal)
         {
-            return; 
+            return;
         }
-       
+
         vidaAtual -= quantidade;
 
+        if (vidaAtual < 0)
+        {
+            vidaAtual = 0;
+        }
+
         PlayerPrefs.SetInt("VidaSalva", vidaAtual);
-        
+
         if (barraDeVida != null)
         {
             barraDeVida.value = vidaAtual;
         }
         AtualizarTexto();
-       
+
         if (somDeDano != null && audioSource != null)
         {
             audioSource.PlayOneShot(somDeDano);
         }
-       
+
         if (spriteRenderer != null)
         {
             StartCoroutine(EfeitoPiscar());
         }
 
         Debug.Log("Ai! O Player tomou dano. Vida restante: " + vidaAtual);
-      
+
         if (vidaAtual <= 0)
         {
             Morrer();
@@ -107,23 +113,52 @@ public class VidaPlayer : MonoBehaviour
 
     void Morrer()
     {
+        
+        if (estaMorto) return;
+        estaMorto = true;
+
+        StartCoroutine(RotinaQuedaEMorte());
+    }
+
+    IEnumerator RotinaQuedaEMorte()
+    {
         Debug.Log("Game Over!");
 
-        
-        if (animator != null)
-        {
-            animator.SetTrigger("AnimacaoMorte");
-        }
-
-        
         if (GetComponent<mov>() != null)
         {
             GetComponent<mov>().enabled = false;
         }
 
-        
-        EfeitoFade fade = FindObjectOfType<EfeitoFade>();
+     
+        if (animator != null)
+        {
+            animator.SetBool("isRunning", false);
+            animator.SetBool("isJumping", false);
+            animator.SetTrigger("AnimacaoMorte");
+        }
 
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+  
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+
+             yield return new WaitForSeconds(0.1f);
+
+            float tempoLimite = 3f; 
+            float timer = 0f;
+
+            while (Mathf.Abs(rb.linearVelocity.y) > 0.05f && timer < tempoLimite)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        EfeitoFade fade = FindObjectOfType<EfeitoFade>();
         if (fade != null)
         {
             Color vermelhoSangue = new Color(0.5f, 0f, 0f);

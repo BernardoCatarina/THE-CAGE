@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 307293603}
   - component: {fileID: 307293602}
   - component: {fileID: 307293601}
+  - component: {fileID: 307293604}
   m_Layer: 5
   m_Name: Jogar
   m_TagString: Untagged
@@ -388,6 +389,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307293599}
   m_CullTransparentMesh: 1
+--- !u!114 &307293604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307293599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc3daa0fa97a5d4f8ec889ca6b2de53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EfeitosBotao
+  tamanhoAoPassarMouse: {x: 1.1, y: 1.1, z: 1.1}
+  velocidadeAnimacao: 12
+  somHover: {fileID: 8300000, guid: c0d126e7792db724aa4cc66617dc45de, type: 3}
+  somClick: {fileID: 8300000, guid: a7c2e89e77123cc4a8851ba1a8232ddd, type: 3}
 --- !u!1 &311253625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,6 +1158,7 @@ GameObject:
   - component: {fileID: 1154650403}
   - component: {fileID: 1154650405}
   - component: {fileID: 1154650404}
+  - component: {fileID: 1154650406}
   m_Layer: 5
   m_Name: fundo
   m_TagString: Untagged
@@ -1205,6 +1223,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154650402}
   m_CullTransparentMesh: 1
+--- !u!114 &1154650406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154650402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68cb87d005a0ec4d80be5c504b9ee96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuParallax
+  forcaDoParallax: 12
 --- !u!1 &1279095938
 GameObject:
   m_ObjectHideFlags: 0
@@ -2112,6 +2143,7 @@ GameObject:
   - component: {fileID: 1994465923}
   - component: {fileID: 1994465922}
   - component: {fileID: 1994465921}
+  - component: {fileID: 1994465924}
   m_Layer: 5
   m_Name: Voltar
   m_TagString: Untagged
@@ -2233,6 +2265,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994465919}
   m_CullTransparentMesh: 1
+--- !u!114 &1994465924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994465919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc3daa0fa97a5d4f8ec889ca6b2de53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EfeitosBotao
+  tamanhoAoPassarMouse: {x: 1.1, y: 1.1, z: 1.1}
+  velocidadeAnimacao: 12
+  somHover: {fileID: 8300000, guid: c0d126e7792db724aa4cc66617dc45de, type: 3}
+  somClick: {fileID: 8300000, guid: a7c2e89e77123cc4a8851ba1a8232ddd, type: 3}
 --- !u!1 &2000815050
 GameObject:
   m_ObjectHideFlags: 0
@@ -2245,6 +2293,7 @@ GameObject:
   - component: {fileID: 2000815054}
   - component: {fileID: 2000815053}
   - component: {fileID: 2000815052}
+  - component: {fileID: 2000815055}
   m_Layer: 5
   m_Name: Creditos
   m_TagString: Untagged
@@ -2366,6 +2415,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000815050}
   m_CullTransparentMesh: 1
+--- !u!114 &2000815055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000815050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc3daa0fa97a5d4f8ec889ca6b2de53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EfeitosBotao
+  tamanhoAoPassarMouse: {x: 1.1, y: 1.1, z: 1.1}
+  velocidadeAnimacao: 12
+  somHover: {fileID: 8300000, guid: c0d126e7792db724aa4cc66617dc45de, type: 3}
+  somClick: {fileID: 8300000, guid: a7c2e89e77123cc4a8851ba1a8232ddd, type: 3}
 --- !u!1 &2133913533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,6 +2443,7 @@ GameObject:
   - component: {fileID: 2133913537}
   - component: {fileID: 2133913536}
   - component: {fileID: 2133913535}
+  - component: {fileID: 2133913538}
   m_Layer: 5
   m_Name: Sair
   m_TagString: Untagged
@@ -2499,6 +2565,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133913533}
   m_CullTransparentMesh: 1
+--- !u!114 &2133913538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133913533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc3daa0fa97a5d4f8ec889ca6b2de53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EfeitosBotao
+  tamanhoAoPassarMouse: {x: 1.1, y: 1.1, z: 1.1}
+  velocidadeAnimacao: 12
+  somHover: {fileID: 8300000, guid: c0d126e7792db724aa4cc66617dc45de, type: 3}
+  somClick: {fileID: 8300000, guid: a7c2e89e77123cc4a8851ba1a8232ddd, type: 3}
 --- !u!1 &627802042783414659
 GameObject:
   m_ObjectHideFlags: 0

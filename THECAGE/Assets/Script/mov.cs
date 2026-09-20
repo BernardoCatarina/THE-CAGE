@@ -144,6 +144,41 @@ public class mov : MonoBehaviour
         }
         // --------------------------------------------------
 
+        // ---------------- MOVIMENTO DO PET ESPADA ----------------
+        if (possuiEspada && espadaPet != null && !espadaAtacando)
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0f;
+
+            Vector3 centroDoBuck = transform.position + new Vector3(0f, 1f, 0f);
+
+            Vector3 vetorDistancia = mousePos - centroDoBuck;
+            float distancia = vetorDistancia.magnitude;
+
+            float limiteMaximo = 2.2f; 
+            float limiteMinimo = 1.1f; 
+
+            if (distancia > limiteMaximo)
+            {
+                vetorDistancia = vetorDistancia.normalized * limiteMaximo;
+            }
+            else if (distancia < limiteMinimo)
+            {
+                if (distancia == 0f) vetorDistancia = Vector3.up * limiteMinimo;
+                else vetorDistancia = vetorDistancia.normalized * limiteMinimo;
+            }
+
+            Vector3 posicaoAlvo = centroDoBuck + vetorDistancia;
+
+            espadaPet.transform.position = Vector3.Lerp(espadaPet.transform.position, posicaoAlvo, Time.deltaTime * 6f);
+
+            Vector2 direcaoOlhar = (mousePos - espadaPet.transform.position).normalized;
+
+            float angulo = (Mathf.Atan2(direcaoOlhar.y, direcaoOlhar.x) * Mathf.Rad2Deg) - 90f;
+
+            espadaPet.transform.rotation = Quaternion.Euler(0f, 0f, angulo);
+        }
+
         Move();
         Jump();
 
@@ -161,17 +196,16 @@ public class mov : MonoBehaviour
             }
 
             proximoTiro = Time.time + tempoDeRecarga;
-
             
             Vector3 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             posicaoMouse.z = 0f;
-
             
-            Vector2 direcaoTiro = (posicaoMouse - transform.position).normalized;
+            Vector3 posicaoDoTiro = transform.position + new Vector3(0f, 1f, 0f);
+            
+            Vector2 direcaoTiro = (posicaoMouse - posicaoDoTiro).normalized;
             float anguloTiro = Mathf.Atan2(direcaoTiro.y, direcaoTiro.x) * Mathf.Rad2Deg;
-
-            
-            Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, anguloTiro));
+          
+            Instantiate(bullet, posicaoDoTiro, Quaternion.Euler(0f, 0f, anguloTiro));
 
             if (possuiEspada && projetilEspada != null && !espadaAtacando)
             {
@@ -282,15 +316,7 @@ public class mov : MonoBehaviour
     {
         espadaAtacando = true;
 
-        Vector3 posicaoDescanso = new Vector3(-0.193f, 0.3511f, 0f);
-        Vector3 posicaoAtaque = new Vector3(0.289f, 0.131f, 0f);
-
-        espadaPet.transform.localPosition = posicaoAtaque;
-
-        yield return new WaitForSeconds(0.05f);
-
-        Vector3 localDoLaser = pontaDaEspada != null ? pontaDaEspada.position : espadaPet.transform.position;
-
+         Vector3 localDoLaser = pontaDaEspada != null ? pontaDaEspada.position : espadaPet.transform.position;
         Vector3 posicaoMouseLaser = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         posicaoMouseLaser.z = 0f;
 
@@ -304,9 +330,9 @@ public class mov : MonoBehaviour
             audioSource.PlayOneShot(somLaser);
         }
 
-        yield return new WaitForSeconds(0.2f);
+        espadaPet.transform.position -= (Vector3)direcaoLaser * 0.3f;
 
-        espadaPet.transform.localPosition = posicaoDescanso;
+        yield return new WaitForSeconds(0.2f);
 
         espadaAtacando = false;
     }
