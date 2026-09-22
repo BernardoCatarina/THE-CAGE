@@ -45,4 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GerenciadorPausa
   painelOpcoes: {fileID: 0}
-  sliderVolume: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 6595b255237c5ea47b18be6747f398fb, type: 2}
+  sliderMusica: {fileID: 0}
+  sliderEfeitos: {fileID: 0}

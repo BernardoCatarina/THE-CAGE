@@ -2176,7 +2176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817549aae72e2994ca4e3ff7a8a9c72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  nomedoLevelDeJogo: 
+  nomedoLevelDeJogo: Historia
   painelMenuInicial: {fileID: 1525772477}
   painelOpcoes: {fileID: 1416987643}
   painelCreditos: {fileID: 649634019}
