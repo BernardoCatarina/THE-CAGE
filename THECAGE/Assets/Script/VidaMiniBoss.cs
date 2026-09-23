@@ -10,9 +10,18 @@ public class VidaMiniBoss : MonoBehaviour
     [Header("Drops")]
     public GameObject prefabCoracao;
     public GameObject prefabMunicao;
-    public int quantidadeDeDrops = 4; 
+    public int quantidadeDeDrops = 4;
+
+    [Header("Sons")]
+    public AudioClip somDano;
+    public AudioClip somMorte; 
+    private AudioSource audioSource;
+
+    [Header("Efeito Visual")]
+    public GameObject prefabEfeitoMorte;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         vidaAtual = vidaMaxima;
     }
 
@@ -30,7 +39,46 @@ public class VidaMiniBoss : MonoBehaviour
         if (vidaAtual <= 0)
         {
             SoltarRecompensas();
-            Destroy(gameObject);
+
+
+            if (prefabEfeitoMorte != null)
+            {
+                Instantiate(prefabEfeitoMorte, transform.position, Quaternion.identity);
+            }
+
+
+            if (somMorte != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(somMorte);
+            }
+
+
+            Renderer[] todosVisuais = GetComponentsInChildren<Renderer>();
+            foreach (Renderer r in todosVisuais) r.enabled = false;
+
+            Canvas[] todasTelas = GetComponentsInChildren<Canvas>();
+            foreach (Canvas c in todasTelas) c.enabled = false;
+
+
+            if (GetComponent<Rigidbody2D>() != null)
+            {
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                GetComponent<Rigidbody2D>().simulated = false;
+            }
+
+            Collider2D[] colisores = GetComponentsInChildren<Collider2D>();
+            foreach (Collider2D col in colisores) col.enabled = false;
+
+
+            MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
+            foreach (MonoBehaviour s in scripts)
+            {
+                if (s != this) s.enabled = false;
+            }
+
+
+            float tempoSom = (somMorte != null) ? somMorte.length : 0.1f;
+            Destroy(gameObject, tempoSom);
         }
     }
 

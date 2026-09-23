@@ -81,7 +81,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         if (audioMixer != null)
         {
-            audioMixer.SetFloat("VolMusica", volume);
+            
+            if (volume <= 0f) volume = 0.0001f;
+
+            
+            float decibeis = Mathf.Log10(volume) * 20f;
+
+            audioMixer.SetFloat("VolMusica", decibeis);
             PlayerPrefs.SetFloat("VolMusica", volume);
         }
     }
@@ -90,7 +96,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         if (audioMixer != null)
         {
-            audioMixer.SetFloat("VolEfeitos", volume);
+            if (volume <= 0f) volume = 0.0001f;
+
+            float decibeis = Mathf.Log10(volume) * 20f;
+
+            audioMixer.SetFloat("VolEfeitos", decibeis);
             PlayerPrefs.SetFloat("VolEfeitos", volume);
         }
     }

@@ -1,5 +1,6 @@
 using UnityEngine;
-using TMPro; 
+using TMPro;
+
 public class ItemEspada : MonoBehaviour
 {
     [Header("Efeito Flutuante")]
@@ -10,9 +11,14 @@ public class ItemEspada : MonoBehaviour
     [Header("Efeito Visual")]
     public GameObject prefabTextoFlutuante;
 
+    [Header("Sons")]
+    public AudioClip somColeta;
+    private AudioSource audioSource;
+
     void Start()
     {
         posicaoInicial = transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -28,10 +34,8 @@ public class ItemEspada : MonoBehaviour
             mov scriptPlayer = collision.GetComponent<mov>();
             if (scriptPlayer != null)
             {
-                
                 scriptPlayer.ColetarEspada();
 
-                
                 if (prefabTextoFlutuante != null)
                 {
                     Vector3 posicaoTexto = transform.position + new Vector3(0, 0.5f, 0);
@@ -41,12 +45,23 @@ public class ItemEspada : MonoBehaviour
                     if (tmpro != null)
                     {
                         tmpro.text = "Espada Adquirida!";
-                        tmpro.color = Color.cyan; 
+                        tmpro.color = Color.cyan;
                     }
                 }
 
                 
-                Destroy(gameObject);
+                if (somColeta != null && audioSource != null)
+                {
+                    audioSource.PlayOneShot(somColeta);
+                }
+
+                
+                if (GetComponent<SpriteRenderer>() != null) GetComponent<SpriteRenderer>().enabled = false;
+                if (GetComponent<Collider2D>() != null) GetComponent<Collider2D>().enabled = false;
+
+                
+                float tempoDoSom = somColeta != null ? somColeta.length : 0.1f;
+                Destroy(gameObject, tempoDoSom);
             }
         }
     }
