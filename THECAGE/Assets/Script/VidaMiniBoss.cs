@@ -62,7 +62,7 @@ public class VidaMiniBoss : MonoBehaviour
 
             if (GetComponent<Rigidbody2D>() != null)
             {
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
                 GetComponent<Rigidbody2D>().simulated = false;
             }
 
