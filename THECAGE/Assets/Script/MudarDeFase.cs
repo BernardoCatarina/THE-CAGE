@@ -7,9 +7,16 @@ public class MudarDeFase : MonoBehaviour
     public GameObject textoAviso;
     private bool playerPerto = false;
 
+    [Header("Áudio da Porta")]
+    public AudioClip somPorta;
+    private AudioSource audioSource;
+
     void Start()
     {
         if (textoAviso != null) textoAviso.SetActive(false);
+
+       
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -17,17 +24,20 @@ public class MudarDeFase : MonoBehaviour
        
         if (playerPerto && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1)))
         {
-           
+            
+            if (somPorta != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(somPorta);
+            }
+
             ControleTransicao transicao = FindObjectOfType<ControleTransicao>();
 
             if (transicao != null)
             {
-               
                 transicao.IrParaProximaFase(nomeDaProximaCena);
             }
             else
             {
-                
                 SceneManager.LoadScene(nomeDaProximaCena);
             }
         }
