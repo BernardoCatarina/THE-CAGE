@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80fed1f82f720c34ab604e08c14cb5e3
+guid: adc72d2325bc19643bdfc44cdd5c35cd
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 95.9
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -178,7 +178,7 @@ TextureImporter:
         serializedVersion: 2
         x: 437
         y: 730
-        width: 23
+        width: 26
         height: 68
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -220,9 +220,9 @@ TextureImporter:
       name: personagem-sla-pixilart (2) (1) (2)_3
       rect:
         serializedVersion: 2
-        x: 432
+        x: 431
         y: 430
-        width: 29
+        width: 32
         height: 68
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -244,7 +244,7 @@ TextureImporter:
         serializedVersion: 2
         x: 135
         y: 130
-        width: 25
+        width: 26
         height: 68
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -264,7 +264,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 338d4db343625144e9ec4c73590e773a
+    spriteID: f20e7d9cbbcd51c4883f39783887be0e
     internalID: 0
     vertices: []
     indices: 
