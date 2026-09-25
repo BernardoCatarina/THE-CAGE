@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: adc72d2325bc19643bdfc44cdd5c35cd
+guid: 1d38e9d54fde1884398cf51b49868c31
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5548927931464901846
-    second: personagem-sla-pixilart (2) (1) (2)_0
+      213: 5649251089529950134
+    second: personagem-sla-pixilart (3) (1)_0
   - first:
-      213: 9165475266779944450
-    second: personagem-sla-pixilart (2) (1) (2)_1
+      213: 2978445697482625414
+    second: personagem-sla-pixilart (3) (1)_1
   - first:
-      213: 7667322080129615214
-    second: personagem-sla-pixilart (2) (1) (2)_2
+      213: 4948627523776375617
+    second: personagem-sla-pixilart (3) (1)_2
   - first:
-      213: 2809489140188038160
-    second: personagem-sla-pixilart (2) (1) (2)_3
-  - first:
-      213: -8322328969893160109
-    second: personagem-sla-pixilart (2) (1) (2)_4
+      213: -2130135352732357059
+    second: personagem-sla-pixilart (3) (1)_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,56 +105,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: personagem-sla-pixilart (2) (1) (2)_0
+      name: personagem-sla-pixilart (3) (1)_0
       rect:
         serializedVersion: 2
-        x: 138
-        y: 730
-        width: 21
-        height: 68
+        x: 41
+        y: 115
+        width: 27
+        height: 69
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,96 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a2b9ac0227f3ef2b0800000000000000
-      internalID: -5548927931464901846
+      spriteID: 6bfcb665feb266e40800000000000000
+      internalID: 5649251089529950134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem-sla-pixilart (2) (1) (2)_1
+      name: personagem-sla-pixilart (3) (1)_1
       rect:
         serializedVersion: 2
-        x: 437
-        y: 730
-        width: 26
-        height: 68
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 116
+        y: 114
+        width: 55
+        height: 70
+      alignment: 9
+      pivot: {x: 0.67, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2061c02c13f423f70800000000000000
-      internalID: 9165475266779944450
+      spriteID: 6811e35d490955920800000000000000
+      internalID: 2978445697482625414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem-sla-pixilart (2) (1) (2)_2
+      name: personagem-sla-pixilart (3) (1)_2
       rect:
         serializedVersion: 2
-        x: 138
-        y: 430
-        width: 21
-        height: 68
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 12
+        y: 15
+        width: 64
+        height: 69
+      alignment: 9
+      pivot: {x: 0.64, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6582a40fccc76a60800000000000000
-      internalID: 7667322080129615214
+      spriteID: 14b6960938e0da440800000000000000
+      internalID: 4948627523776375617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem-sla-pixilart (2) (1) (2)_3
+      name: personagem-sla-pixilart (3) (1)_3
       rect:
         serializedVersion: 2
-        x: 431
-        y: 430
-        width: 32
+        x: 106
+        y: 16
+        width: 71
         height: 68
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.67, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 014c939dc7f4df620800000000000000
-      internalID: 2809489140188038160
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: personagem-sla-pixilart (2) (1) (2)_4
-      rect:
-        serializedVersion: 2
-        x: 135
-        y: 130
-        width: 26
-        height: 68
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 35b539d35e5218c80800000000000000
-      internalID: -8322328969893160109
+      spriteID: d3ee2e0ce2d3072e0800000000000000
+      internalID: -2130135352732357059
       vertices: []
       indices: 
       edges: []
@@ -264,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f20e7d9cbbcd51c4883f39783887be0e
+    spriteID: 80ea1ddfd68dc194c83c8acbd32c6fbb
     internalID: 0
     vertices: []
     indices: 
@@ -276,11 +212,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      personagem-sla-pixilart (2) (1) (2)_0: -5548927931464901846
-      personagem-sla-pixilart (2) (1) (2)_1: 9165475266779944450
-      personagem-sla-pixilart (2) (1) (2)_2: 7667322080129615214
-      personagem-sla-pixilart (2) (1) (2)_3: 2809489140188038160
-      personagem-sla-pixilart (2) (1) (2)_4: -8322328969893160109
+      personagem-sla-pixilart (3) (1)_0: 5649251089529950134
+      personagem-sla-pixilart (3) (1)_1: 2978445697482625414
+      personagem-sla-pixilart (3) (1)_2: 4948627523776375617
+      personagem-sla-pixilart (3) (1)_3: -2130135352732357059
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

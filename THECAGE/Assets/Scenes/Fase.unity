@@ -77539,7 +77539,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.7956276
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -82144,8 +82144,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.28712872, y: 0.7029703}
+    pivot: {x: 0.44, y: 0}
+    oldSize: {x: 0.42, y: 0.69}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -82153,11 +82153,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.15822668, y: 0.53775823}
-      - {x: 0.14356436, y: 0.6633663}
-      - {x: 0.054455444, y: 0.70297027}
-      - {x: -0.074257426, y: 0.70297027}
-      - {x: -0.11386138, y: 0.6732673}
+    - - {x: 0.1300024, y: 0.53443795}
+      - {x: 0.12409927, y: 0.6489783}
+      - {x: 0.05056228, y: 0.68304837}
+      - {x: -0.0684178, y: 0.68194157}
+      - {x: -0.09342319, y: 0.6489183}
       - {x: -0.12376238, y: 0.57425743}
       - {x: -0.14356436, y: 0.45544553}
       - {x: -0.16560173, y: 0.33231252}
@@ -86037,8 +86037,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.021156525}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.28712872, y: 0.7029703}
+    pivot: {x: 0.44, y: 0}
+    oldSize: {x: 0.42, y: 0.69}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
