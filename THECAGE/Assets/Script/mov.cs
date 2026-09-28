@@ -41,8 +41,21 @@ public class mov : MonoBehaviour
     private float tempoDeRecargaOriginal;
     public TMPro.TextMeshProUGUI textoAvisoCheat;
 
+    [Header("Habilidades Desbloque�veis")]
+    public bool possuiPuloDuplo = false;
+    private bool podePuloDuplo = false;
+
+    public bool possuiDash = false;
+    public float velocidadeDash = 20f;
+    public float tempoDash = 0.2f;
+    public float tempoRecargaDash = 1f;
+    private bool estaDandoDash = false;
+    private float tempoProximoDash = 0f;
     void Start()
     {
+        possuiPuloDuplo = PlayerPrefs.GetInt("PuloDuploSalvo", 0) == 1;
+        possuiDash = PlayerPrefs.GetInt("DashSalvo", 0) == 1;
+
         rig = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
 
@@ -98,7 +111,7 @@ public class mov : MonoBehaviour
                 ColetarEspada();
                 StartCoroutine(MostrarAvisoCheat("Espada Pet Adquirida!"));
             }
-
+    
             // Ligar/Desligar Modo Imortal (Ctrl + Shift + I)
             if (Input.GetKeyDown(KeyCode.I))
             {
@@ -177,6 +190,18 @@ public class mov : MonoBehaviour
             float angulo = (Mathf.Atan2(direcaoOlhar.y, direcaoOlhar.x) * Mathf.Rad2Deg) - 90f;
 
             espadaPet.transform.rotation = Quaternion.Euler(0f, 0f, angulo);
+        }
+
+        
+        if (estaDandoDash)
+        {
+            return;
+        }
+
+
+        if (possuiDash && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && Time.time >= tempoProximoDash)
+        {
+            StartCoroutine(ExecutarDash());
         }
 
         Move();
@@ -276,17 +301,28 @@ public class mov : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && !isJumping)
+        if (Input.GetButtonDown("Jump"))
         {
-            rig.AddForce(new Vector2(0f, Jumpforce), ForceMode2D.Impulse);
-
-            if (somPulo != null && audioSource != null)
+            if (!isJumping) 
             {
-                audioSource.PlayOneShot(somPulo);
-            }
+                rig.linearVelocity = new Vector2(rig.linearVelocity.x, 0); 
+                rig.AddForce(new Vector2(0f, Jumpforce), ForceMode2D.Impulse);
 
-            isJumping = true;
-            animator.SetBool("isJumping", true);
+                if (somPulo != null && audioSource != null) audioSource.PlayOneShot(somPulo);
+
+                isJumping = true;
+                podePuloDuplo = possuiPuloDuplo; 
+                animator.SetBool("isJumping", true);
+            }
+            else if (podePuloDuplo) 
+            {
+                rig.linearVelocity = new Vector2(rig.linearVelocity.x, 0); 
+                rig.AddForce(new Vector2(0f, Jumpforce), ForceMode2D.Impulse);
+
+                if (somPulo != null && audioSource != null) audioSource.PlayOneShot(somPulo);
+
+                podePuloDuplo = false; 
+            }
         }
     }
 
@@ -348,5 +384,40 @@ public class mov : MonoBehaviour
 
             textoAvisoCheat.gameObject.SetActive(false);
         }
+    }
+    
+    public void DesbloquearPuloDuplo()
+    {
+        possuiPuloDuplo = true;
+        PlayerPrefs.SetInt("PuloDuploSalvo", 1);
+    }
+
+    public void DesbloquearDash()
+    {
+        possuiDash = true;
+        PlayerPrefs.SetInt("DashSalvo", 1);
+    }
+
+    
+    System.Collections.IEnumerator ExecutarDash()
+    {
+        estaDandoDash = true;
+        tempoProximoDash = Time.time + tempoRecargaDash; 
+
+        float gravOriginal = rig.gravityScale;
+        rig.gravityScale = 0f; 
+
+        
+        float direcao = (transform.eulerAngles.y == 0) ? 1f : -1f;
+
+        
+        rig.linearVelocity = new Vector2(direcao * velocidadeDash, 0f);
+
+        yield return new WaitForSeconds(tempoDash);
+
+        
+        rig.gravityScale = gravOriginal;
+        rig.linearVelocity = Vector2.zero;
+        estaDandoDash = false;
     }
 }

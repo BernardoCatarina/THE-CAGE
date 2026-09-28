@@ -9,6 +9,8 @@ public class GerenciadorDeCenas : MonoBehaviour
         PlayerPrefs.DeleteKey("MunicaoSalva");
         PlayerPrefs.DeleteKey("TemFacaSalva");
         PlayerPrefs.DeleteKey("TemEspadaSalva");
+        PlayerPrefs.DeleteKey("DashSalvo");
+        PlayerPrefs.DeleteKey("PuloDuploSalvo");
 
         // --- DESLIGA OS CHEATS AQUI ---
         mov.instaKill = false;
