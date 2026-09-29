@@ -204,6 +204,11 @@ public class mov : MonoBehaviour
             StartCoroutine(ExecutarDash());
         }
 
+        if (animator != null)
+        {
+            animator.SetFloat("VelocidadeY", rig.linearVelocity.y);
+        }
+
         Move();
         Jump();
 
@@ -398,26 +403,34 @@ public class mov : MonoBehaviour
         PlayerPrefs.SetInt("DashSalvo", 1);
     }
 
-    
+
     System.Collections.IEnumerator ExecutarDash()
     {
         estaDandoDash = true;
-        tempoProximoDash = Time.time + tempoRecargaDash; 
+        tempoProximoDash = Time.time + tempoRecargaDash;
+
+        if (animator != null)
+        {
+            animator.SetBool("isDashing", true);
+        }
 
         float gravOriginal = rig.gravityScale;
-        rig.gravityScale = 0f; 
+        rig.gravityScale = 0f;
 
-        
         float direcao = (transform.eulerAngles.y == 0) ? 1f : -1f;
 
-        
         rig.linearVelocity = new Vector2(direcao * velocidadeDash, 0f);
 
         yield return new WaitForSeconds(tempoDash);
 
-        
         rig.gravityScale = gravOriginal;
         rig.linearVelocity = Vector2.zero;
         estaDandoDash = false;
+
+        
+        if (animator != null)
+        {
+            animator.SetBool("isDashing", false);
+        }
     }
 }
