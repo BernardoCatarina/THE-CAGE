@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.UI;
 
 public class mov : MonoBehaviour
 {
@@ -51,6 +52,18 @@ public class mov : MonoBehaviour
     public float tempoRecargaDash = 1f;
     private bool estaDandoDash = false;
     private float tempoProximoDash = 0f;
+
+    [Header("Buff da Espada")]
+    public SpriteRenderer spriteDaEspada;
+    public TMPro.TextMeshProUGUI textoTimerEspada; 
+    public int danoExtraBuff = 10;
+
+    [Header("UI e Recargas")]
+    public UnityEngine.UI.Image iconeDash;
+
+    public UnityEngine.UI.Image iconeRecargaEspada; 
+    public float tempoRecargaEspada = 5f;
+    private float tempoProximoTiroEspada = 0f;
     void Start()
     {
         possuiPuloDuplo = PlayerPrefs.GetInt("PuloDuploSalvo", 0) == 1;
@@ -198,6 +211,39 @@ public class mov : MonoBehaviour
             return;
         }
 
+       
+        if (iconeDash != null && possuiDash)
+        {
+            if (Time.time < tempoProximoDash)
+            {
+               
+                iconeDash.fillAmount = 1f - ((tempoProximoDash - Time.time) / tempoRecargaDash);
+                iconeDash.color = new Color(0.3f, 0.3f, 0.3f, 1f);
+            }
+            else
+            {
+                
+                iconeDash.fillAmount = 1f;
+                iconeDash.color = Color.green;
+            }
+        }
+
+        
+        if (iconeRecargaEspada != null && possuiEspada)
+        {
+            if (Time.time < tempoProximoTiroEspada)
+            {
+                
+                iconeRecargaEspada.fillAmount = 1f - ((tempoProximoTiroEspada - Time.time) / tempoRecargaEspada);
+                iconeRecargaEspada.color = new Color(0.3f, 0.3f, 0.3f, 1f);
+            }
+            else
+            {
+                
+                iconeRecargaEspada.fillAmount = 1f;
+                iconeRecargaEspada.color = Color.red;
+            }
+        }
 
         if (possuiDash && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && Time.time >= tempoProximoDash)
         {
@@ -237,8 +283,11 @@ public class mov : MonoBehaviour
           
             Instantiate(bullet, posicaoDoTiro, Quaternion.Euler(0f, 0f, anguloTiro));
 
-            if (possuiEspada && projetilEspada != null && !espadaAtacando)
+            
+            if (possuiEspada && projetilEspada != null && !espadaAtacando && Time.time >= tempoProximoTiroEspada)
             {
+                
+                tempoProximoTiroEspada = Time.time + tempoRecargaEspada;
                 StartCoroutine(AtaqueEspadaPet());
             }
         }
@@ -432,5 +481,31 @@ public class mov : MonoBehaviour
         {
             animator.SetBool("isDashing", false);
         }
+    }
+        public System.Collections.IEnumerator AtivarBuffEspada()
+    {
+        float tempoRestante = 5f;
+
+        
+        if (spriteDaEspada != null) spriteDaEspada.color = Color.red;
+                
+                
+        if (textoTimerEspada != null) textoTimerEspada.gameObject.SetActive(true);
+
+        
+        while (tempoRestante > 0)
+        {
+            if (textoTimerEspada != null)
+            {
+                textoTimerEspada.text = tempoRestante.ToString("0") + "s";
+            }
+            yield return new WaitForSeconds(1f);
+            tempoRestante--;
+        }
+
+       
+        if (spriteDaEspada != null) spriteDaEspada.color = Color.white;
+        
+        if (textoTimerEspada != null) textoTimerEspada.gameObject.SetActive(false);
     }
 }
