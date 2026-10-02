@@ -60,10 +60,12 @@ public class mov : MonoBehaviour
 
     [Header("UI e Recargas")]
     public UnityEngine.UI.Image iconeDash;
-
-    public UnityEngine.UI.Image iconeRecargaEspada; 
+    public UnityEngine.UI.Image iconeRecargaEspada;
+    public UnityEngine.UI.Image iconePuloDuplo;
     public float tempoRecargaEspada = 5f;
     private float tempoProximoTiroEspada = 0f;
+
+
     void Start()
     {
         possuiPuloDuplo = PlayerPrefs.GetInt("PuloDuploSalvo", 0) == 1;
@@ -211,37 +213,64 @@ public class mov : MonoBehaviour
             return;
         }
 
+
        
-        if (iconeDash != null && possuiDash)
+        if (iconeDash != null)
         {
-            if (Time.time < tempoProximoDash)
+           
+            iconeDash.transform.parent.gameObject.SetActive(possuiDash);
+
+            if (possuiDash)
             {
-               
-                iconeDash.fillAmount = 1f - ((tempoProximoDash - Time.time) / tempoRecargaDash);
-                iconeDash.color = new Color(0.3f, 0.3f, 0.3f, 1f);
-            }
-            else
-            {
-                
-                iconeDash.fillAmount = 1f;
-                iconeDash.color = Color.green;
+                if (Time.time < tempoProximoDash)
+                {
+                    
+                    iconeDash.fillAmount = 1f - ((tempoProximoDash - Time.time) / tempoRecargaDash);
+                }
+                else
+                {
+                    
+                    iconeDash.fillAmount = 1f;
+                }
             }
         }
 
         
-        if (iconeRecargaEspada != null && possuiEspada)
+        if (iconeRecargaEspada != null)
         {
-            if (Time.time < tempoProximoTiroEspada)
+            
+            iconeRecargaEspada.transform.parent.gameObject.SetActive(possuiEspada);
+
+            if (possuiEspada)
             {
-                
-                iconeRecargaEspada.fillAmount = 1f - ((tempoProximoTiroEspada - Time.time) / tempoRecargaEspada);
-                iconeRecargaEspada.color = new Color(0.3f, 0.3f, 0.3f, 1f);
+                if (Time.time < tempoProximoTiroEspada)
+                {
+                    iconeRecargaEspada.fillAmount = 1f - ((tempoProximoTiroEspada - Time.time) / tempoRecargaEspada);
+                }
+                else
+                {
+                    iconeRecargaEspada.fillAmount = 1f;
+                }
             }
-            else
+        }
+
+       
+        if (iconePuloDuplo != null)
+        {
+            
+            iconePuloDuplo.transform.parent.gameObject.SetActive(possuiPuloDuplo);
+
+            if (possuiPuloDuplo)
             {
                 
-                iconeRecargaEspada.fillAmount = 1f;
-                iconeRecargaEspada.color = Color.red;
+                if (podePuloDuplo)
+                {
+                    iconePuloDuplo.fillAmount = 1f; 
+                }
+                else
+                {
+                    iconePuloDuplo.fillAmount = 0f; 
+                }
             }
         }
 

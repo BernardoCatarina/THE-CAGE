@@ -5,7 +5,7 @@ using TMPro;
 
 public class VidaBoss : MonoBehaviour
 {
-    public int vidaMaxima = 5;
+    public int vidaMaxima = 10;
     private int vidaAtual;
 
     public Slider barraDeVida;

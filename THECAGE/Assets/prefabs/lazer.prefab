@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1779181506734382647}
   - component: {fileID: 431272914295086791}
   - component: {fileID: 2738289786552588188}
-  - component: {fileID: 7464497320460319376}
+  - component: {fileID: -8686638748062789776}
   m_Layer: 0
   m_Name: lazer
   m_TagString: Untagged
@@ -173,7 +173,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7464497320460319376
+--- !u!114 &-8686638748062789776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,8 +182,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 944887246543524532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0770a2a5cf9d7d4e86475a51e4544a3, type: 3}
+  m_Script: {fileID: 11500000, guid: c2ff4137279a8574aa6ebb068b9f83ac, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::faca
+  m_EditorClassIdentifier: Assembly-CSharp::ProjetilEspada
   speed: 8
-  velocidadeDeGiro: 0
+  danoDaEspada: 3

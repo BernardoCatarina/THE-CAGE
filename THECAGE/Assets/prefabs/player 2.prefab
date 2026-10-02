@@ -153,6 +153,18 @@ MonoBehaviour:
   pontaDaEspada: {fileID: 0}
   projetilEspada: {fileID: 944887246543524532, guid: 44cdd9cb776601f4c85eda8ac4981f3b, type: 3}
   textoAvisoCheat: {fileID: 0}
+  possuiPuloDuplo: 0
+  possuiDash: 0
+  velocidadeDash: 20
+  tempoDash: 0.2
+  tempoRecargaDash: 1
+  spriteDaEspada: {fileID: 0}
+  textoTimerEspada: {fileID: 0}
+  danoExtraBuff: 5
+  iconeDash: {fileID: 0}
+  iconeRecargaEspada: {fileID: 0}
+  iconePuloDuplo: {fileID: 0}
+  tempoRecargaEspada: 1.3
 --- !u!114 &5713946198500930077
 MonoBehaviour:
   m_ObjectHideFlags: 0
