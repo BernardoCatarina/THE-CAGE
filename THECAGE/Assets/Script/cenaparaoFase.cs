@@ -5,12 +5,7 @@ public class cenaparaoFase : MonoBehaviour
 {
     public void VoltarParaoFase()
     {
-        PlayerPrefs.DeleteKey("VidaSalva");
-        PlayerPrefs.DeleteKey("MunicaoSalva");
-        PlayerPrefs.DeleteKey("TemFacaSalva");
-        PlayerPrefs.DeleteKey("TemEspadaSalva");
-        PlayerPrefs.DeleteKey("DashSalvo");
-        PlayerPrefs.DeleteKey("PuloDuploSalvo");
+        PlayerPrefs.DeleteAll();
 
         // --- DESLIGA OS CHEATS AQUI ---
         mov.instaKill = false;

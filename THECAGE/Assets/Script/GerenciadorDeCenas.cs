@@ -5,12 +5,7 @@ public class GerenciadorDeCenas : MonoBehaviour
 {
     public void VoltarParaMenu()
     {
-        PlayerPrefs.DeleteKey("VidaSalva");
-        PlayerPrefs.DeleteKey("MunicaoSalva");
-        PlayerPrefs.DeleteKey("TemFacaSalva");
-        PlayerPrefs.DeleteKey("TemEspadaSalva");
-        PlayerPrefs.DeleteKey("DashSalvo");
-        PlayerPrefs.DeleteKey("PuloDuploSalvo");
+        PlayerPrefs.DeleteAll();
 
         // --- DESLIGA OS CHEATS AQUI ---
         mov.instaKill = false;

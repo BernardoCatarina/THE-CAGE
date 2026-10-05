@@ -3053,6 +3053,8 @@ GameObject:
   - component: {fileID: 730235899}
   - component: {fileID: 730235901}
   - component: {fileID: 730235897}
+  - component: {fileID: 730235903}
+  - component: {fileID: 730235902}
   m_Layer: 0
   m_Name: Coracao (3)
   m_TagString: Untagged
@@ -3076,6 +3078,7 @@ MonoBehaviour:
   prefabTextoFlutuante: {fileID: 5063321634465752887, guid: 5800bf13deaf30e4dbd54ac65545274f, type: 3}
   velocidadeFlutuacao: 3
   distanciaFlutuacao: 0.3
+  somCura: {fileID: 8300000, guid: 43ee099aea9f9cf49ae3242b948078cd, type: 3}
 --- !u!212 &730235899
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3251,6 +3254,116 @@ PolygonCollider2D:
       - {x: 1.6724758, y: -3.2024622}
       - {x: 1.6650108, y: -3.0301406}
   m_UseDelaunayMesh: 0
+--- !u!82 &730235902
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730235896}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4107963960205576195, guid: 6595b255237c5ea47b18be6747f398fb, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 43ee099aea9f9cf49ae3242b948078cd, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &730235903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730235896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e594ef51b56fb443837302401805faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MemoriaDaFase
+  idUnico: Item_Coracao_Special_01
 --- !u!1 &734300502
 GameObject:
   m_ObjectHideFlags: 0
@@ -8714,7 +8827,7 @@ MonoBehaviour:
   velocidadeFlutuacao: 3
   alturaFlutuacao: 0.3
   prefabTextoFlutuante: {fileID: 5063321634465752887, guid: 5800bf13deaf30e4dbd54ac65545274f, type: 3}
-  somColeta: {fileID: 8300000, guid: a3d0e664286aa004ba53878fd52b3735, type: 3}
+  somColeta: {fileID: 8300000, guid: a57c03fd96bf11d47a326c6d8acd25f6, type: 3}
 --- !u!212 &1754543425
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8867,7 +8980,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4107963960205576195, guid: 6595b255237c5ea47b18be6747f398fb, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: a3d0e664286aa004ba53878fd52b3735, type: 3}
+  m_Resource: {fileID: 8300000, guid: a57c03fd96bf11d47a326c6d8acd25f6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -9098,6 +9211,8 @@ GameObject:
   - component: {fileID: 1820092462}
   - component: {fileID: 1820092461}
   - component: {fileID: 1820092460}
+  - component: {fileID: 1820092465}
+  - component: {fileID: 1820092464}
   m_Layer: 0
   m_Name: Coracao (1)
   m_TagString: Untagged
@@ -9121,6 +9236,7 @@ MonoBehaviour:
   prefabTextoFlutuante: {fileID: 5063321634465752887, guid: 5800bf13deaf30e4dbd54ac65545274f, type: 3}
   velocidadeFlutuacao: 3
   distanciaFlutuacao: 0.3
+  somCura: {fileID: 8300000, guid: 43ee099aea9f9cf49ae3242b948078cd, type: 3}
 --- !u!60 &1820092461
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9264,6 +9380,116 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1820092464
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820092459}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4107963960205576195, guid: 6595b255237c5ea47b18be6747f398fb, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 43ee099aea9f9cf49ae3242b948078cd, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1820092465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820092459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e594ef51b56fb443837302401805faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MemoriaDaFase
+  idUnico: Item_Coracao_02
 --- !u!1 &1824407699
 GameObject:
   m_ObjectHideFlags: 0
@@ -11168,6 +11394,8 @@ GameObject:
   - component: {fileID: 2108791203}
   - component: {fileID: 2108791202}
   - component: {fileID: 2108791201}
+  - component: {fileID: 2108791206}
+  - component: {fileID: 2108791205}
   m_Layer: 0
   m_Name: Coracao (2)
   m_TagString: Untagged
@@ -11191,6 +11419,7 @@ MonoBehaviour:
   prefabTextoFlutuante: {fileID: 5063321634465752887, guid: 5800bf13deaf30e4dbd54ac65545274f, type: 3}
   velocidadeFlutuacao: 3
   distanciaFlutuacao: 0.3
+  somCura: {fileID: 8300000, guid: 43ee099aea9f9cf49ae3242b948078cd, type: 3}
 --- !u!60 &2108791202
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -11334,6 +11563,116 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2108791205
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108791200}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4107963960205576195, guid: 6595b255237c5ea47b18be6747f398fb, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 43ee099aea9f9cf49ae3242b948078cd, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &2108791206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108791200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e594ef51b56fb443837302401805faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MemoriaDaFase
+  idUnico: Item_Coracao_03
 --- !u!1 &2111813740
 GameObject:
   m_ObjectHideFlags: 0
@@ -11780,6 +12119,8 @@ GameObject:
   - component: {fileID: 772756677375629637}
   - component: {fileID: 3793504370101599699}
   - component: {fileID: 456051646493979442}
+  - component: {fileID: 5773840489093181013}
+  - component: {fileID: 5773840489093181012}
   m_Layer: 0
   m_Name: Coracao
   m_TagString: Untagged
@@ -12528,6 +12869,7 @@ MonoBehaviour:
   prefabTextoFlutuante: {fileID: 5063321634465752887, guid: 5800bf13deaf30e4dbd54ac65545274f, type: 3}
   velocidadeFlutuacao: 3
   distanciaFlutuacao: 0.3
+  somCura: {fileID: 8300000, guid: 43ee099aea9f9cf49ae3242b948078cd, type: 3}
 --- !u!114 &466532967695883356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26855,6 +27197,116 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &5773840489093181012
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122274938568622419}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4107963960205576195, guid: 6595b255237c5ea47b18be6747f398fb, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 43ee099aea9f9cf49ae3242b948078cd, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &5773840489093181013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122274938568622419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e594ef51b56fb443837302401805faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MemoriaDaFase
+  idUnico: Item_Coracao_01
 --- !u!222 &5793773212530617987
 CanvasRenderer:
   m_ObjectHideFlags: 0
