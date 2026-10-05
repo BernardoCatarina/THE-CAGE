@@ -54,7 +54,9 @@ public class VidaBoss : MonoBehaviour
     {
         Debug.Log("O Boss morreu!");
 
-        
+        MemoriaDaFase memoria = GetComponent<MemoriaDaFase>();
+        if (memoria != null) memoria.RegistrarMorteOuColeta();
+
         EfeitoFade fade = FindObjectOfType<EfeitoFade>();
 
         if (fade != null)

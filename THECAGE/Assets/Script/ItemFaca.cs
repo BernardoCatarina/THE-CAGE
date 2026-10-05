@@ -53,7 +53,10 @@ public class ItemFaca : MonoBehaviour
                 }
             }
 
-           
+            
+            MemoriaDaFase memoria = GetComponent<MemoriaDaFase>();
+            if (memoria != null) memoria.RegistrarMorteOuColeta(); 
+
             Destroy(gameObject);
         }
     }

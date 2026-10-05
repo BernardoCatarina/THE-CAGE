@@ -11,6 +11,7 @@ public class MudarDeFase : MonoBehaviour
     public AudioClip somPorta;
     private AudioSource audioSource;
 
+    public string nomeDoPontoDeSpawnDestino;
     void Start()
     {
         if (textoAviso != null) textoAviso.SetActive(false);
@@ -34,10 +35,14 @@ public class MudarDeFase : MonoBehaviour
 
             if (transicao != null)
             {
+                
+                PlayerPrefs.SetString("PortaDestino", nomeDoPontoDeSpawnDestino);
                 transicao.IrParaProximaFase(nomeDaProximaCena);
             }
             else
             {
+               
+                PlayerPrefs.SetString("PortaDestino", nomeDoPontoDeSpawnDestino);
                 SceneManager.LoadScene(nomeDaProximaCena);
             }
         }

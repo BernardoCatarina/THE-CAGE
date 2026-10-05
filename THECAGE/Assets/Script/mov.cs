@@ -98,6 +98,24 @@ public class mov : MonoBehaviour
         {
             tempoDeRecarga = 0.01f;
         }
+
+        // --- SISTEMA DE NASCER NA PORTA CORRETA ---
+        string destino = PlayerPrefs.GetString("PortaDestino", "");
+
+        if (destino != "")
+        {
+            
+            GameObject pontoSpawn = GameObject.Find(destino);
+
+            if (pontoSpawn != null)
+            {
+                
+                transform.position = pontoSpawn.transform.position;
+            }
+
+            
+            PlayerPrefs.SetString("PortaDestino", "");
+        }
     }
 
     void Update()

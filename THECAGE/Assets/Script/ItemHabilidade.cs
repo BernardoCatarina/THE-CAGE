@@ -37,16 +37,16 @@ public class ItemHabilidade : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // Procura o script de movimento do player
+            
             mov scriptPlayer = collision.GetComponent<mov>();
 
             if (scriptPlayer != null)
             {
-                // Libera a habilidade correta lá no script do player
+                
                 if (liberaPuloDuplo) scriptPlayer.DesbloquearPuloDuplo();
                 if (liberaDash) scriptPlayer.DesbloquearDash();
 
-                // Mostra o texto flutuante (Ex: "Dash Adquirido!")
+                
                 if (prefabTextoFlutuante != null)
                 {
                     Vector3 posicaoTexto = transform.position + new Vector3(0, 0.5f, 0);
@@ -60,17 +60,18 @@ public class ItemHabilidade : MonoBehaviour
                     }
                 }
 
-                // Toca o som sagrado/tecnológico de coleta
+                
                 if (somColeta != null && audioSource != null)
                 {
                     audioSource.PlayOneShot(somColeta);
                 }
 
-                // Esconde o item e desliga a colisão para não pegar duas vezes
+                MemoriaDaFase memoria = GetComponent<MemoriaDaFase>();
+                if (memoria != null) memoria.RegistrarMorteOuColeta(); 
+
                 if (GetComponent<SpriteRenderer>() != null) GetComponent<SpriteRenderer>().enabled = false;
                 if (GetComponent<Collider2D>() != null) GetComponent<Collider2D>().enabled = false;
 
-                // Destrói com atraso para o som tocar até o fim
                 float tempoDoSom = somColeta != null ? somColeta.length : 0.1f;
                 Destroy(gameObject, tempoDoSom);
             }

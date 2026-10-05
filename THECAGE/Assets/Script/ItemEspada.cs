@@ -54,11 +54,12 @@ public class ItemEspada : MonoBehaviour
                 {
                     audioSource.PlayOneShot(somColeta);
                 }
-
                 
+                MemoriaDaFase memoria = GetComponent<MemoriaDaFase>();
+                if (memoria != null) memoria.RegistrarMorteOuColeta();
+
                 if (GetComponent<SpriteRenderer>() != null) GetComponent<SpriteRenderer>().enabled = false;
                 if (GetComponent<Collider2D>() != null) GetComponent<Collider2D>().enabled = false;
-
                 
                 float tempoDoSom = somColeta != null ? somColeta.length : 0.1f;
                 Destroy(gameObject, tempoDoSom);

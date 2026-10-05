@@ -68,7 +68,9 @@ public class VidaInimigo : MonoBehaviour
                 audioSource.PlayOneShot(somMorte);
             }
 
-           
+            MemoriaDaFase memoria = GetComponent<MemoriaDaFase>();
+            if (memoria != null) memoria.RegistrarMorteOuColeta();
+
             Renderer[] todosVisuais = GetComponentsInChildren<Renderer>();
             foreach (Renderer r in todosVisuais) r.enabled = false;
 
