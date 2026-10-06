@@ -1,0 +1,561 @@
+fileFormatVersion: 2
+guid: 1acb5e8efa9605e4cab6ff7461e0f5aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5605562163356376674
+    second: tirar o fundo (35)_0
+  - first:
+      213: 6730049198529802990
+    second: tirar o fundo (35)_1
+  - first:
+      213: -6747037575527261151
+    second: tirar o fundo (35)_2
+  - first:
+      213: -4600416076445926457
+    second: tirar o fundo (35)_3
+  - first:
+      213: -8402118776206679763
+    second: tirar o fundo (35)_4
+  - first:
+      213: -8596439734586791739
+    second: tirar o fundo (35)_5
+  - first:
+      213: 2517138738765654135
+    second: tirar o fundo (35)_6
+  - first:
+      213: 892100085938963186
+    second: tirar o fundo (35)_7
+  - first:
+      213: 7643334339022923240
+    second: tirar o fundo (35)_8
+  - first:
+      213: -1399619192469441638
+    second: tirar o fundo (35)_9
+  - first:
+      213: -5443168154397930743
+    second: tirar o fundo (35)_10
+  - first:
+      213: 2509567864362040501
+    second: tirar o fundo (35)_11
+  - first:
+      213: 7811105632737645737
+    second: tirar o fundo (35)_12
+  - first:
+      213: -2727395756094988088
+    second: tirar o fundo (35)_13
+  - first:
+      213: -1350263961406124796
+    second: tirar o fundo (35)_14
+  - first:
+      213: 2804590060512559920
+    second: tirar o fundo (35)_15
+  - first:
+      213: -6424432870912536852
+    second: tirar o fundo (35)_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tirar o fundo (35)_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 902
+        width: 284
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26e1a398615facd40800000000000000
+      internalID: 5605562163356376674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_1
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 936
+        width: 279
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee27547b610f56d50800000000000000
+      internalID: 6730049198529802990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_2
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 882
+        width: 391
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12c1c788215bd52a0800000000000000
+      internalID: -6747037575527261151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_3
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 902
+        width: 328
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cbb178d3f90820c0800000000000000
+      internalID: -4600416076445926457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_4
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 680
+        width: 498
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d21af874d7da56b80800000000000000
+      internalID: -8402118776206679763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_5
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 702
+        width: 288
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c8a6e67b9f43b880800000000000000
+      internalID: -8596439734586791739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_6
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 686
+        width: 221
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7786086b85caee220800000000000000
+      internalID: 2517138738765654135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_7
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 671
+        width: 502
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f2cc763d40616c00800000000000000
+      internalID: 892100085938963186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_8
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 469
+        width: 239
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e5a101d514921a60800000000000000
+      internalID: 7643334339022923240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_9
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 495
+        width: 158
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a933a0c82cd839ce0800000000000000
+      internalID: -1399619192469441638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_10
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 514
+        width: 463
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90b8468176bf574b0800000000000000
+      internalID: -5443168154397930743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_11
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 499
+        width: 337
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bcf8072da6c3d220800000000000000
+      internalID: 2509567864362040501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_12
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 314
+        width: 574
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a4516e103f966c60800000000000000
+      internalID: 7811105632737645737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_13
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 300
+        width: 412
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c0ec0c9208562ad0800000000000000
+      internalID: -2727395756094988088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_14
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 116
+        width: 520
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40d4063c416e24de0800000000000000
+      internalID: -1350263961406124796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_15
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 114
+        width: 409
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0334179fcc7ebe620800000000000000
+      internalID: 2804590060512559920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tirar o fundo (35)_16
+      rect:
+        serializedVersion: 2
+        x: 1429
+        y: 140
+        width: 440
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee4aed8754d7d6a0800000000000000
+      internalID: -6424432870912536852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 10a8ff508f20eec4eba563bd0943ac47
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      tirar o fundo (35)_0: 5605562163356376674
+      tirar o fundo (35)_1: 6730049198529802990
+      tirar o fundo (35)_10: -5443168154397930743
+      tirar o fundo (35)_11: 2509567864362040501
+      tirar o fundo (35)_12: 7811105632737645737
+      tirar o fundo (35)_13: -2727395756094988088
+      tirar o fundo (35)_14: -1350263961406124796
+      tirar o fundo (35)_15: 2804590060512559920
+      tirar o fundo (35)_16: -6424432870912536852
+      tirar o fundo (35)_2: -6747037575527261151
+      tirar o fundo (35)_3: -4600416076445926457
+      tirar o fundo (35)_4: -8402118776206679763
+      tirar o fundo (35)_5: -8596439734586791739
+      tirar o fundo (35)_6: 2517138738765654135
+      tirar o fundo (35)_7: 892100085938963186
+      tirar o fundo (35)_8: 7643334339022923240
+      tirar o fundo (35)_9: -1399619192469441638
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
