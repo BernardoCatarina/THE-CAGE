@@ -22,8 +22,8 @@ public class MudarDeFase : MonoBehaviour
 
     void Update()
     {
-       
-        if (playerPerto && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1)))
+
+        if (playerPerto && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.JoystickButton1)))
         {
             
             if (somPorta != null && audioSource != null)

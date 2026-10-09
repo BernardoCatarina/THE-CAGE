@@ -13,6 +13,8 @@ public class mov : MonoBehaviour
     public GameObject bullet;
     private Rigidbody2D rig;
     public bool isJumping;
+    private bool r2EstavaPressionado = false;
+    private bool usandoControle = false;
     [SerializeField] private Animator animator;
 
     [Header("Sistema de Facas")]
@@ -65,7 +67,10 @@ public class mov : MonoBehaviour
     public float tempoRecargaEspada = 5f;
     private float tempoProximoTiroEspada = 0f;
 
-
+    [Header("Sistema de Mira (Crosshair)")]
+    public Transform objetoMira; 
+    public float distanciaDaMira = 2.5f; 
+    private Vector2 direcaoAtualDaMira = Vector2.right; 
     void Start()
     {
         possuiPuloDuplo = PlayerPrefs.GetInt("PuloDuploSalvo", 0) == 1;
@@ -190,42 +195,22 @@ public class mov : MonoBehaviour
         }
         // --------------------------------------------------
 
-        // ---------------- MOVIMENTO DO PET ESPADA ----------------
+        // --- MOVIMENTO DO PET ESPADA ---
         if (possuiEspada && espadaPet != null && !espadaAtacando)
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0f;
-
             Vector3 centroDoBuck = transform.position + new Vector3(0f, 1f, 0f);
 
-            Vector3 vetorDistancia = mousePos - centroDoBuck;
-            float distancia = vetorDistancia.magnitude;
+            float distanciaEspada = 2.2f;
 
-            float limiteMaximo = 2.2f; 
-            float limiteMinimo = 1.1f; 
-
-            if (distancia > limiteMaximo)
-            {
-                vetorDistancia = vetorDistancia.normalized * limiteMaximo;
-            }
-            else if (distancia < limiteMinimo)
-            {
-                if (distancia == 0f) vetorDistancia = Vector3.up * limiteMinimo;
-                else vetorDistancia = vetorDistancia.normalized * limiteMinimo;
-            }
-
-            Vector3 posicaoAlvo = centroDoBuck + vetorDistancia;
+            Vector3 posicaoAlvo = centroDoBuck + new Vector3(direcaoAtualDaMira.x, direcaoAtualDaMira.y, 0f) * distanciaEspada;
 
             espadaPet.transform.position = Vector3.Lerp(espadaPet.transform.position, posicaoAlvo, Time.deltaTime * 6f);
 
-            Vector2 direcaoOlhar = (mousePos - espadaPet.transform.position).normalized;
-
-            float angulo = (Mathf.Atan2(direcaoOlhar.y, direcaoOlhar.x) * Mathf.Rad2Deg) - 90f;
-
+            float angulo = (Mathf.Atan2(direcaoAtualDaMira.y, direcaoAtualDaMira.x) * Mathf.Rad2Deg) - 90f;
             espadaPet.transform.rotation = Quaternion.Euler(0f, 0f, angulo);
         }
 
-        
+
         if (estaDandoDash)
         {
             return;
@@ -305,7 +290,14 @@ public class mov : MonoBehaviour
         Move();
         Jump();
 
-        bool querAtirar = modoMetralhadora ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1");
+        float valorEixoR2 = Input.GetAxis("TiroR2");
+        bool r2PressionadoAgora = (valorEixoR2 > 0.5f) || Input.GetKey(KeyCode.JoystickButton7);
+
+        bool r2ApertouNesteFrame = r2PressionadoAgora && !r2EstavaPressionado;
+
+        bool querAtirar = modoMetralhadora ? (Input.GetButton("Fire1") || r2PressionadoAgora) : (Input.GetButtonDown("Fire1") || r2ApertouNesteFrame);
+
+        r2EstavaPressionado = r2PressionadoAgora;
 
         if (possuiFaca && municao > 0 && querAtirar && Time.time >= proximoTiro)
         {
@@ -320,31 +312,19 @@ public class mov : MonoBehaviour
 
             proximoTiro = Time.time + tempoDeRecarga;
 
+            
             Vector3 posicaoDoTiro = transform.position + new Vector3(0f, 1f, 0f);
-            Vector2 direcaoTiro = Vector2.right; 
-
-            float aimX = Input.GetAxis("RightHorizontal");
-            float aimY = Input.GetAxis("RightVertical");
-
-            if (Mathf.Abs(aimX) > 0.1f || Mathf.Abs(aimY) > 0.1f)
-            {
-                direcaoTiro = new Vector2(aimX, aimY).normalized;
-            }
-            else
-            { 
-                Vector3 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                posicaoMouse.z = 0f;
-                direcaoTiro = (posicaoMouse - posicaoDoTiro).normalized;
-            }
-
-            float anguloTiro = Mathf.Atan2(direcaoTiro.y, direcaoTiro.x) * Mathf.Rad2Deg;
-
-            Instantiate(bullet, posicaoDoTiro, Quaternion.Euler(0f, 0f, anguloTiro));
 
             
+            float anguloTiro = Mathf.Atan2(direcaoAtualDaMira.y, direcaoAtualDaMira.x) * Mathf.Rad2Deg;
+
+           
+            Instantiate(bullet, posicaoDoTiro, Quaternion.Euler(0f, 0f, anguloTiro));
+
+
             if (possuiEspada && projetilEspada != null && !espadaAtacando && Time.time >= tempoProximoTiroEspada)
             {
-                
+
                 tempoProximoTiroEspada = Time.time + tempoRecargaEspada;
                 StartCoroutine(AtaqueEspadaPet());
             }
@@ -390,8 +370,53 @@ public class mov : MonoBehaviour
             transform.position += movement * Time.deltaTime * Speed;
         }
 
-        float InputAxis = Input.GetAxis("Horizontal");
+        // --- 1. DETECTA QUAL DISPOSITIVO ESTÁ SENDO USADO ---
+        float aimX = Input.GetAxis("RightHorizontal");
+        float aimY = Input.GetAxis("RightVertical");
+        Vector3 centroDoBuck = transform.position + new Vector3(0f, 1f, 0f);
 
+        // Se mexer o mouse fisicamente (com uma tolerância menor para captar rápido) ou clicar
+        if (Mathf.Abs(Input.GetAxis("Mouse X")) > 0.05f || Mathf.Abs(Input.GetAxis("Mouse Y")) > 0.05f || Input.GetMouseButton(0))
+        {
+            usandoControle = false;
+        }
+        // Se usar o analógico direito da mira ou o gatilho do controle
+        else if (Mathf.Abs(aimX) > 0.1f || Mathf.Abs(aimY) > 0.1f || Input.GetAxis("TiroR2") > 0.5f)
+        {
+            usandoControle = true;
+        }
+
+        // Aplica a visibilidade baseada na memória
+        Cursor.visible = !usandoControle;
+        if (objetoMira != null) objetoMira.gameObject.SetActive(usandoControle);
+
+
+        // --- 2. COMPORTAMENTO DA MIRA ---
+        if (usandoControle)
+        {
+            // MODO CONTROLE: Só atualiza o ângulo se estiver empurrando o analógico (evita resetar pro meio)
+            if (Mathf.Abs(aimX) > 0.1f || Mathf.Abs(aimY) > 0.1f)
+            {
+                direcaoAtualDaMira = new Vector2(aimX, aimY).normalized;
+            }
+
+            if (objetoMira != null)
+            {
+                objetoMira.position = centroDoBuck + new Vector3(direcaoAtualDaMira.x, direcaoAtualDaMira.y, 0) * distanciaDaMira;
+                float anguloMira = Mathf.Atan2(direcaoAtualDaMira.y, direcaoAtualDaMira.x) * Mathf.Rad2Deg;
+                objetoMira.rotation = Quaternion.Euler(0f, 0f, anguloMira);
+            }
+        }
+        else
+        {
+            // MODO MOUSE
+            Vector3 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            posicaoMouse.z = 0f;
+            direcaoAtualDaMira = (posicaoMouse - centroDoBuck).normalized;
+        }
+
+        float InputAxis = Input.GetAxis("Horizontal");
+                
         if (InputAxis > 0)
         {
             transform.eulerAngles = new Vector2(0f, 0f);
@@ -400,7 +425,7 @@ public class mov : MonoBehaviour
         {
             transform.eulerAngles = new Vector2(0f, 180f);
         }
-
+        
         if (InputAxis != 0)
         {
             animator.SetBool("isRunning", true);
@@ -464,11 +489,9 @@ public class mov : MonoBehaviour
     {
         espadaAtacando = true;
 
-         Vector3 localDoLaser = pontaDaEspada != null ? pontaDaEspada.position : espadaPet.transform.position;
-        Vector3 posicaoMouseLaser = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        posicaoMouseLaser.z = 0f;
+        Vector3 localDoLaser = pontaDaEspada != null ? pontaDaEspada.position : espadaPet.transform.position;
 
-        Vector2 direcaoLaser = (posicaoMouseLaser - localDoLaser).normalized;
+        Vector2 direcaoLaser = direcaoAtualDaMira;
         float anguloLaser = Mathf.Atan2(direcaoLaser.y, direcaoLaser.x) * Mathf.Rad2Deg;
 
         Instantiate(projetilEspada, localDoLaser, Quaternion.Euler(0f, 0f, anguloLaser));
@@ -478,7 +501,7 @@ public class mov : MonoBehaviour
             audioSource.PlayOneShot(somLaser);
         }
 
-        espadaPet.transform.position -= (Vector3)direcaoLaser * 0.3f;
+        espadaPet.transform.position -= (Vector3)direcaoLaser * 0.3f; 
 
         yield return new WaitForSeconds(0.2f);
 

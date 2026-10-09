@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using System.Collections;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -17,6 +19,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [SerializeField] private Slider sliderMusica;
     [SerializeField] private Slider sliderEfeitos;
 
+    [Header("Botões para o Controle")]
+    [SerializeField] private GameObject primeiroBotaoOpcoes; 
+    [SerializeField] private GameObject primeiroBotaoCreditos; 
+    [SerializeField] private GameObject botaoOpcoesNoMenu; 
+    [SerializeField] private GameObject botaoCreditosNoMenu; 
     void Start()
     {
         float volumeMusicaSalvo = PlayerPrefs.GetFloat("VolMusica", -10f);
@@ -43,30 +50,47 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 
-    // ---------------- CONTROLE DAS OPÇÕES ----------------
+    // -------------- CONTROLE DAS OPÇÕES --------------
     public void AbrirOpcoes()
     {
         painelMenuInicial.SetActive(false);
         painelOpcoes.SetActive(true);
+        StartCoroutine(SelecionarBotaoAtrasado(primeiroBotaoOpcoes));
     }
 
     public void FecharOpcoes()
     {
         painelOpcoes.SetActive(false);
         painelMenuInicial.SetActive(true);
+        StartCoroutine(SelecionarBotaoAtrasado(botaoOpcoesNoMenu));
     }
 
-    // ---------------- CONTROLE DOS CRÉDITOS ----------------
+    // -------------- CONTROLE DOS CRÉDITOS --------------
     public void AbrirCreditos()
     {
         painelMenuInicial.SetActive(false);
-        painelCreditos.SetActive(true); 
+        painelCreditos.SetActive(true);
+        StartCoroutine(SelecionarBotaoAtrasado(primeiroBotaoCreditos));
     }
 
     public void FecharCreditos()
     {
-        painelCreditos.SetActive(false); 
+        painelCreditos.SetActive(false);
         painelMenuInicial.SetActive(true);
+        StartCoroutine(SelecionarBotaoAtrasado(botaoCreditosNoMenu));
+    }
+
+    // -------------- A MÁGICA DO ATRASO --------------
+    private IEnumerator SelecionarBotaoAtrasado(GameObject botao)
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+
+        yield return new WaitForSecondsRealtime(0.1f);
+
+        if (botao != null)
+        {
+            EventSystem.current.SetSelectedGameObject(botao);
+        }
     }
 
     // ---------------- SAIR DO JOGO ----------------
