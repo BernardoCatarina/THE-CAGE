@@ -292,7 +292,7 @@ public class mov : MonoBehaviour
             }
         }
 
-        if (possuiDash && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && Time.time >= tempoProximoDash)
+        if (possuiDash && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.JoystickButton2)) && Time.time >= tempoProximoDash)
         {
             StartCoroutine(ExecutarDash());
         }
@@ -319,15 +319,26 @@ public class mov : MonoBehaviour
             }
 
             proximoTiro = Time.time + tempoDeRecarga;
-            
-            Vector3 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            posicaoMouse.z = 0f;
-            
+
             Vector3 posicaoDoTiro = transform.position + new Vector3(0f, 1f, 0f);
-            
-            Vector2 direcaoTiro = (posicaoMouse - posicaoDoTiro).normalized;
+            Vector2 direcaoTiro = Vector2.right; 
+
+            float aimX = Input.GetAxis("RightHorizontal");
+            float aimY = Input.GetAxis("RightVertical");
+
+            if (Mathf.Abs(aimX) > 0.1f || Mathf.Abs(aimY) > 0.1f)
+            {
+                direcaoTiro = new Vector2(aimX, aimY).normalized;
+            }
+            else
+            { 
+                Vector3 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                posicaoMouse.z = 0f;
+                direcaoTiro = (posicaoMouse - posicaoDoTiro).normalized;
+            }
+
             float anguloTiro = Mathf.Atan2(direcaoTiro.y, direcaoTiro.x) * Mathf.Rad2Deg;
-          
+
             Instantiate(bullet, posicaoDoTiro, Quaternion.Euler(0f, 0f, anguloTiro));
 
             
