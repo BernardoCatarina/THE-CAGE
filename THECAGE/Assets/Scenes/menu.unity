@@ -1204,7 +1204,7 @@ GameObject:
   - component: {fileID: 505074364}
   - component: {fileID: 505074363}
   m_Layer: 5
-  m_Name: Voltar
+  m_Name: Button_Voltar_Opcoes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2187,6 +2187,7 @@ MonoBehaviour:
   primeiroBotaoCreditos: {fileID: 1994465919}
   botaoOpcoesNoMenu: {fileID: 1416987643}
   botaoCreditosNoMenu: {fileID: 649634019}
+  botaoJogarInicial: {fileID: 307293599}
 --- !u!4 &896721420
 Transform:
   m_ObjectHideFlags: 0
@@ -2875,7 +2876,6 @@ GameObject:
   - component: {fileID: 1279095941}
   - component: {fileID: 1279095940}
   - component: {fileID: 1279095939}
-  - component: {fileID: 1279095943}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2970,19 +2970,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1279095943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279095938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44bf673dfe89fb04c98db12f25c0ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ControleMenus
-  primeiroBotao: {fileID: 307293599}
 --- !u!1 &1285959424
 GameObject:
   m_ObjectHideFlags: 0
@@ -4229,7 +4216,7 @@ GameObject:
   - component: {fileID: 1994465921}
   - component: {fileID: 1994465924}
   m_Layer: 5
-  m_Name: Botton Voltar
+  m_Name: Botton_Volta_Creditos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

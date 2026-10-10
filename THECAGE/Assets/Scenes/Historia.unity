@@ -172,10 +172,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 2099490599}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -183,7 +183,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.38039216, g: 0.38039216, b: 0.38039216, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.38039216, g: 0.38039216, b: 0.38039216, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -502,6 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GerenciadorHistoria
   componenteTexto: {fileID: 1960117234}
   textoDoBotao: {fileID: 161908306}
+  botaoPrincipal: {fileID: 2099490597}
   textosHistoria:
   - "Buck se sentia muito solit\xE1rio. Como irm\xE3o mais novo, ele se sentia fraco
     comparado ao seu irm\xE3o mais velho, o mais forte da fam\xEDlia."
@@ -905,8 +906,8 @@ RectTransform:
   - {fileID: 1851252229}
   - {fileID: 1912628453}
   - {fileID: 1960117232}
-  - {fileID: 2099490598}
   - {fileID: 61524082}
+  - {fileID: 2099490598}
   - {fileID: 1782599675}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1373,9 +1374,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 61524083}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
@@ -1384,7 +1385,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.38039216, g: 0.38039216, b: 0.38039216, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.38039216, g: 0.38039216, b: 0.38039216, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1406,7 +1407,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 638906337}
         m_TargetAssemblyTypeName: GerenciadorHistoria, Assembly-CSharp
-        m_MethodName: AvanarSlide
+        m_MethodName: AvancarSlide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1668,9 +1669,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1058478883}
+  - {fileID: 565510424}
   - {fileID: 1696271883}
   - {fileID: 4268167866090676703}
-  - {fileID: 565510424}
   - {fileID: 638906338}
   - {fileID: 199766545}
   - {fileID: 1180722896}
