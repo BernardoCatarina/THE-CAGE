@@ -5,27 +5,23 @@ public class cenaparaoFase : MonoBehaviour
 {
     public void VoltarParaoFase()
     {
-        PlayerPrefs.DeleteAll();
-
-        // --- DESLIGA OS CHEATS AQUI ---
+        // Desliga cheats
         mov.instaKill = false;
         mov.modoVoo = false;
         mov.modoImortal = false;
         mov.modoMetralhadora = false;
-        // ------------------------------
 
-        
+        string cenaDestino = PlayerPrefs.GetString("FaseSalva", "Fase");
+
         ControleTransicao transicao = FindObjectOfType<ControleTransicao>();
 
         if (transicao != null)
         {
-            
-            transicao.IrParaProximaFase("Fase");
+            transicao.IrParaProximaFase(cenaDestino);
         }
         else
         {
-            
-            SceneManager.LoadScene("Fase");
+            SceneManager.LoadScene(cenaDestino); 
         }
     }
 }

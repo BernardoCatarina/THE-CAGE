@@ -109,7 +109,6 @@ public class mov : MonoBehaviour
 
         if (destino != "")
         {
-            
             GameObject pontoSpawn = GameObject.Find(destino);
 
             if (pontoSpawn != null)
@@ -117,10 +116,18 @@ public class mov : MonoBehaviour
                 
                 transform.position = pontoSpawn.transform.position;
             }
-
-            
+                        
             PlayerPrefs.SetString("PortaDestino", "");
         }
+        // --- SISTEMA DE CHECKPOINT ---
+        if (PlayerPrefs.GetInt("TemCheck") == 1)
+        {
+            float posX = PlayerPrefs.GetFloat("CheckX");
+            float posY = PlayerPrefs.GetFloat("CheckY");
+
+            transform.position = new Vector3(posX, posY, transform.position.z);
+        }
+
     }
 
     void Update()

@@ -3,22 +3,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class VidaPlayer : MonoBehaviour 
+public class VidaPlayer : MonoBehaviour
 {
-
     [Header("Sons")]
-    public AudioClip somDeDano; 
-    private AudioSource audioSource; 
+    public AudioClip somDeDano;
+    private AudioSource audioSource;
 
-    public int vidaMaxima = 3;
+    public int vidaMaxima = 10;
     private int vidaAtual;
 
     public Slider barraDeVida;
     public Text textoDeVida;
 
-   
     private SpriteRenderer spriteRenderer;
-    public int quantidadeDePiscadas = 3; 
+    public int quantidadeDePiscadas = 3;
     public float tempoPiscada = 0.1f;
 
     public Animator animator;
@@ -32,6 +30,14 @@ public class VidaPlayer : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         vidaAtual = PlayerPrefs.GetInt("VidaSalva", vidaMaxima);
+
+        // --- CORREÇÃO DO CHECKPOINT ---
+        if (vidaAtual <= 0)
+        {
+            vidaAtual = vidaMaxima;
+            PlayerPrefs.SetInt("VidaSalva", vidaAtual);
+        }
+        // ------------------------------
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -64,6 +70,7 @@ public class VidaPlayer : MonoBehaviour
         {
             barraDeVida.value = vidaAtual;
         }
+
         AtualizarTexto();
 
         if (somDeDano != null && audioSource != null)
@@ -93,7 +100,7 @@ public class VidaPlayer : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            spriteRenderer.color = new Color(1f, 1f, 1f, 0.3f); 
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.3f);
             yield return new WaitForSeconds(0.15f);
 
             spriteRenderer.color = Color.white;
@@ -113,7 +120,6 @@ public class VidaPlayer : MonoBehaviour
 
     void Morrer()
     {
-        
         if (estaMorto) return;
         estaMorto = true;
 
@@ -129,7 +135,6 @@ public class VidaPlayer : MonoBehaviour
             GetComponent<mov>().enabled = false;
         }
 
-     
         if (animator != null)
         {
             animator.SetBool("isRunning", false);
@@ -137,16 +142,14 @@ public class VidaPlayer : MonoBehaviour
             animator.SetTrigger("AnimacaoMorte");
         }
 
-
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-  
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
 
-             yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.1f);
 
-            float tempoLimite = 3f; 
+            float tempoLimite = 3f;
             float timer = 0f;
 
             while (Mathf.Abs(rb.linearVelocity.y) > 0.05f && timer < tempoLimite)
@@ -169,17 +172,16 @@ public class VidaPlayer : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
     }
+
     public void Curar(int quantidade)
     {
         vidaAtual += quantidade;
 
-       
         if (vidaAtual > vidaMaxima)
         {
             vidaAtual = vidaMaxima;
         }
 
-        
         PlayerPrefs.SetInt("VidaSalva", vidaAtual);
 
         if (barraDeVida != null)

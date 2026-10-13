@@ -94,12 +94,36 @@ public class NewMonoBehaviourScript : MonoBehaviour
         ultimaPosicaoMouse = Input.mousePosition;
     }
 
-    public void Jogar()
+    public void ContinuarJogo()
     {
+        string faseParaCarregar = PlayerPrefs.GetString("FaseSalva", nomedoLevelDeJogo);
+
         ControleTransicao transicao = FindObjectOfType<ControleTransicao>();
 
-        if (transicao != null) transicao.IrParaProximaFase(nomedoLevelDeJogo);
-        else SceneManager.LoadScene(nomedoLevelDeJogo);
+        if (transicao != null)
+        {
+            transicao.IrParaProximaFase(faseParaCarregar);
+        }
+        else
+        {
+            SceneManager.LoadScene(faseParaCarregar);
+        }
+    }
+
+    public void NovoJogo()
+    {
+        PlayerPrefs.DeleteAll();
+
+        ControleTransicao transicao = FindObjectOfType<ControleTransicao>();
+
+        if (transicao != null)
+        {
+            transicao.IrParaProximaFase(nomedoLevelDeJogo);
+        }
+        else
+        {
+            SceneManager.LoadScene(nomedoLevelDeJogo);
+        }
     }
 
     // -------------- NAVEGAÇÃO DE MENUS (COM COROUTINES) --------------
