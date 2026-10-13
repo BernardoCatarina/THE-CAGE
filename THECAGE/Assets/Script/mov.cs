@@ -156,13 +156,16 @@ public class mov : MonoBehaviour
                 ColetarEspada();
                 StartCoroutine(MostrarAvisoCheat("Espada Pet Adquirida!"));
             }
-    
+
             // Ligar/Desligar Modo Imortal (Ctrl + Shift + I)
             if (Input.GetKeyDown(KeyCode.I))
             {
                 modoImortal = !modoImortal;
                 string status = modoImortal ? "LIGADO" : "DESLIGADO";
                 StartCoroutine(MostrarAvisoCheat("Deus: " + status));
+
+                // NOVO: Transforma o Buck em fantasma permanentemente enquanto o Modo Deus estiver ligado
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Inimigo"), modoImortal);
             }
 
             // Ligar/Desligar Modo Voo (Ctrl + Shift + V)
