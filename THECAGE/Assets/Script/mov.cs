@@ -26,6 +26,7 @@ public class mov : MonoBehaviour
     public AudioClip somPulo;
     public AudioClip somAtaque;
     public AudioClip somLaser;
+    public AudioClip somDash;
     private AudioSource audioSource;
 
     [Header("Espada Pet")]
@@ -113,19 +114,26 @@ public class mov : MonoBehaviour
 
             if (pontoSpawn != null)
             {
-                
                 transform.position = pontoSpawn.transform.position;
-            }
-                        
-            PlayerPrefs.SetString("PortaDestino", "");
-        }
-        // --- SISTEMA DE CHECKPOINT ---
-        if (PlayerPrefs.GetInt("TemCheck") == 1)
-        {
-            float posX = PlayerPrefs.GetFloat("CheckX");
-            float posY = PlayerPrefs.GetFloat("CheckY");
+                PlayerPrefs.SetString("PortaDestino", ""); // Limpa o destino para não repetir
 
-            transform.position = new Vector3(posX, posY, transform.position.z);
+                PlayerPrefs.SetInt("TemCheck", 0);
+            }
+        }
+        else
+        {
+            // --- SISTEMA DE CHECKPOINT ---
+            string cenaDoCheckpoint = PlayerPrefs.GetString("FaseSalva", "");
+            string cenaAtual = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+            // Só puxa as coordenadas se a cena atual for exatamente a mesma onde a bandeira estava
+            if (PlayerPrefs.GetInt("TemCheck") == 1 && cenaDoCheckpoint == cenaAtual)
+            {
+                float posX = PlayerPrefs.GetFloat("CheckX");
+                float posY = PlayerPrefs.GetFloat("CheckY");
+
+                transform.position = new Vector3(posX, posY, transform.position.z);
+            }
         }
 
     }
@@ -548,6 +556,11 @@ public class mov : MonoBehaviour
     {
         estaDandoDash = true;
         tempoProximoDash = Time.time + tempoRecargaDash;
+
+        if (somDash != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(somDash);
+        }
 
         if (animator != null)
         {

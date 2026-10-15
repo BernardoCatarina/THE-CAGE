@@ -9,7 +9,7 @@ public class VidaPlayer : MonoBehaviour
     public AudioClip somDeDano;
     private AudioSource audioSource;
 
-    public int vidaMaxima = 10;
+    public int vidaMaxima = 10; 
     private int vidaAtual;
 
     public Slider barraDeVida;
@@ -29,6 +29,9 @@ public class VidaPlayer : MonoBehaviour
     {
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Inimigo"), false);
         audioSource = GetComponent<AudioSource>();
+
+        
+        vidaMaxima = PlayerPrefs.GetInt("VidaMaximaSalva", 10);
         vidaAtual = PlayerPrefs.GetInt("VidaSalva", vidaMaxima);
 
         if (vidaAtual <= 0)
@@ -48,6 +51,24 @@ public class VidaPlayer : MonoBehaviour
 
         ultimaPosicaoSegura = transform.position;
     }
+
+    // --- NOVO: FUNÇÃO PARA O CORAÇÃO SUPREMO ---
+    public void AumentarVidaMaxima(int aumento)
+    {
+        vidaMaxima += aumento;
+        vidaAtual = vidaMaxima; // Enche a vida por completo como bônus
+
+        PlayerPrefs.SetInt("VidaMaximaSalva", vidaMaxima);
+        PlayerPrefs.SetInt("VidaSalva", vidaAtual);
+
+        if (barraDeVida != null)
+        {
+            barraDeVida.maxValue = vidaMaxima;
+            barraDeVida.value = vidaAtual;
+        }
+        AtualizarTexto();
+    }
+    // -------------------------------------------
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -87,10 +108,7 @@ public class VidaPlayer : MonoBehaviour
         if (barraDeVida != null) barraDeVida.value = vidaAtual;
         AtualizarTexto();
 
-        if (somDeDano != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(somDeDano);
-        }
+        if (somDeDano != null && audioSource != null) audioSource.PlayOneShot(somDeDano);
 
         StartCoroutine(EfeitoHitstop());
 
@@ -106,29 +124,16 @@ public class VidaPlayer : MonoBehaviour
             {
                 rb.linearVelocity = Vector2.zero;
                 float direcao = 1f;
-                if (posicaoInimigo != Vector3.zero)
-                {
-                    direcao = transform.position.x > posicaoInimigo.x ? 1f : -1f;
-                }
-                else
-                {
-                    direcao = transform.eulerAngles.y == 0 ? -1f : 1f;
-                }
+                if (posicaoInimigo != Vector3.zero) direcao = transform.position.x > posicaoInimigo.x ? 1f : -1f;
+                else direcao = transform.eulerAngles.y == 0 ? -1f : 1f;
 
                 rb.AddForce(new Vector2(direcao * 3f, 6f), ForceMode2D.Impulse);
                 StartCoroutine(TravarControles());
             }
         }
 
-        if (spriteRenderer != null)
-        {
-            StartCoroutine(EfeitoPiscar());
-        }
-
-        if (vidaAtual <= 0)
-        {
-            Morrer();
-        }
+        if (spriteRenderer != null) StartCoroutine(EfeitoPiscar());
+        if (vidaAtual <= 0) Morrer();
     }
 
     IEnumerator EfeitoHitstop()
@@ -145,10 +150,7 @@ public class VidaPlayer : MonoBehaviour
         {
             scriptMov.enabled = false;
             yield return new WaitForSeconds(0.25f);
-            if (!estaMorto)
-            {
-                scriptMov.enabled = true;
-            }
+            if (!estaMorto) scriptMov.enabled = true;
         }
     }
 
@@ -176,20 +178,14 @@ public class VidaPlayer : MonoBehaviour
             }
         }
 
-        if (!mov.modoImortal)
-        {
-            Physics2D.IgnoreLayerCollision(layerPlayer, layerInimigo, false);
-        }
+        if (!mov.modoImortal) Physics2D.IgnoreLayerCollision(layerPlayer, layerInimigo, false);
 
         estaInvencivel = false;
     }
 
     void AtualizarTexto()
     {
-        if (textoDeVida != null)
-        {
-            textoDeVida.text = vidaAtual + " / " + vidaMaxima;
-        }
+        if (textoDeVida != null) textoDeVida.text = vidaAtual + " / " + vidaMaxima;
     }
 
     void Morrer()
@@ -225,14 +221,8 @@ public class VidaPlayer : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         EfeitoFade fade = FindObjectOfType<EfeitoFade>();
-        if (fade != null)
-        {
-            fade.IniciarFade("GameOver", new Color(0.5f, 0f, 0f), 2.5f);
-        }
-        else
-        {
-            SceneManager.LoadScene("GameOver");
-        }
+        if (fade != null) fade.IniciarFade("GameOver", new Color(0.5f, 0f, 0f), 2.5f);
+        else SceneManager.LoadScene("GameOver");
     }
 
     public void Curar(int quantidade)
