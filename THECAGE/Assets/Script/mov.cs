@@ -35,6 +35,9 @@ public class mov : MonoBehaviour
     public Transform pontaDaEspada;
     private bool espadaAtacando = false;
     public GameObject projetilEspada;
+    public float velocidadePulsacao = 3f;
+    public float tamanhoPulsacao = 0.15f; 
+    private Vector3 escalaOriginalEspada;
 
     [Header("Cheats")]
     public static bool instaKill = false;
@@ -74,11 +77,15 @@ public class mov : MonoBehaviour
     private Vector2 direcaoAtualDaMira = Vector2.right;
 
     [Header("Carregamento da Espada")]
-    public float tempoMaximoCarga = 2f;
+    public float tempoMaximoCarga = 3f;
+    public float tamanhoMaximoTiro = 2.5f;
+
     private float tempoCarregando = 0f;
     private bool carregandoEspada = false;
+    private bool ataqueEstavaPressionado = false;
     private GameObject projetilCarregadoAtual;
-    private Vector3 escalaOriginalTiro; 
+    private Vector3 escalaOriginalTiro;
+
     void Start()
     {
         possuiPuloDuplo = PlayerPrefs.GetInt("PuloDuploSalvo", 0) == 1;
@@ -97,6 +104,7 @@ public class mov : MonoBehaviour
         if (possuiEspada && espadaPet != null)
         {
             espadaPet.SetActive(true);
+            escalaOriginalEspada = espadaPet.transform.localScale; 
         }
 
         AtualizarTextoMunicao();
@@ -221,7 +229,7 @@ public class mov : MonoBehaviour
         // --------------------------------------------------
 
         // --- MOVIMENTO DO PET ESPADA ---
-        if (possuiEspada && espadaPet != null && !espadaAtacando)
+        if (possuiEspada && espadaPet != null && (!espadaAtacando || carregandoEspada)) 
         {
             Vector3 centroDoBuck = transform.position + new Vector3(0f, 1f, 0f);
 
@@ -233,6 +241,9 @@ public class mov : MonoBehaviour
 
             float angulo = (Mathf.Atan2(direcaoAtualDaMira.y, direcaoAtualDaMira.x) * Mathf.Rad2Deg) - 90f;
             espadaPet.transform.rotation = Quaternion.Euler(0f, 0f, angulo);
+
+            float variacao = Mathf.Sin(Time.time * velocidadePulsacao) * tamanhoPulsacao;
+            espadaPet.transform.localScale = escalaOriginalEspada + new Vector3(variacao, variacao, 0f);
         }
 
 
@@ -315,20 +326,31 @@ public class mov : MonoBehaviour
         Move();
         Jump();
 
+
+        // --- DETECTAR ATAQUE DO MOUSE E DO CONTROLE ---
         float valorEixoR2 = Input.GetAxis("TiroR2");
-        bool r2PressionadoAgora = (valorEixoR2 > 0.5f) || Input.GetKey(KeyCode.JoystickButton7);
+
+        bool r2PressionadoAgora = valorEixoR2 > 0.5f || Input.GetKey(KeyCode.JoystickButton7);
 
         bool r2ApertouNesteFrame = r2PressionadoAgora && !r2EstavaPressionado;
-        bool botaoAtaqueSegurado = Input.GetButton("Fire1") || r2PressionadoAgora;
-        bool botaoAtaqueSolto = Input.GetButtonUp("Fire1") || (!r2PressionadoAgora && r2EstavaPressionado);
 
         bool querAtirar = modoMetralhadora ? (Input.GetButton("Fire1") || r2PressionadoAgora) : (Input.GetButtonDown("Fire1") || r2ApertouNesteFrame);
 
         r2EstavaPressionado = r2PressionadoAgora;
 
+        bool ataquePressionadoAgora = Input.GetMouseButton(0) || r2PressionadoAgora;
+
+        bool ataqueApertouNesteFrame = ataquePressionadoAgora && !ataqueEstavaPressionado;
+
+        bool ataqueSoltouNesteFrame = !ataquePressionadoAgora && ataqueEstavaPressionado;
+
+        ataqueEstavaPressionado = ataquePressionadoAgora;
+
+        // --- DISPARO DAS FACAS: MANTÉM O SISTEMA ATUAL ---
         if (possuiFaca && municao > 0 && querAtirar && Time.time >= proximoTiro)
         {
             municao--;
+
             PlayerPrefs.SetInt("MunicaoSalva", municao);
             AtualizarTextoMunicao();
 
@@ -339,87 +361,101 @@ public class mov : MonoBehaviour
 
             proximoTiro = Time.time + tempoDeRecarga;
 
-            
             Vector3 posicaoDoTiro = transform.position + new Vector3(0f, 1f, 0f);
 
-            
-            float anguloTiro = Mathf.Atan2(direcaoAtualDaMira.y, direcaoAtualDaMira.x) * Mathf.Rad2Deg;
+            float anguloTiro = Mathf.Atan2( direcaoAtualDaMira.y,direcaoAtualDaMira.x ) * Mathf.Rad2Deg;
 
-           
-            Instantiate(bullet, posicaoDoTiro, Quaternion.Euler(0f, 0f, anguloTiro));
+            Instantiate(bullet,posicaoDoTiro,Quaternion.Euler(0f, 0f, anguloTiro));
+        }
 
+        // --- COMEÇAR A CARREGAR A ESPADA ---
+        if (possuiEspada && projetilEspada != null && !carregandoEspada && !espadaAtacando && ataqueApertouNesteFrame && Time.time >= tempoProximoTiroEspada)
+        {
+            Vector3 posicaoInicial = pontaDaEspada != null ? pontaDaEspada.position : transform.position + new Vector3(0f, 1f, 0f);
 
-            // --- SISTEMA DE CARREGAMENTO DA ESPADA ---
-            bool segurandoTiro = Input.GetButton("Fire1") || (Input.GetAxis("TiroR2") > 0.5f);
+            float anguloInicial = Mathf.Atan2(direcaoAtualDaMira.y,direcaoAtualDaMira.x) * Mathf.Rad2Deg;
 
-            if (possuiEspada && projetilEspada != null && Time.time >= tempoProximoTiroEspada)
+            projetilCarregadoAtual = Instantiate(projetilEspada,posicaoInicial,Quaternion.Euler(0f, 0f, anguloInicial));
+
+            ProjetilEspada scriptProjetil = projetilCarregadoAtual.GetComponent<ProjetilEspada>();
+
+            if (scriptProjetil != null)
             {
-                // 1. INICIA A CARGA
-                if (segurandoTiro && !carregandoEspada)
-                {
-                    carregandoEspada = true;
-                    tempoCarregando = 0f;
+                scriptProjetil.PrepararCarga();
+                scriptProjetil.AtualizarCarga(0f, tamanhoMaximoTiro);
 
-                    Vector3 localDoLaser = pontaDaEspada != null ? pontaDaEspada.position : espadaPet.transform.position;
-                    Vector2 direcaoLaser = direcaoAtualDaMira;
-                    float anguloLaser = Mathf.Atan2(direcaoLaser.y, direcaoLaser.x) * Mathf.Rad2Deg;
+                carregandoEspada = true;
+                espadaAtacando = true;
+                tempoCarregando = 0f;
+            }
+            else
+            {
+                Destroy(projetilCarregadoAtual);
+                projetilCarregadoAtual = null;
 
-                    projetilCarregadoAtual = Instantiate(projetilEspada, localDoLaser, Quaternion.Euler(0f, 0f, anguloLaser));
-
-                    
-                    escalaOriginalTiro = projetilCarregadoAtual.transform.localScale;
-                }
-
-                // 2. ENQUANTO O JOGO ESTÁ CARREGANDO O TIRO
-                if (carregandoEspada)
-                {
-                    if (segurandoTiro) 
-                    {
-                        tempoCarregando += Time.deltaTime;
-                        float progresso = Mathf.Clamp01(tempoCarregando / tempoMaximoCarga);
-
-                        if (projetilCarregadoAtual != null)
-                        {
-                           
-                            float multiplicador = Mathf.Lerp(1f, 3.5f, progresso);
-                            projetilCarregadoAtual.transform.localScale = escalaOriginalTiro * multiplicador;
-
-                           
-                            Vector3 localDoLaser = pontaDaEspada != null ? pontaDaEspada.position : espadaPet.transform.position;
-                            Vector2 direcaoLaser = direcaoAtualDaMira;
-                            float anguloLaser = Mathf.Atan2(direcaoLaser.y, direcaoLaser.x) * Mathf.Rad2Deg;
-
-                            projetilCarregadoAtual.transform.position = localDoLaser;
-                            projetilCarregadoAtual.transform.rotation = Quaternion.Euler(0f, 0f, anguloLaser);
-                        }
-                    }
-                    else // 3. SOLTOU O BOTÃO (DISPARA!)
-                    {
-                        if (projetilCarregadoAtual != null)
-                        {
-                            ProjetilEspada scriptProj = projetilCarregadoAtual.GetComponent<ProjetilEspada>();
-                            if (scriptProj != null)
-                            {
-                                float progresso = Mathf.Clamp01(tempoCarregando / tempoMaximoCarga);
-                                int danoExtra = Mathf.RoundToInt(progresso * 15f);
-                                scriptProj.danoDaEspada += danoExtra;
-
-                                
-                                if (scriptProj.speed <= 0) scriptProj.speed = 15f;
-
-                                scriptProj.Lancar();
-
-                                if (somLaser != null && audioSource != null) audioSource.PlayOneShot(somLaser);
-                            }
-                        }
-
-                        carregandoEspada = false;
-                        tempoProximoTiroEspada = Time.time + tempoRecargaEspada;
-                        StartCoroutine(RecuoEspadaPet());
-                    }
-                }
+                Debug.LogError("O prefab da espada precisa do script ProjetilEspada!");
             }
         }
+
+        // --- ATUALIZAR A CARGA ENQUANTO O BOTÃO ESTÁ PRESSIONADO ---
+        if (carregandoEspada && projetilCarregadoAtual != null)
+        {
+            tempoCarregando += Time.deltaTime;
+
+            float progresso = Mathf.Clamp01(tempoCarregando / tempoMaximoCarga);
+
+            Vector2 direcao = direcaoAtualDaMira.normalized;
+
+            Vector3 posicaoTiro = pontaDaEspada != null ? pontaDaEspada.position : transform.position + new Vector3(0f, 1f, 0f);
+
+            float angulo = Mathf.Atan2(direcao.y,direcao.x) * Mathf.Rad2Deg;
+
+            projetilCarregadoAtual.transform.position = posicaoTiro;
+
+            projetilCarregadoAtual.transform.rotation = Quaternion.Euler(0f, 0f, angulo);
+
+            ProjetilEspada scriptProjetil = projetilCarregadoAtual.GetComponent<ProjetilEspada>();
+
+            if (scriptProjetil != null)
+            {
+                scriptProjetil.AtualizarCarga(
+                    progresso,
+                    tamanhoMaximoTiro
+                );
+            }
+        }
+
+        // --- SOLTAR O BOTÃO E DISPARAR ---
+        if (carregandoEspada && ataqueSoltouNesteFrame)
+        {
+            if (projetilCarregadoAtual != null)
+            {
+                ProjetilEspada scriptProjetil = projetilCarregadoAtual.GetComponent<ProjetilEspada>();
+
+                if (scriptProjetil != null)
+                {
+                    scriptProjetil.DispararCarregado( direcaoAtualDaMira);
+
+                    if (somLaser != null && audioSource != null)
+                    {
+                        audioSource.PlayOneShot(somLaser);
+                    }
+
+                    tempoProximoTiroEspada =
+                        Time.time + tempoRecargaEspada;
+                }
+                else
+                {
+                    Destroy(projetilCarregadoAtual);
+                }
+            }
+
+            projetilCarregadoAtual = null;
+            carregandoEspada = false;
+            espadaAtacando = false;
+            tempoCarregando = 0f;
+        }
+
     }
 
     public void AtualizarTextoMunicao()
@@ -576,12 +612,24 @@ public class mov : MonoBehaviour
         AtualizarTextoMunicao();
     }
 
-    IEnumerator RecuoEspadaPet()
+    IEnumerator AtaqueEspadaPet()
     {
+        espadaAtacando = true;
+
+        Vector3 localDoLaser = pontaDaEspada != null ? pontaDaEspada.position : espadaPet.transform.position;
         Vector2 direcaoLaser = direcaoAtualDaMira;
+        float anguloLaser = Mathf.Atan2(direcaoLaser.y, direcaoLaser.x) * Mathf.Rad2Deg;
+
+        Instantiate(projetilEspada, localDoLaser, Quaternion.Euler(0f, 0f, anguloLaser));
+
+        if (somLaser != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(somLaser);
+        }
+
         espadaPet.transform.position -= (Vector3)direcaoLaser * 0.3f;
         yield return new WaitForSeconds(0.2f);
-        espadaAtacando = false; // Libera para carregar novamente
+        espadaAtacando = false;
     }
 
     IEnumerator MostrarAvisoCheat(string mensagem)
