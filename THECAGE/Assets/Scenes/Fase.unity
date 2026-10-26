@@ -109065,7 +109065,7 @@ MonoBehaviour:
   somPulo: {fileID: 8300000, guid: 4d30413df20afaf41acda2ce77112510, type: 3}
   somAtaque: {fileID: 8300000, guid: b7562250fda881541936a4878a7a0f95, type: 3}
   somLaser: {fileID: 8300000, guid: 07c6456794126244cb9f2d6abaa48126, type: 3}
-  somDash: {fileID: 0}
+  somDash: {fileID: 8300000, guid: 1769b246adb67b542aa32160463e1fab, type: 3}
   possuiEspada: 0
   espadaPet: {fileID: 9188016804207990476}
   pontaDaEspada: {fileID: 3436908565681775746}
@@ -109085,6 +109085,7 @@ MonoBehaviour:
   tempoRecargaEspada: 1.5
   objetoMira: {fileID: 1389703191004811400}
   distanciaDaMira: 2.5
+  tempoMaximoCarga: 2
 --- !u!1 &8615553402785670445
 GameObject:
   m_ObjectHideFlags: 0
