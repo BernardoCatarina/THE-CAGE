@@ -109178,6 +109178,7 @@ MonoBehaviour:
   somAtaque: {fileID: 8300000, guid: b7562250fda881541936a4878a7a0f95, type: 3}
   somLaser: {fileID: 8300000, guid: 07c6456794126244cb9f2d6abaa48126, type: 3}
   somDash: {fileID: 8300000, guid: 1769b246adb67b542aa32160463e1fab, type: 3}
+  somCargaEspada: {fileID: 8300000, guid: c09b46a066d3bce44b6490d9e9858e47, type: 3}
   possuiEspada: 0
   espadaPet: {fileID: 5537426490819056561}
   pontaDaEspada: {fileID: 4346282158816922721}

@@ -28,6 +28,8 @@ public class mov : MonoBehaviour
     public AudioClip somLaser;
     public AudioClip somDash;
     private AudioSource audioSource;
+    public AudioClip somCargaEspada;
+    private AudioSource audioCargaEspada;
 
     [Header("Espada Pet")]
     public bool possuiEspada = false;
@@ -93,6 +95,12 @@ public class mov : MonoBehaviour
 
         rig = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+
+        audioCargaEspada = gameObject.AddComponent<AudioSource>();
+        audioCargaEspada.playOnAwake = false;
+        audioCargaEspada.loop = true;
+        audioCargaEspada.volume = 0.7f;
+
 
         gravidadeOriginal = rig.gravityScale;
         tempoDeRecargaOriginal = tempoDeRecarga;
@@ -388,6 +396,13 @@ public class mov : MonoBehaviour
                 espadaAtacando = true;
                 tempoCarregando = 0f;
             }
+
+            if (somCargaEspada != null)
+            {
+                audioCargaEspada.clip = somCargaEspada;
+                audioCargaEspada.Play();
+            }
+
             else
             {
                 Destroy(projetilCarregadoAtual);
@@ -418,10 +433,7 @@ public class mov : MonoBehaviour
 
             if (scriptProjetil != null)
             {
-                scriptProjetil.AtualizarCarga(
-                    progresso,
-                    tamanhoMaximoTiro
-                );
+                scriptProjetil.AtualizarCarga(progresso, tamanhoMaximoTiro);
             }
         }
 
@@ -441,13 +453,17 @@ public class mov : MonoBehaviour
                         audioSource.PlayOneShot(somLaser);
                     }
 
-                    tempoProximoTiroEspada =
-                        Time.time + tempoRecargaEspada;
+                    tempoProximoTiroEspada = Time.time + tempoRecargaEspada;
                 }
                 else
                 {
                     Destroy(projetilCarregadoAtual);
                 }
+            }
+
+            if (audioCargaEspada != null && audioCargaEspada.isPlaying)
+            {
+                audioCargaEspada.Stop();
             }
 
             projetilCarregadoAtual = null;
