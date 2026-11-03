@@ -109191,6 +109191,10 @@ MonoBehaviour:
   velocidadeDash: 20
   tempoDash: 0.2
   tempoRecargaDash: 1.2
+  intervaloRastro: 0.04
+  duracaoRastro: 0.18
+  transparenciaRastro: 0.75
+  corRastro: {r: 0.4, g: 0.8, b: 1, a: 1}
   spriteDaEspada: {fileID: 20459574254986239}
   textoTimerEspada: {fileID: 9017037298232275102}
   danoExtraBuff: 5

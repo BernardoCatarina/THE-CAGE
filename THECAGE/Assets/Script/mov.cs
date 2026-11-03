@@ -61,6 +61,17 @@ public class mov : MonoBehaviour
     private bool estaDandoDash = false;
     private float tempoProximoDash = 0f;
 
+    [Header("Efeito Visual do Dash")]
+    public float intervaloRastro = 0.04f;
+    public float duracaoRastro = 0.18f;
+    public float transparenciaRastro = 0.45f;
+    public Color corRastro = new Color(0.4f, 0.8f, 1f, 1f);
+
+    private SpriteRenderer spriteBuck;
+
+    [Header("Efeito do Pulo Duplo")]
+    public GameObject efeitoNuvemPuloDuplo;
+
     [Header("Buff da Espada")]
     public SpriteRenderer spriteDaEspada;
     public TMPro.TextMeshProUGUI textoTimerEspada; 
@@ -95,10 +106,11 @@ public class mov : MonoBehaviour
 
         rig = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        spriteBuck = GetComponentInChildren<SpriteRenderer>();
 
         audioCargaEspada = gameObject.AddComponent<AudioSource>();
         audioCargaEspada.playOnAwake = false;
-        audioCargaEspada.loop = true;
+        audioCargaEspada.loop = false;
         audioCargaEspada.volume = 0.7f;
 
 
@@ -594,15 +606,27 @@ public class mov : MonoBehaviour
                 podePuloDuplo = possuiPuloDuplo; 
                 animator.SetBool("isJumping", true);
             }
-            else if (podePuloDuplo) 
+
+            else if (podePuloDuplo)
             {
-                rig.linearVelocity = new Vector2(rig.linearVelocity.x, 0); 
+                rig.linearVelocity = new Vector2(rig.linearVelocity.x, 0);
                 rig.AddForce(new Vector2(0f, Jumpforce), ForceMode2D.Impulse);
 
-                if (somPulo != null && audioSource != null) audioSource.PlayOneShot(somPulo);
+                if (somPulo != null && audioSource != null)audioSource.PlayOneShot(somPulo);
 
-                podePuloDuplo = false; 
+                // Efeito de nuvem no segundo pulo
+                if (efeitoNuvemPuloDuplo != null)
+                {
+                    float alturaPes = spriteBuck != null ? spriteBuck.bounds.min.y: transform.position.y - 0.5f;
+
+                    Vector3 posicaoNuvem = new Vector3(transform.position.x, alturaPes,transform.position.z);
+
+                    Instantiate(efeitoNuvemPuloDuplo,posicaoNuvem,Quaternion.identity);
+                }
+
+                podePuloDuplo = false;
             }
+
         }
     }
 
@@ -678,6 +702,7 @@ public class mov : MonoBehaviour
     {
         estaDandoDash = true;
         tempoProximoDash = Time.time + tempoRecargaDash;
+        StartCoroutine(GerarRastroDash());
 
         if (somDash != null && audioSource != null)
         {
@@ -734,4 +759,71 @@ public class mov : MonoBehaviour
         
         if (textoTimerEspada != null) textoTimerEspada.gameObject.SetActive(false);
     }
+
+
+    IEnumerator GerarRastroDash()
+    {
+        while (estaDandoDash)
+        {
+            if (spriteBuck != null && spriteBuck.sprite != null)
+            {
+                GameObject fantasma = new GameObject("RastroDash");
+
+                fantasma.transform.position = spriteBuck.transform.position;
+                fantasma.transform.rotation = spriteBuck.transform.rotation;
+                fantasma.transform.localScale = spriteBuck.transform.lossyScale;
+
+                SpriteRenderer rendererFantasma =
+                    fantasma.AddComponent<SpriteRenderer>();
+
+                rendererFantasma.sprite = spriteBuck.sprite;
+                rendererFantasma.flipX = spriteBuck.flipX;
+                rendererFantasma.flipY = spriteBuck.flipY;
+
+                rendererFantasma.sortingLayerID = spriteBuck.sortingLayerID;
+                rendererFantasma.sortingOrder = spriteBuck.sortingOrder - 1;
+
+                rendererFantasma.sharedMaterial = spriteBuck.sharedMaterial;
+
+                Color cor = corRastro;
+                cor.a = transparenciaRastro;
+
+                rendererFantasma.color = cor;
+
+                StartCoroutine(DesaparecerRastro(rendererFantasma));
+            }
+
+            yield return new WaitForSeconds(intervaloRastro);
+        }
+    }
+
+    IEnumerator DesaparecerRastro(SpriteRenderer fantasma)
+    {
+        float tempo = 0f;
+
+        Color corInicial = fantasma.color;
+
+        while (tempo < duracaoRastro)
+        {
+            if (fantasma == null)
+                yield break;
+
+            tempo += Time.deltaTime;
+
+            float progresso = Mathf.Clamp01(tempo / duracaoRastro);
+
+            Color novaCor = corInicial;
+            novaCor.a = Mathf.Lerp(corInicial.a, 0f, progresso);
+
+            fantasma.color = novaCor;
+
+            yield return null;
+        }
+
+        if (fantasma != null)
+        {
+            Destroy(fantasma.gameObject);
+        }
+    }
+
 }

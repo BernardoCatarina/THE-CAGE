@@ -6302,6 +6302,7 @@ MonoBehaviour:
   somAtaque: {fileID: 8300000, guid: b7562250fda881541936a4878a7a0f95, type: 3}
   somLaser: {fileID: 8300000, guid: 07c6456794126244cb9f2d6abaa48126, type: 3}
   somDash: {fileID: 8300000, guid: 1769b246adb67b542aa32160463e1fab, type: 3}
+  somCargaEspada: {fileID: 8300000, guid: c09b46a066d3bce44b6490d9e9858e47, type: 3}
   possuiEspada: 0
   espadaPet: {fileID: 6774538112885213101}
   pontaDaEspada: {fileID: 3353495156465817725}
@@ -6314,6 +6315,10 @@ MonoBehaviour:
   velocidadeDash: 20
   tempoDash: 0.2
   tempoRecargaDash: 1
+  intervaloRastro: 0.04
+  duracaoRastro: 0.18
+  transparenciaRastro: 0.75
+  corRastro: {r: 0.4, g: 0.8, b: 1, a: 1}
   spriteDaEspada: {fileID: 1338612889249691619}
   textoTimerEspada: {fileID: 8227825561104783604}
   danoExtraBuff: 5
@@ -6324,6 +6329,7 @@ MonoBehaviour:
   objetoMira: {fileID: 5656764130197911516}
   distanciaDaMira: 2.5
   tempoMaximoCarga: 2
+  tamanhoMaximoTiro: 1.7
 --- !u!1 &6774538112885213101
 GameObject:
   m_ObjectHideFlags: 0
