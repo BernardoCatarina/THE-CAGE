@@ -109195,7 +109195,7 @@ MonoBehaviour:
   duracaoRastro: 0.18
   transparenciaRastro: 0.75
   corRastro: {r: 0.4, g: 0.8, b: 1, a: 1}
-  efeitoNuvemPuloDuplo: {fileID: 0}
+  efeitoNuvemPuloDuplo: {fileID: 1198170986224703693, guid: 2d00206fe776bd9479ea709d80140589, type: 3}
   spriteDaEspada: {fileID: 20459574254986239}
   textoTimerEspada: {fileID: 9017037298232275102}
   danoExtraBuff: 5
