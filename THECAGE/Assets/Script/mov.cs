@@ -17,10 +17,16 @@ public class mov : MonoBehaviour
     private bool usandoControle = false;
     [SerializeField] private Animator animator;
 
-    [Header("Sistema de Facas")]
+    [Header("Sistema de Facas e Recarga")]
     public bool possuiFaca = false;
     public int municao = 0;
+    public int municaoMaxima = 50; // Limite máximo de munição
     public TextMeshProUGUI textoMunicao;
+
+    public float tempoEsperaParaRecarregar = 2f; // Segundos sem atirar antes de começar a encher
+    public float taxaDeRecarga = 0.1f; // Velocidade em que a munição sobe (ex: 1 a cada 0.1s)
+    private float tempoUltimoTiro = 0f;
+    private float tempoProximaRecarga = 0f;
 
     [Header("Sons")]
     public AudioClip somPulo;
@@ -370,6 +376,7 @@ public class mov : MonoBehaviour
         if (possuiFaca && municao > 0 && querAtirar && Time.time >= proximoTiro)
         {
             municao--;
+            tempoUltimoTiro = Time.time;
 
             PlayerPrefs.SetInt("MunicaoSalva", municao);
             AtualizarTextoMunicao();
@@ -483,7 +490,23 @@ public class mov : MonoBehaviour
             espadaAtacando = false;
             tempoCarregando = 0f;
         }
+        // --- SISTEMA DE RECARGA AUTOMÁTICA DE MUNIÇÃO ---
+        if (possuiFaca && municao < municaoMaxima)
+        {
+            
+            if (Time.time >= tempoUltimoTiro + tempoEsperaParaRecarregar)
+            {
+                
+                if (Time.time >= tempoProximaRecarga)
+                {
+                    municao++;
+                    PlayerPrefs.SetInt("MunicaoSalva", municao);
+                    AtualizarTextoMunicao();
 
+                    tempoProximaRecarga = Time.time + taxaDeRecarga;
+                }
+            }
+        }
     }
 
     public void AtualizarTextoMunicao()
