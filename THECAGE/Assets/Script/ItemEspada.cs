@@ -3,6 +3,9 @@ using TMPro;
 
 public class ItemEspada : MonoBehaviour
 {
+    [Header("Configuração do Item")]
+    public bool ehSuperEspada = false; 
+
     [Header("Efeito Flutuante")]
     public float velocidadeFlutuacao = 2f;
     public float alturaFlutuacao = 0.3f;
@@ -34,7 +37,8 @@ public class ItemEspada : MonoBehaviour
             mov scriptPlayer = collision.GetComponent<mov>();
             if (scriptPlayer != null)
             {
-                scriptPlayer.ColetarEspada();
+                
+                scriptPlayer.ColetarEspada(ehSuperEspada);
 
                 if (prefabTextoFlutuante != null)
                 {
@@ -44,23 +48,23 @@ public class ItemEspada : MonoBehaviour
                     TextMeshPro tmpro = texto.GetComponent<TextMeshPro>();
                     if (tmpro != null)
                     {
-                        tmpro.text = "Espada Adquirida!";
-                        tmpro.color = Color.cyan;
+                        
+                        tmpro.text = ehSuperEspada ? "Super Espada Adquirida!" : "Espada Adquirida!";
+                        tmpro.color = ehSuperEspada ? Color.red : Color.cyan;
                     }
                 }
 
-                
                 if (somColeta != null && audioSource != null)
                 {
                     audioSource.PlayOneShot(somColeta);
                 }
-                
+
                 MemoriaDaFase memoria = GetComponent<MemoriaDaFase>();
                 if (memoria != null) memoria.RegistrarMorteOuColeta();
 
                 if (GetComponent<SpriteRenderer>() != null) GetComponent<SpriteRenderer>().enabled = false;
                 if (GetComponent<Collider2D>() != null) GetComponent<Collider2D>().enabled = false;
-                
+
                 float tempoDoSom = somColeta != null ? somColeta.length : 0.1f;
                 Destroy(gameObject, tempoDoSom);
             }

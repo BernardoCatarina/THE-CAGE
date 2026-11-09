@@ -39,13 +39,23 @@ public class mov : MonoBehaviour
 
     [Header("Espada Pet")]
     public bool possuiEspada = false;
+    public bool possuiSuperEspada = false;
     public GameObject espadaPet;
+    public Sprite spriteSuperEspada;
+    public GameObject projetilSuperEspada;
     public Transform pontaDaEspada;
     private bool espadaAtacando = false;
     public GameObject projetilEspada;
     public float velocidadePulsacao = 3f;
-    public float tamanhoPulsacao = 0.15f; 
+    public float tamanhoPulsacao = 0.15f;
     private Vector3 escalaOriginalEspada;
+
+    [Header("Ajustes da Super Espada")]
+    public Vector3 tamanhoDaSuperEspada = new Vector3(2f, 2f, 1f);
+    public float novaPosicaoYPonta = 1.5f;
+    public float novaPosicaoYRastro = 1.5f;
+    public TrailRenderer rastroDaEspada; 
+    public float novaEspessuraDoRastro = 0.5f; 
 
     [Header("Cheats")]
     public static bool instaKill = false;
@@ -126,12 +136,19 @@ public class mov : MonoBehaviour
         municao = PlayerPrefs.GetInt("MunicaoSalva", 0);
         possuiFaca = PlayerPrefs.GetInt("TemFacaSalva", 0) == 1;
 
+        possuiSuperEspada = PlayerPrefs.GetInt("TemSuperEspadaSalva", 0) == 1;
         possuiEspada = PlayerPrefs.GetInt("TemEspadaSalva", 0) == 1;
         if (possuiEspada && espadaPet != null)
         {
             espadaPet.SetActive(true);
-            escalaOriginalEspada = espadaPet.transform.localScale; 
+            escalaOriginalEspada = espadaPet.transform.localScale;
+
+            if (possuiSuperEspada)
+            {
+                AtivarVisualSuperEspada();
+            }
         }
+
 
         AtualizarTextoMunicao();
 
@@ -662,10 +679,17 @@ public class mov : MonoBehaviour
         }
     }
 
-    public void ColetarEspada()
+    public void ColetarEspada(bool ehSuper = false)
     {
         possuiEspada = true;
         PlayerPrefs.SetInt("TemEspadaSalva", 1);
+
+        if (ehSuper)
+        {
+            possuiSuperEspada = true;
+            PlayerPrefs.SetInt("TemSuperEspadaSalva", 1);
+            AtivarVisualSuperEspada();
+        }
 
         if (espadaPet != null)
         {
@@ -673,6 +697,37 @@ public class mov : MonoBehaviour
         }
 
         AtualizarTextoMunicao();
+    }
+
+    private void AtivarVisualSuperEspada()
+    {
+        if (espadaPet != null && spriteSuperEspada != null)
+        {
+            SpriteRenderer sr = espadaPet.GetComponent<SpriteRenderer>();
+            if (sr != null) sr.sprite = spriteSuperEspada;
+
+            escalaOriginalEspada = tamanhoDaSuperEspada;
+
+            
+            if (pontaDaEspada != null)
+            {
+                pontaDaEspada.localPosition = new Vector3(pontaDaEspada.localPosition.x, novaPosicaoYPonta, pontaDaEspada.localPosition.z);
+            }
+
+            
+            if (rastroDaEspada != null)
+            {
+                rastroDaEspada.startWidth = novaEspessuraDoRastro;
+
+                
+                rastroDaEspada.transform.localPosition = new Vector3(rastroDaEspada.transform.localPosition.x, novaPosicaoYRastro, rastroDaEspada.transform.localPosition.z);
+            }
+        }
+
+        if (projetilSuperEspada != null)
+        {
+            projetilEspada = projetilSuperEspada;
+        }
     }
 
     IEnumerator AtaqueEspadaPet()

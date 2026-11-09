@@ -186,4 +186,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjetilEspada
   speed: 8
-  danoDaEspada: 3
+  danoDaEspada: 5
