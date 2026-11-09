@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2938855690095729386}
   - component: {fileID: 1645141624328535676}
   - component: {fileID: 2604685017401716893}
+  - component: {fileID: -3195043762450646637}
   m_Layer: 0
   m_Name: Coracao
   m_TagString: Untagged
@@ -178,3 +179,17 @@ MonoBehaviour:
   prefabTextoFlutuante: {fileID: 5063321634465752887, guid: 5800bf13deaf30e4dbd54ac65545274f, type: 3}
   velocidadeFlutuacao: 3
   distanciaFlutuacao: 0.3
+  somCura: {fileID: 0}
+--- !u!114 &-3195043762450646637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577153962408100604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e594ef51b56fb443837302401805faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MemoriaDaFase
+  idUnico: 
