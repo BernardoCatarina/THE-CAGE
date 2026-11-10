@@ -136,12 +136,23 @@ public class mov : MonoBehaviour
         municao = PlayerPrefs.GetInt("MunicaoSalva", 0);
         possuiFaca = PlayerPrefs.GetInt("TemFacaSalva", 0) == 1;
 
-        possuiSuperEspada = PlayerPrefs.GetInt("TemSuperEspadaSalva", 0) == 1;
         possuiEspada = PlayerPrefs.GetInt("TemEspadaSalva", 0) == 1;
+        possuiSuperEspada = PlayerPrefs.GetInt("TemSuperEspadaSalva", 0) == 1;
+
+        if (espadaPet != null)
+        {
+            
+            bool estavaInativo = !espadaPet.activeSelf;
+            if (estavaInativo) espadaPet.SetActive(true);
+
+            escalaOriginalEspada = espadaPet.transform.localScale;
+
+            if (estavaInativo) espadaPet.SetActive(false); 
+        }
+
         if (possuiEspada && espadaPet != null)
         {
             espadaPet.SetActive(true);
-            escalaOriginalEspada = espadaPet.transform.localScale;
 
             if (possuiSuperEspada)
             {
@@ -688,12 +699,22 @@ public class mov : MonoBehaviour
         {
             possuiSuperEspada = true;
             PlayerPrefs.SetInt("TemSuperEspadaSalva", 1);
+
+            if (espadaPet != null)
+            {
+                espadaPet.SetActive(true);
+            }
+
             AtivarVisualSuperEspada();
         }
-
-        if (espadaPet != null)
+        else 
         {
-            espadaPet.SetActive(true);
+            if (espadaPet != null)
+            {
+                espadaPet.SetActive(true);
+                
+                escalaOriginalEspada = espadaPet.transform.localScale;
+            }
         }
 
         AtualizarTextoMunicao();
