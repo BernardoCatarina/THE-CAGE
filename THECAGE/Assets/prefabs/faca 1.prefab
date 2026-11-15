@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4330181884227427405}
   - component: {fileID: 4970343887757986052}
   - component: {fileID: 1325846547394980636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: faca 1
   m_TagString: Tiro
   m_Icon: {fileID: 0}

@@ -178,6 +178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0365fc0fae8e704bbcf7b4f43b2427e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SocoBoss
-  velocidade: 4
-  danoDoSoco: 1
+  velocidade: 6
+  danoDoSoco: 3
   tempoDeEspera: 1.5

@@ -11,6 +11,7 @@ TagManager:
   - Tiro
   - LimiteInimigo
   - AlvoMagia
+  - inimigo
   layers:
   - Default
   - TransparentFX

@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1935778779740046992, guid: 02f4b8061316bbb47914b0c594e681eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -347,4 +347,5 @@ MonoBehaviour:
   velocidade: 6
   tempoDeVida: 2
   ajusteRotacaoZ: 180
-  inverterYQuandoEsquerda: 1
+  inverterYParaEsquerda: 0
+  inverterYParaDireita: 1
