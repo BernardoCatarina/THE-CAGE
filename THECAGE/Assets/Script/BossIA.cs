@@ -11,13 +11,19 @@ public class BossIA : MonoBehaviour
     public GameObject prefabFumaca;
     public Transform pontoTeleporteEsquerdo;
     public Transform pontoTeleporteDireito;
+
     [Header("Invocação de Inimigos")]
     public GameObject[] prefabsInimigos;
     public Transform[] pontosDeSpawnInimigos;
 
     [Header("Limites do Ringue (Para os Inimigos)")]
-    public float limiteEsquerdoDoRingue; // Coordenada X da parede esquerda da gaiola
-    public float limiteDireitoDoRingue;  // Coordenada X da parede direita da gaiola
+    public float limiteEsquerdoDoRingue;
+    public float limiteDireitoDoRingue;
+
+    [Header("Efeito do Escudo")]
+    public GameObject prefabEfeitoEscudo; 
+
+    [HideInInspector] public bool escudoAtivo = false;
 
     private bool estaTeletransportando = false;
     private bool aguardandoInimigos = false;
@@ -28,8 +34,7 @@ public class BossIA : MonoBehaviour
     private Rigidbody2D rig;
     private BossAtira scriptAtira;
     private PuloBoss scriptPulo;
-
-
+    private VidaBoss scriptVida;
 
     void Start()
     {
@@ -38,6 +43,7 @@ public class BossIA : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         scriptAtira = GetComponent<BossAtira>();
         scriptPulo = GetComponent<PuloBoss>();
+        scriptVida = GetComponent<VidaBoss>();
 
         if (player == null)
         {
@@ -119,6 +125,16 @@ public class BossIA : MonoBehaviour
     public void IniciarInvocacao()
     {
         aguardandoInimigos = true;
+        escudoAtivo = true;
+
+        
+        if (prefabEfeitoEscudo != null)
+        {
+            Instantiate(prefabEfeitoEscudo, transform.position, Quaternion.identity);
+        }
+
+        
+        if (scriptVida != null) StartCoroutine(scriptVida.PiscarEscudo(1f));
 
         if (scriptAtira != null) scriptAtira.enabled = false;
         if (scriptPulo != null) scriptPulo.enabled = false;
@@ -126,11 +142,8 @@ public class BossIA : MonoBehaviour
         inimigosVivos.Clear();
         int quantidade = Random.Range(2, 4);
 
-        // --- NOVA LÓGICA DE SPAWN SEM REPETIR PONTO ---
-        
         List<Transform> pontosDisponiveis = new List<Transform>(pontosDeSpawnInimigos);
 
-  
         if (quantidade > pontosDisponiveis.Count)
         {
             quantidade = pontosDisponiveis.Count;
@@ -171,6 +184,13 @@ public class BossIA : MonoBehaviour
         if (inimigosVivos.Count == 0)
         {
             aguardandoInimigos = false;
+            escudoAtivo = false;
+
+            
+            if (prefabEfeitoEscudo != null)
+            {
+                Instantiate(prefabEfeitoEscudo, transform.position, Quaternion.identity);
+            }
 
             if (scriptAtira != null) scriptAtira.enabled = true;
             if (scriptPulo != null) scriptPulo.enabled = true;

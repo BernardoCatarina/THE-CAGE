@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections; 
 
 public class VidaBoss : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class VidaBoss : MonoBehaviour
     private int vidaAtual;
     public Slider barraDeVida;
     public GameObject prefabTextoFlutuante;
+
+    [Header("Escudo Reativo")]
+    public GameObject visualEscudo; 
 
     private bool fase150Ativada = false;
     private bool fase100Ativada = false;
@@ -26,10 +30,19 @@ public class VidaBoss : MonoBehaviour
             barraDeVida.maxValue = vidaMaxima;
             barraDeVida.value = vidaAtual;
         }
+        if (visualEscudo != null) visualEscudo.SetActive(false);
     }
 
     public void TomarDano(int quantidadeDeDano)
     {
+        
+        if (scriptIA != null && scriptIA.escudoAtivo)
+        {
+            StartCoroutine(PiscarEscudo(0.2f)); 
+            return; 
+        }
+
+        // --- LÓGICA NORMAL DE DANO ---
         vidaAtual -= quantidadeDeDano;
         if (barraDeVida != null) barraDeVida.value = vidaAtual;
 
@@ -40,22 +53,18 @@ public class VidaBoss : MonoBehaviour
             texto.GetComponent<TextMeshPro>().color = Color.red;
         }
 
-        // --- GERENCIADOR DE FASES ---
         if (scriptIA != null)
         {
-            // Fase 1: 150 de Vida (Invoca inimigos e pausa)
             if (vidaAtual <= 150 && vidaAtual > 100 && !fase150Ativada)
             {
                 fase150Ativada = true;
                 scriptIA.IniciarInvocacao();
             }
-            // Fase 2: 100 de Vida (Teletransporte e Buff de velocidade)
             else if (vidaAtual <= 100 && vidaAtual > 50 && !fase100Ativada)
             {
                 fase100Ativada = true;
                 scriptIA.IniciarTeletransporte();
             }
-            // Fase 3: 50 de Vida (Invoca inimigos de novo)
             else if (vidaAtual <= 50 && vidaAtual > 0 && !fase50Ativada)
             {
                 fase50Ativada = true;
@@ -69,19 +78,24 @@ public class VidaBoss : MonoBehaviour
         }
     }
 
+    
+    public IEnumerator PiscarEscudo(float tempo)
+    {
+        if (visualEscudo != null)
+        {
+            visualEscudo.SetActive(true);
+            yield return new WaitForSeconds(tempo);
+            visualEscudo.SetActive(false);
+        }
+    }
+
     void Morrer()
     {
         MemoriaDaFase memoria = GetComponent<MemoriaDaFase>();
         if (memoria != null) memoria.RegistrarMorteOuColeta();
 
         EfeitoFade fade = FindObjectOfType<EfeitoFade>();
-        if (fade != null)
-        {
-            fade.IniciarFade("Vitoria", Color.white, 1.5f);
-        }
-        else
-        {
-            SceneManager.LoadScene("Vitoria");
-        }
+        if (fade != null) fade.IniciarFade("Vitoria", Color.white, 1.5f);
+        else SceneManager.LoadScene("Vitoria");
     }
 }
