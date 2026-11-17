@@ -9229,7 +9229,7 @@ MonoBehaviour:
   - {fileID: 1961315042}
   limiteEsquerdoDoRingue: 677.14
   limiteDireitoDoRingue: 721.64
-  prefabEfeitoEscudo: {fileID: 0}
+  prefabEfeitoEscudo: {fileID: 5932140061766746907, guid: b88f9a09bf479ab45b0dac527563f7d0, type: 3}
   escudoAtivo: 0
 --- !u!1 &418700973
 GameObject:
