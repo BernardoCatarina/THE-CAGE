@@ -12,38 +12,56 @@ public class MudarDeFase : MonoBehaviour
     private AudioSource audioSource;
 
     public string nomeDoPontoDeSpawnDestino;
+
+    [Header("Tipo de Transição")]
+    [Tooltip("Marque para usar o Fade Preto simples. Se desmarcado, usará o Mosaico padrão.")]
+    public bool usarFadePreto = false;
+
     void Start()
     {
         if (textoAviso != null) textoAviso.SetActive(false);
 
-       
         audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-
         if (playerPerto && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.JoystickButton1)))
         {
-            
             if (somPorta != null && audioSource != null)
             {
                 audioSource.PlayOneShot(somPorta);
             }
 
-            ControleTransicao transicao = FindObjectOfType<ControleTransicao>();
+            PlayerPrefs.SetString("PortaDestino", nomeDoPontoDeSpawnDestino);
 
-            if (transicao != null)
+            
+            if (usarFadePreto)
             {
-                
-                PlayerPrefs.SetString("PortaDestino", nomeDoPontoDeSpawnDestino);
-                transicao.IrParaProximaFase(nomeDaProximaCena);
+                EfeitoFade fade = FindObjectOfType<EfeitoFade>();
+                if (fade != null)
+                {
+                    
+                    fade.IniciarFade(nomeDaProximaCena, Color.black, 1.5f);
+                }
+                else
+                {
+                    SceneManager.LoadScene(nomeDaProximaCena);
+                }
             }
             else
             {
-               
-                PlayerPrefs.SetString("PortaDestino", nomeDoPontoDeSpawnDestino);
-                SceneManager.LoadScene(nomeDaProximaCena);
+                
+                ControleTransicao transicao = FindObjectOfType<ControleTransicao>();
+
+                if (transicao != null)
+                {
+                    transicao.IrParaProximaFase(nomeDaProximaCena);
+                }
+                else
+                {
+                    SceneManager.LoadScene(nomeDaProximaCena);
+                }
             }
         }
     }

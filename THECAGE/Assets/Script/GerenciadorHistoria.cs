@@ -9,6 +9,7 @@ public class GerenciadorHistoria : MonoBehaviour
     [Header("Elementos de UI")]
     public Text componenteTexto;
     public Text textoDoBotao;
+    public Image imagemHistoria; 
 
     [Header("Controle")]
     public GameObject botaoPrincipal;
@@ -16,17 +17,19 @@ public class GerenciadorHistoria : MonoBehaviour
     [Header("Conteúdo da História")]
     [TextArea(3, 5)]
     public List<string> textosHistoria;
+    
+    [Header("Imagens da História")]
+    [Tooltip("Coloque aqui as imagens na mesma ordem dos textos.")]
+    public List<Sprite> imagensHistoria; 
 
     private int indiceAtual = 0;
     private Vector3 ultimaPosicaoMouse;
-
     private float tempoUltimoClique = 0f;
     private float tempoEsperaClique = 0.3f; 
 
     void Start()
     {
         ExibirSlideAtual();
-
         ultimaPosicaoMouse = Input.mousePosition;
 
         EventSystem.current.SetSelectedGameObject(null);
@@ -38,7 +41,6 @@ public class GerenciadorHistoria : MonoBehaviour
 
     void Update()
     {
-        // --- A MÁGICA "PRO" DO MOUSE E CONTROLE ---
         bool mouseMoveuDeVerdade = false;
 
         if (Cursor.lockState == CursorLockMode.Locked)
@@ -69,7 +71,6 @@ public class GerenciadorHistoria : MonoBehaviour
 
         ultimaPosicaoMouse = Input.mousePosition;
 
-        // --- FORÇAR O CLIQUE COM CONTROLES GENÉRICOS ---
         if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1"))
         {
             if (EventSystem.current.currentSelectedGameObject != null)
@@ -85,12 +86,10 @@ public class GerenciadorHistoria : MonoBehaviour
 
     public void AvancarSlide()
     {
-        // BARREIRA ANTI-DUPLO CLIQUE: Se o tempo atual for menor que o tempo de segurança, ele cancela o clique extra!
         if (Time.time < tempoUltimoClique + tempoEsperaClique)
             return;
                 
         tempoUltimoClique = Time.time;
-
         indiceAtual++;
 
         if (indiceAtual < textosHistoria.Count)
@@ -100,31 +99,30 @@ public class GerenciadorHistoria : MonoBehaviour
         else
         {
             ControleTransicao transicao = FindObjectOfType<ControleTransicao>();
-
-            if (transicao != null)
-            {
-                transicao.IrParaProximaFase("Fase");
-            }
-            else
-            {
-                SceneManager.LoadScene("Fase");
-            }
+            if (transicao != null) transicao.IrParaProximaFase("Fase");
+            else SceneManager.LoadScene("Fase");
         }
     }
 
     void ExibirSlideAtual()
     {
+        
         componenteTexto.text = textosHistoria[indiceAtual];
 
+        
+        if (imagemHistoria != null && indiceAtual < imagensHistoria.Count)
+        {
+            imagemHistoria.sprite = imagensHistoria[indiceAtual];
+        }
+
+       
         if (indiceAtual == textosHistoria.Count - 1)
         {
-            if (textoDoBotao != null)
-                textoDoBotao.text = "JOGAR!";
+            if (textoDoBotao != null) textoDoBotao.text = "JOGAR!";
         }
         else
         {
-            if (textoDoBotao != null)
-                textoDoBotao.text = "Próximo >";
+            if (textoDoBotao != null) textoDoBotao.text = "Próximo >";
         }
     }
 }

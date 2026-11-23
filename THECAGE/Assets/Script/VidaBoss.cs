@@ -20,6 +20,10 @@ public class VidaBoss : MonoBehaviour
 
     private BossIA scriptIA;
 
+    [Header("Loot do Boss")]
+    public GameObject prefabCinturao;
+    public PortaArenaBoss[] scriptsDasPortas; 
+
     void Start()
     {
         vidaAtual = vidaMaxima;
@@ -94,8 +98,19 @@ public class VidaBoss : MonoBehaviour
         MemoriaDaFase memoria = GetComponent<MemoriaDaFase>();
         if (memoria != null) memoria.RegistrarMorteOuColeta();
 
-        EfeitoFade fade = FindObjectOfType<EfeitoFade>();
-        if (fade != null) fade.IniciarFade("Vitoria", Color.white, 1.5f);
-        else SceneManager.LoadScene("Vitoria");
+        if (prefabCinturao != null)
+        {
+            Instantiate(prefabCinturao, transform.position, Quaternion.identity);
+        }
+
+        if (scriptsDasPortas != null)
+        {
+            foreach (PortaArenaBoss porta in scriptsDasPortas)
+            {
+                if (porta != null) porta.BossDerrotado();
+            }
+        }
+
+        Destroy(gameObject);
     }
 }

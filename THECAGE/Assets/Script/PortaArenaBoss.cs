@@ -107,4 +107,13 @@ public class PortaArenaBoss : MonoBehaviour
         if (objetoBoss != null) objetoBoss.SetActive(true);
         if (barraDeVidaBoss != null) barraDeVidaBoss.SetActive(true);
     }
+    public void BossDerrotado()
+    {
+        bossAtivado = false; 
+
+        if (travaDaArena != null)
+            travaDaArena.enabled = false; 
+
+        if (!portaEstaAberta) AlternarPorta();
+    }
 }
