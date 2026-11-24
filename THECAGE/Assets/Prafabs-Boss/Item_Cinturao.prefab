@@ -122,6 +122,7 @@ MonoBehaviour:
   prefabExplosao: {fileID: 5612868213432270877, guid: 4b70b100e5d02f649b26dab82de0fd55, type: 3}
   prefabAura: {fileID: 4108342790541726380, guid: 8f4680719eb24604aa3ec9b52bd91378, type: 3}
   somDeVitoria: {fileID: 8300000, guid: a3d0e664286aa004ba53878fd52b3735, type: 3}
+  deslocamentoDaAura: {x: 0, y: 0.38, z: 0}
 --- !u!60 &4353602858466195605
 PolygonCollider2D:
   m_ObjectHideFlags: 0

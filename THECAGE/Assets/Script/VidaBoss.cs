@@ -22,7 +22,11 @@ public class VidaBoss : MonoBehaviour
 
     [Header("Loot do Boss")]
     public GameObject prefabCinturao;
-    public PortaArenaBoss[] scriptsDasPortas; 
+    public PortaArenaBoss[] scriptsDasPortas;
+
+    [Header("Efeito Visual e Som de Morte")]
+    public GameObject prefabEfeitoMorte; 
+    public AudioClip somMorte; 
 
     void Start()
     {
@@ -98,11 +102,24 @@ public class VidaBoss : MonoBehaviour
         MemoriaDaFase memoria = GetComponent<MemoriaDaFase>();
         if (memoria != null) memoria.RegistrarMorteOuColeta();
 
+        if (prefabEfeitoMorte != null)
+        {
+            Instantiate(prefabEfeitoMorte, transform.position, Quaternion.identity);
+        }
+
+        
+        if (somMorte != null)
+        {
+            AudioSource.PlayClipAtPoint(somMorte, Camera.main.transform.position);
+        }
+
+        
         if (prefabCinturao != null)
         {
             Instantiate(prefabCinturao, transform.position, Quaternion.identity);
         }
 
+        
         if (scriptsDasPortas != null)
         {
             foreach (PortaArenaBoss porta in scriptsDasPortas)
@@ -111,6 +128,7 @@ public class VidaBoss : MonoBehaviour
             }
         }
 
+        
         Destroy(gameObject);
     }
 }
