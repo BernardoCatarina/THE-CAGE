@@ -40,6 +40,7 @@ public class mov : MonoBehaviour
     [Header("Espada Pet")]
     public bool possuiEspada = false;
     public bool possuiSuperEspada = false;
+    public float distanciaParaCorteEspada = 10f;
     public GameObject espadaPet;
     public Sprite spriteSuperEspada;
     public GameObject projetilSuperEspada;
@@ -283,23 +284,34 @@ public class mov : MonoBehaviour
         // --------------------------------------------------
 
         // --- MOVIMENTO DO PET ESPADA ---
-        if (possuiEspada && espadaPet != null && (!espadaAtacando || carregandoEspada)) 
+        if (possuiEspada && espadaPet != null && (!espadaAtacando || carregandoEspada))
         {
             Vector3 centroDoBuck = transform.position + new Vector3(0f, 1f, 0f);
-
             float distanciaEspada = 2.2f;
-
             Vector3 posicaoAlvo = centroDoBuck + new Vector3(direcaoAtualDaMira.x, direcaoAtualDaMira.y, 0f) * distanciaEspada;
 
-            espadaPet.transform.position = Vector3.Lerp(espadaPet.transform.position, posicaoAlvo, Time.deltaTime * 6f);
+            
+            float distanciaParaOPlayer = Vector3.Distance(espadaPet.transform.position, posicaoAlvo);
 
+            if (distanciaParaOPlayer > distanciaParaCorteEspada)
+            {
+                espadaPet.transform.position = posicaoAlvo;
+            }
+            else
+            {
+                espadaPet.transform.position = Vector3.Lerp(espadaPet.transform.position, posicaoAlvo, Time.deltaTime * 6f);
+            }
+
+            
             float angulo = (Mathf.Atan2(direcaoAtualDaMira.y, direcaoAtualDaMira.x) * Mathf.Rad2Deg) - 90f;
             espadaPet.transform.rotation = Quaternion.Euler(0f, 0f, angulo);
 
+            
             float variacao = Mathf.Sin(Time.time * velocidadePulsacao) * tamanhoPulsacao;
             espadaPet.transform.localScale = escalaOriginalEspada + new Vector3(variacao, variacao, 0f);
         }
 
+        
 
         if (estaDandoDash)
         {
