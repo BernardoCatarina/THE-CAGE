@@ -4524,13 +4524,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialFade
   imagensDasTeclas:
-  - {fileID: 352199153}
-  - {fileID: 2022535854}
-  - {fileID: 1769986083}
-  - {fileID: 1402510243}
-  - {fileID: 2026083179}
+  - {fileID: 1214430072}
+  - {fileID: 34886246}
   textosTutorial:
-  - {fileID: 97096105}
+  - {fileID: 1929879913}
   velocidadeFade: 3
 --- !u!61 &1305542023
 BoxCollider2D:
@@ -4590,7 +4587,8 @@ Transform:
   m_LocalPosition: {x: 191.51, y: -2.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1897902239}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1402510241
@@ -6541,15 +6539,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897902238}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 192.35, y: -0.31, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.8400116, y: 2.24, z: 0}
   m_LocalScale: {x: 0.92929, y: 0.92929, z: 0.92929}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1214430071}
   - {fileID: 34886245}
   - {fileID: 1929879912}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1305542024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1904586094
 GameObject:
@@ -69508,7 +69506,7 @@ Transform:
   m_GameObject: {fileID: 6595089844763902656}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.35, y: -3.088, z: 0}
+  m_LocalPosition: {x: -11.43, y: -3.088, z: 0}
   m_LocalScale: {x: 3.9514713, y: 3.4747562, z: 6.6687994}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -110720,7 +110718,6 @@ SceneRoots:
   - {fileID: 418971746}
   - {fileID: 739601930}
   - {fileID: 210952886}
-  - {fileID: 1897902239}
   - {fileID: 1462261695}
   - {fileID: 1986757907}
   - {fileID: 1975724962}

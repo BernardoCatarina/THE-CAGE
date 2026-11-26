@@ -84,26 +84,23 @@ public class PortaArenaBoss : MonoBehaviour
         }
     }
 
-    
+
     public void AtivarBoss()
     {
         if (bossAtivado) return;
 
-        bossAtivado = true;
+        bossAtivado = true; // Impede que a porta seja aberta de novo no Update
 
         
-        if (portaEstaAberta)
-        {
-            portaEstaAberta = false;
-            if (portaFechada != null) portaFechada.SetActive(true);
-            if (portaAberta != null) portaAberta.SetActive(false);
-            if (audioSource != null && somFechar != null) audioSource.PlayOneShot(somFechar);
-        }
-
+        portaEstaAberta = false;
+        if (portaFechada != null) portaFechada.SetActive(true);
+        if (portaAberta != null) portaAberta.SetActive(false);
         if (textoInteracao != null) textoInteracao.SetActive(false);
-
         if (travaDaArena != null) travaDaArena.enabled = true;
 
+        if (audioSource != null && somFechar != null) audioSource.PlayOneShot(somFechar);
+
+        
         if (objetoBoss != null) objetoBoss.SetActive(true);
         if (barraDeVidaBoss != null) barraDeVidaBoss.SetActive(true);
     }

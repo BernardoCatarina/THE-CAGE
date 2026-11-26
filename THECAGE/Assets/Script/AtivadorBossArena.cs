@@ -2,15 +2,24 @@ using UnityEngine;
 
 public class AtivadorBossArena : MonoBehaviour
 {
-    public PortaArenaBoss scriptDaPorta; 
+    [Header("Portas para Trancar")]
+    public PortaArenaBoss portaEsquerda;
+    public PortaArenaBoss portaDireita;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (scriptDaPorta != null)
+           
+            if (portaEsquerda != null)
             {
-                scriptDaPorta.AtivarBoss(); 
+                portaEsquerda.AtivarBoss();
+            }
+
+            
+            if (portaDireita != null)
+            {
+                portaDireita.AtivarBoss();
             }
 
             
