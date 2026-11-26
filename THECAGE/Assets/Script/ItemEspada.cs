@@ -4,15 +4,18 @@ using TMPro;
 public class ItemEspada : MonoBehaviour
 {
     [Header("Configuração do Item")]
-    public bool ehSuperEspada = false; 
+    public bool ehSuperEspada = false;
 
     [Header("Efeito Flutuante")]
     public float velocidadeFlutuacao = 2f;
     public float alturaFlutuacao = 0.3f;
     private Vector3 posicaoInicial;
 
-    [Header("Efeito Visual")]
+    [Header("Efeito Visual e Tutorial")]
     public GameObject prefabTextoFlutuante;
+
+    [Tooltip("Arraste o objeto do Gatilho de Tutorial (que deve começar desativado) para aqui.")]
+    public GameObject gatilhoTutorialSuperTiro; 
 
     [Header("Sons")]
     public AudioClip somColeta;
@@ -37,8 +40,14 @@ public class ItemEspada : MonoBehaviour
             mov scriptPlayer = collision.GetComponent<mov>();
             if (scriptPlayer != null)
             {
-                
+
                 scriptPlayer.ColetarEspada(ehSuperEspada);
+
+                // --- LIGA O TUTORIAL NO CAMINHO DE VOLTA ---
+                if (gatilhoTutorialSuperTiro != null)
+                {
+                    gatilhoTutorialSuperTiro.SetActive(true);
+                }
 
                 if (prefabTextoFlutuante != null)
                 {
@@ -48,7 +57,7 @@ public class ItemEspada : MonoBehaviour
                     TextMeshPro tmpro = texto.GetComponent<TextMeshPro>();
                     if (tmpro != null)
                     {
-                        
+
                         tmpro.text = ehSuperEspada ? "Super Espada Adquirida!" : "Espada Adquirida!";
                         tmpro.color = ehSuperEspada ? Color.red : Color.cyan;
                     }

@@ -30,19 +30,21 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     void Start()
     {
-        float volumeMusicaSalvo = PlayerPrefs.GetFloat("VolMusica", -10f);
-        float volumeEfeitosSalvo = PlayerPrefs.GetFloat("VolEfeitos", -10f);
+        float volumeMusicaSalvo = PlayerPrefs.GetFloat("VolMusica", 1f);
+        float volumeEfeitosSalvo = PlayerPrefs.GetFloat("VolEfeitos", 1f);
 
+        
         if (sliderMusica != null) sliderMusica.value = volumeMusicaSalvo;
         if (sliderEfeitos != null) sliderEfeitos.value = volumeEfeitosSalvo;
 
+        
         MudarVolumeMusica(volumeMusicaSalvo);
         MudarVolumeEfeitos(volumeEfeitosSalvo);
 
-        // Salva onde o mouse está no começo
+        
         ultimaPosicaoMouse = Input.mousePosition;
 
-        // Foca no botão Jogar ao iniciar a cena
+        
         StartCoroutine(SelecionarComAtraso(botaoJogarInicial));
     }
 
@@ -179,9 +181,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         if (audioMixer != null)
         {
-            if (volume <= 0f) volume = 0.0001f;
+            
+            if (volume <= 0.0001f) volume = 0.0001f;
+
             float decibeis = Mathf.Log10(volume) * 20f;
             audioMixer.SetFloat("VolMusica", decibeis);
+
+            
             PlayerPrefs.SetFloat("VolMusica", volume);
         }
     }
@@ -190,9 +196,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         if (audioMixer != null)
         {
-            if (volume <= 0f) volume = 0.0001f;
+            
+            if (volume <= 0.0001f) volume = 0.0001f;
+
             float decibeis = Mathf.Log10(volume) * 20f;
             audioMixer.SetFloat("VolEfeitos", decibeis);
+
+            
             PlayerPrefs.SetFloat("VolEfeitos", volume);
         }
     }

@@ -41,7 +41,7 @@ public class PortaArenaBoss : MonoBehaviour
     {
         if (jogadorPerto && !bossAtivado)
         {
-            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton1))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetMouseButtonDown(1))
             {
                 AlternarPorta();
             }
