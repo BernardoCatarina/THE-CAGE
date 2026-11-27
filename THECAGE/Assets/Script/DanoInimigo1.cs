@@ -7,17 +7,20 @@ public class DanoInimigo : MonoBehaviour
 
     private float tempoProximoDano = 0f;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         TentarCausarDano(collision);
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    
+    private void OnTriggerStay2D(Collider2D collision)
     {
         TentarCausarDano(collision);
     }
 
-    private void TentarCausarDano(Collision2D collision)
+    
+    private void TentarCausarDano(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && Time.time >= tempoProximoDano)
         {
@@ -25,6 +28,7 @@ public class DanoInimigo : MonoBehaviour
 
             if (vidaScript != null)
             {
+                
                 vidaScript.TomarDano(forcaDoDano, transform.position);
 
                 tempoProximoDano = Time.time + 1.5f;

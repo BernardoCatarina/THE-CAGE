@@ -695,10 +695,34 @@ public class mov : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        VerificarChao(collision);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        VerificarChao(collision);
+    }
+
+    private void VerificarChao(Collision2D collision)
+    {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isJumping = false;
-            animator.SetBool("isJumping", false);
+            
+            foreach (ContactPoint2D contato in collision.contacts)
+            {
+               
+                if (contato.normal.y > 0.5f && rig.linearVelocity.y <= 0.1f)
+                {
+                    isJumping = false;
+
+                    if (animator != null)
+                    {
+                        animator.SetBool("isJumping", false);
+                    }
+
+                    break; 
+                }
+            }
         }
     }
 
