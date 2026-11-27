@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-using System.Collections; 
+using System.Collections;
 
 public class VidaBoss : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class VidaBoss : MonoBehaviour
     public GameObject prefabTextoFlutuante;
 
     [Header("Escudo Reativo")]
-    public GameObject visualEscudo; 
+    public GameObject visualEscudo;
 
     private bool fase150Ativada = false;
     private bool fase100Ativada = false;
@@ -24,14 +24,17 @@ public class VidaBoss : MonoBehaviour
     public GameObject prefabCinturao;
     public PortaArenaBoss[] scriptsDasPortas;
 
-    [Header("Efeito Visual e Som de Morte")]
-    public GameObject prefabEfeitoMorte; 
-    public AudioClip somMorte; 
+    [Header("Áudio e Efeitos")]
+    public GameObject prefabEfeitoMorte;
+    public AudioClip somMorte;
+    public AudioClip somDano; 
+    private AudioSource audioSource; 
 
     void Start()
     {
         vidaAtual = vidaMaxima;
         scriptIA = GetComponent<BossIA>();
+        audioSource = GetComponent<AudioSource>(); 
 
         if (barraDeVida != null)
         {
@@ -43,16 +46,21 @@ public class VidaBoss : MonoBehaviour
 
     public void TomarDano(int quantidadeDeDano)
     {
-        
         if (scriptIA != null && scriptIA.escudoAtivo)
         {
-            StartCoroutine(PiscarEscudo(0.2f)); 
-            return; 
+            StartCoroutine(PiscarEscudo(0.2f));
+            return;
         }
 
-        // --- LÓGICA NORMAL DE DANO ---
+        
         vidaAtual -= quantidadeDeDano;
         if (barraDeVida != null) barraDeVida.value = vidaAtual;
+
+        
+        if (somDano != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(somDano);
+        }
 
         if (prefabTextoFlutuante != null)
         {
@@ -86,7 +94,6 @@ public class VidaBoss : MonoBehaviour
         }
     }
 
-    
     public IEnumerator PiscarEscudo(float tempo)
     {
         if (visualEscudo != null)
@@ -107,19 +114,16 @@ public class VidaBoss : MonoBehaviour
             Instantiate(prefabEfeitoMorte, transform.position, Quaternion.identity);
         }
 
-        
         if (somMorte != null)
         {
             AudioSource.PlayClipAtPoint(somMorte, Camera.main.transform.position);
         }
 
-        
         if (prefabCinturao != null)
         {
             Instantiate(prefabCinturao, transform.position, Quaternion.identity);
         }
 
-        
         if (scriptsDasPortas != null)
         {
             foreach (PortaArenaBoss porta in scriptsDasPortas)
@@ -128,7 +132,6 @@ public class VidaBoss : MonoBehaviour
             }
         }
 
-        
         Destroy(gameObject);
     }
 }

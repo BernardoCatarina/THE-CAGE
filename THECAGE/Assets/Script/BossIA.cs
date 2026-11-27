@@ -110,12 +110,12 @@ public class BossIA : MonoBehaviour
 
         if (scriptAtira != null)
         {
-            scriptAtira.tempoEntreAtaques = 1.0f;
+            scriptAtira.tempoEntreAtaques = 1.5f;
             scriptAtira.enabled = true;
         }
         if (scriptPulo != null)
         {
-            scriptPulo.tempoEntrePulos = 2.0f;
+            scriptPulo.tempoEntrePulos = 2.4f;
             scriptPulo.enabled = true;
         }
 
